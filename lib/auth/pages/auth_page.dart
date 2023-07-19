@@ -5,6 +5,8 @@ import 'package:mawadda_app/auth/pages/login_page.dart';
 import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/core/navigation/bloc/navigation_bloc.dart';
 import 'package:mawadda_app/core/router/router.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../core/di/injector.dart';
 
@@ -17,35 +19,61 @@ class AuthPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => getIt<NavigationBloc>(),
       child: Container(
-        color: Colors.white,
-        padding: const EdgeInsets.all(16),
+        color: const Color(0XFFFFD4AB),
+        padding: EdgeInsets.only(
+          top: 20.r,
+          left: 16.r,
+          right: 16.r,
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LoginPage(),
-                    ),
-                  );
-                },
-                child: const Text('Login'),
+              SvgPicture.asset('assets/front_card.svg'),
+              SizedBox(
+                height: 20.h,
               ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const RegisterPage(),
-                    ),
-                  );
-                },
-                child: const Text('Sign Up'),
-              )
+              SizedBox(
+                height: 36.h,
+                width: 169.w,
+                child: ElevatedButton(
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Color(791624)),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPage(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.h),
+              SizedBox(
+                height: 36.h,
+                width: 169.w,
+                child: ElevatedButton(
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Color(791624)),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RegisterPage(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
