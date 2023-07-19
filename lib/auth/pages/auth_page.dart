@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mawadda_app/auth/pages/login_page.dart';
 import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/core/navigation/bloc/navigation_bloc.dart';
-import 'package:mawadda_app/core/router/router.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
