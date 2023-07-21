@@ -11,10 +11,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final nameCtr = TextEditingController();
-    final emailCtr = TextEditingController();
-    final passwordCtr = TextEditingController();
-
     return Scaffold(
         body: Container(
       height: 1.sh,
@@ -48,43 +44,16 @@ class LoginPage extends StatelessWidget {
                           height: 20.h,
                         ),
                         Text(
-                          'Register Yourself',
+                          'You are in!',
                           style: TextStyle(
                             fontSize: 32.sp,
                           ),
                         ),
                         Text(
-                          "to start a new journey",
+                          "Login to start your journey",
                           style: TextStyle(
                             fontSize: 20.sp,
                           ),
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        AuthFormComponent(
-                          formKey: 'name',
-                          controller: nameCtr,
-                          hintText: 'Your Name',
-                          textInputType: TextInputType.text,
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        AuthFormComponent(
-                          formKey: 'email',
-                          controller: emailCtr,
-                          hintText: 'Your Email',
-                          textInputType: TextInputType.emailAddress,
-                        ),
-                        SizedBox(
-                          height: 50.h,
-                        ),
-                        AuthFormComponent(
-                          formKey: 'password',
-                          controller: passwordCtr,
-                          hintText: 'Set your password',
-                          textInputType: TextInputType.number,
                         ),
                         SizedBox(
                           height: 38.h,
@@ -94,7 +63,7 @@ class LoginPage extends StatelessWidget {
                                 backgroundColor: const Color(0xff70303A)),
                             onPressed: () {},
                             child: const Text(
-                              'Sign Up',
+                              'Login',
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -104,30 +73,6 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 15.h,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '*if you dont have created any account, please',
-                              style: TextStyle(
-                                color: const Color(0xff70303A),
-                                fontSize: 9.sp,
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Text(
-                                'Login',
-                                style: TextStyle(
-                                  color: const Color(0xffCB442B),
-                                  fontSize: 9.sp,
-                                  fontWeight: FontWeight.w600,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
                       ],
                     )
                   ],

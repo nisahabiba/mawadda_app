@@ -58,8 +58,8 @@ class AuthPage extends StatelessWidget {
                 height: 36.h,
                 width: 169.w,
                 child: ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Color(791624)),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xff791624)),
                   onPressed: () {
                     Navigator.push(
                       context,
