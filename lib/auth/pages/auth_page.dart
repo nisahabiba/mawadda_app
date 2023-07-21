@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/auth/pages/login_page.dart';
 import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/core/navigation/bloc/navigation_bloc.dart';
@@ -34,11 +35,11 @@ class AuthPage extends StatelessWidget {
                 height: 20.h,
               ),
               SizedBox(
-                height: 36.h,
+                height: 40.h,
                 width: 169.w,
                 child: ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Color(791624)),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xffA04452)),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -73,6 +74,12 @@ class AuthPage extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
+              ),
+              SizedBox(height: 10.h),
+              Text(
+                '*sign up if you have not created any account',
+                style: GoogleFonts.averiaGruesaLibre(
+                    color: Color(0xff791624), fontSize: 9),
               ),
             ],
           ),

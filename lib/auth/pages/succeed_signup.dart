@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mawadda_app/auth/components/auth_form_component.dart';
+import 'package:mawadda_app/auth/pages/login_page.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SucceedPage extends StatelessWidget {
+  const SucceedPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
             height: 0.3.sh,
           ),
           DefaultTextStyle(
-              style: const TextStyle(color: Colors.white),
+              style: GoogleFonts.averiaGruesaLibre(color: Colors.white),
               child: Container(
                 padding: EdgeInsets.only(
                   left: 10.r,
@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
                     Column(
                       children: [
                         SizedBox(
-                          height: 20.h,
+                          height: 80.h,
                         ),
                         Text(
                           'You are in!',
@@ -55,13 +55,19 @@ class LoginPage extends StatelessWidget {
                             fontSize: 20.sp,
                           ),
                         ),
+                        SizedBox(height: 20.h),
                         SizedBox(
                           height: 38.h,
                           width: 0.8.sw,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xff70303A)),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()));
+                            },
                             child: const Text(
                               'Login',
                               style: TextStyle(
