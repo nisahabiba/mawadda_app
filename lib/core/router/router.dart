@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 
 import '../../auth/pages/auth_page.dart';
 import '../../auth/pages/login_page.dart';
+import '../../auth/pages/register_page.dart';
 import '../../main.dart';
 
 part 'router.gr.dart';
