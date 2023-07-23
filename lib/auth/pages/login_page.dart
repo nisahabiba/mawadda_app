@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mawadda_app/auth/components/auth_form_component.dart';
-import 'package:mawadda_app/auth/pages/main_page.dart';
-import 'package:mawadda_app/auth/pages/register_page.dart';
-import 'package:mawadda_app/auth/pages/succeed_signup.dart';
+import 'package:mawadda_app/core/router/router.dart';
 
-import '../../main.dart';
+import '../components/auth_form_component.dart';
+import 'main_page.dart';
+import 'register_page.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {
@@ -90,10 +89,11 @@ class LoginPage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xff70303A)),
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const MyMainPage()));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => const MyMainPage()));
+                            context.router.replace(const MyMainRoute());
                           },
                           child: const Text(
                             'Login',

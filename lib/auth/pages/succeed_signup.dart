@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/auth/pages/login_page.dart';
 
-@RoutePage()
 class SucceedPage extends StatelessWidget {
   const SucceedPage({super.key});
 

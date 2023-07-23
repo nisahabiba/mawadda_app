@@ -7,7 +7,6 @@ import 'package:mawadda_app/auth/components/auth_form_component.dart';
 import 'package:mawadda_app/auth/pages/login_page.dart';
 import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 
-@RoutePage()
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 

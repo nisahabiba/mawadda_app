@@ -2,12 +2,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:mawadda_app/auth/components/auth_form_component.dart';
-import 'package:mawadda_app/auth/pages/register_page.dart';
-import 'package:mawadda_app/auth/pages/succeed_signup.dart';
+import '../../core/router/router.dart';
 
 // class MyMainPage extends StatelessWidget {
 //   const MyMainPage({super.key});
@@ -40,6 +37,7 @@ import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 // }
 //---------------------------
 
+@RoutePage()
 class MyMainPage extends StatelessWidget {
   const MyMainPage({super.key});
 
@@ -63,30 +61,64 @@ class _NavigationMainState extends State<NavigationMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mawadda'),
-        backgroundColor: Color(0xFFA04452),
+        toolbarHeight: 60.h,
+        title: Text(
+          'Mawadda',
+          style: GoogleFonts.dawningOfANewDay(
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            fontSize: 30.sp,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: const Color(0xFFA04452),
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.logout))
+          IconButton(
+            onPressed: () {
+              context.router.replace(const LoginRoute());
+            },
+            icon: const Icon(Icons.logout),
+          )
         ],
       ),
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.white,
+        unselectedItemColor: const Color(0xffFFD4AB),
+        unselectedLabelStyle: GoogleFonts.averiaGruesaLibre(),
+        selectedLabelStyle: GoogleFonts.averiaGruesaLibre(),
+        backgroundColor: const Color(0xffA04452),
+        selectedFontSize: 15.sp,
+        unselectedFontSize: 15.sp,
+        onTap: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            icon: Icon(Icons.home_filled),
+        currentIndex: currentPageIndex,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              color: Colors.white,
+            ),
+            activeIcon: Icon(
+              Icons.home_filled,
+              color: Colors.white,
+            ),
             label: 'Home',
           ),
-          NavigationDestination(
-            icon: Icon(Icons.flag),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.flag_outlined,
+              color: Colors.white,
+            ),
             label: 'Missions',
           ),
-          NavigationDestination(
-            icon: Icon(Icons.person),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outline,
+              color: Colors.white,
+            ),
             label: 'Profile',
           ),
         ],
@@ -119,6 +151,7 @@ class _NavigationMainState extends State<NavigationMain> {
                           child: Center(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              // crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
                                   'Have you completed\nyour profile?',
@@ -127,7 +160,8 @@ class _NavigationMainState extends State<NavigationMain> {
                                 ),
                                 ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xFFF0677C)),
+                                        backgroundColor:
+                                            const Color(0xFFF0677C)),
                                     onPressed: () {},
                                     child: const Text('Check Profile'))
                               ],
@@ -160,12 +194,16 @@ class _NavigationMainState extends State<NavigationMain> {
                               children: <Widget>[
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       "Let's Start\nthe Missions",
                                       style: GoogleFonts.averiaGruesaLibre(
                                           color: const Color(0xFFF0677C),
                                           fontSize: 20.sp),
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
                                     ),
                                     Text(
                                       'Learn something\nnew to prepare\nyourself for\nmarriage',
@@ -207,7 +245,7 @@ class _NavigationMainState extends State<NavigationMain> {
                     children: [
                       Card(
                         elevation: 0,
-                        color: Color(0xFFBC7568),
+                        color: const Color(0xFFBC7568),
                         shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(25))),
@@ -220,11 +258,15 @@ class _NavigationMainState extends State<NavigationMain> {
                               children: <Widget>[
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       "Recent\nArticles",
                                       style: GoogleFonts.averiaGruesaLibre(
                                           color: Colors.white, fontSize: 20.sp),
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
                                     ),
                                     Text(
                                       'No time to complete\nmission? It’s OK!\nLet’s read some new\ninsights here.',
@@ -266,7 +308,7 @@ class _NavigationMainState extends State<NavigationMain> {
                     children: [
                       Card(
                         elevation: 0,
-                        color: Color(0xFFBC7568),
+                        color: const Color(0xFFBC7568),
                         shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(25))),
@@ -279,11 +321,15 @@ class _NavigationMainState extends State<NavigationMain> {
                               children: <Widget>[
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       "Watch\nVideos",
                                       style: GoogleFonts.averiaGruesaLibre(
                                           color: Colors.white, fontSize: 20.sp),
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
                                     ),
                                     Text(
                                       'Easy way to get\nmore pre-marital\nknowledge on your\nleisure time!',
@@ -297,7 +343,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                   children: [
                                     Image.asset(
                                       'assets/icon_videos.png',
-                                      width: 0.35.sw,
+                                      width: 0.3.sw,
                                     ),
                                     ElevatedButton(
                                         style: ElevatedButton.styleFrom(
