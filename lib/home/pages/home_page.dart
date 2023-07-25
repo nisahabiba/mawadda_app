@@ -9,8 +9,8 @@ import 'package:mawadda_app/auth/components/auth_form_component.dart';
 import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 
-// class MyMainPage extends StatelessWidget {
-//   const MyMainPage({super.key});
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -41,8 +41,8 @@ import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 //---------------------------
 
 @RoutePage()
-class MyMainPage extends StatelessWidget {
-  const MyMainPage({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
