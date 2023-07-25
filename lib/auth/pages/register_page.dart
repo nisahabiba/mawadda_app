@@ -109,7 +109,7 @@ class RegisterPage extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xff70303A)),
                               onPressed: () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => SucceedPage()));

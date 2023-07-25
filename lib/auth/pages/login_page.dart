@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/auth/components/auth_form_component.dart';
-import 'package:mawadda_app/auth/pages/main_page.dart';
+import 'package:mawadda_app/home/pages/home_page.dart';
 import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 

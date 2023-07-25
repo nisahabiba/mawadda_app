@@ -40,6 +40,7 @@ import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 // }
 //---------------------------
 
+@RoutePage()
 class MyMainPage extends StatelessWidget {
   const MyMainPage({super.key});
 
@@ -64,7 +65,7 @@ class _NavigationMainState extends State<NavigationMain> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mawadda'),
-        backgroundColor: Color(0xFFA04452),
+        backgroundColor: const Color(0xFFA04452),
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.logout))
         ],
@@ -160,6 +161,7 @@ class _NavigationMainState extends State<NavigationMain> {
                               children: <Widget>[
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       "Let's Start\nthe Missions",
@@ -220,11 +222,15 @@ class _NavigationMainState extends State<NavigationMain> {
                               children: <Widget>[
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       "Recent\nArticles",
                                       style: GoogleFonts.averiaGruesaLibre(
                                           color: Colors.white, fontSize: 20.sp),
+                                    ),
+                                    SizedBox(
+                                      height: 5.h,
                                     ),
                                     Text(
                                       'No time to complete\nmission? It’s OK!\nLet’s read some new\ninsights here.',
@@ -279,11 +285,15 @@ class _NavigationMainState extends State<NavigationMain> {
                               children: <Widget>[
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       "Watch\nVideos",
                                       style: GoogleFonts.averiaGruesaLibre(
                                           color: Colors.white, fontSize: 20.sp),
+                                    ),
+                                    SizedBox(
+                                      height: 5.h,
                                     ),
                                     Text(
                                       'Easy way to get\nmore pre-marital\nknowledge on your\nleisure time!',
