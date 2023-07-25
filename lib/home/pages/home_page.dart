@@ -70,24 +70,52 @@ class _NavigationMainState extends State<NavigationMain> {
           IconButton(onPressed: () {}, icon: Icon(Icons.logout))
         ],
       ),
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.white,
+        unselectedItemColor: const Color(0xffFFD4AB),
+        unselectedLabelStyle: GoogleFonts.averiaGruesaLibre(),
+        selectedLabelStyle: GoogleFonts.averiaGruesaLibre(),
+        backgroundColor: const Color(0xffA04452),
+        selectedFontSize: 15.sp,
+        unselectedFontSize: 15.sp,
+        onTap: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            icon: Icon(Icons.home_filled),
+        currentIndex: currentPageIndex,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              color: Colors.white,
+            ),
+            activeIcon: Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
             label: 'Home',
           ),
-          NavigationDestination(
-            icon: Icon(Icons.flag),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.flag_outlined,
+              color: Colors.white,
+            ),
+            activeIcon: Icon(
+              Icons.flag,
+              color: Colors.white,
+            ),
             label: 'Missions',
           ),
-          NavigationDestination(
-            icon: Icon(Icons.person),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outlined,
+              color: Colors.white,
+            ),
+            activeIcon: Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
             label: 'Profile',
           ),
         ],
@@ -128,7 +156,10 @@ class _NavigationMainState extends State<NavigationMain> {
                                 ),
                                 ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xFFF0677C)),
+                                        backgroundColor: Color(0xFFF0677C),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10))),
                                     onPressed: () {},
                                     child: const Text('Check Profile'))
                               ],
@@ -187,7 +218,10 @@ class _NavigationMainState extends State<NavigationMain> {
                                     ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                                const Color(0xFFF0677C)),
+                                                const Color(0xFFF0677C),
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10))),
                                         onPressed: () {},
                                         child: const Text('Start'))
                                   ],
@@ -249,7 +283,10 @@ class _NavigationMainState extends State<NavigationMain> {
                                     ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                                const Color(0xFFF0677C)),
+                                                const Color(0xFFF0677C),
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10))),
                                         onPressed: () {},
                                         child: const Text('Read More'))
                                   ],
@@ -312,7 +349,10 @@ class _NavigationMainState extends State<NavigationMain> {
                                     ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                                const Color(0xFFF0677C)),
+                                                const Color(0xFFF0677C),
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10))),
                                         onPressed: () {},
                                         child: const Text('Watch More'))
                                   ],
