@@ -46,28 +46,31 @@ class LoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: 0.1.sh,
+                    height: 93.h,
                     width: 290.w,
+                    padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         border: Border.all(width: 3, color: Colors.black),
-                        color: Colors.white,
+                        color: Color(0xffDFDCEF),
                         borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(20),
                             topLeft: Radius.circular(20))),
-                    child: Column(children: [
-                      Text(
-                        'Welcome Back!',
-                        style: TextStyle(
-                          fontSize: 32.sp,
-                        ),
-                      ),
-                      Text(
-                        "You've been missed",
-                        style: TextStyle(
-                          fontSize: 20.sp,
-                        ),
-                      ),
-                    ]),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Welcome Back!',
+                            style: TextStyle(
+                              fontSize: 32.sp,
+                            ),
+                          ),
+                          Text(
+                            "You've been missed",
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                            ),
+                          ),
+                        ]),
                   ),
                   Container(
                     height: 0.45.sh,
@@ -85,10 +88,7 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 40.h,
-                        ),
-                        SizedBox(
-                          height: 30.h,
+                          height: 10.h,
                         ),
                         AuthFormComponent(
                           formKey: 'email',
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                           textInputType: TextInputType.emailAddress,
                         ),
                         SizedBox(
-                          height: 30.h,
+                          height: 20.h,
                         ),
                         AuthFormComponent(
                           formKey: 'password',
@@ -106,25 +106,27 @@ class LoginPage extends StatelessWidget {
                           textInputType: TextInputType.number,
                         ),
                         SizedBox(
-                          height: 50.h,
+                          height: 120.h,
                         ),
                         SizedBox(
                           height: 38.h,
                           width: 0.8.sw,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xff70303A)),
+                                backgroundColor: Color(0xffFAC6EA),
+                                side: BorderSide(
+                                    width: 3.0, color: Colors.black)),
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const HomePage()));
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const HomePage(),
+                                ),
+                              );
                             },
                             child: const Text(
                               'Login',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
+                              style: TextStyle(color: Colors.black),
                             ),
                           ),
                         ),
@@ -137,7 +139,7 @@ class LoginPage extends StatelessWidget {
                             Text(
                               '*if you dont have created any account, please',
                               style: TextStyle(
-                                color: const Color(0xff70303A),
+                                color: Colors.black,
                                 fontSize: 9.sp,
                               ),
                             ),

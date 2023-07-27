@@ -39,19 +39,19 @@ class AuthFormComponent extends StatelessWidget {
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(20.r)),
-              borderSide: const BorderSide(color: Colors.white, width: 1.0),
+              borderSide: const BorderSide(color: Colors.red, width: 1.0),
             ),
             contentPadding: EdgeInsets.all(15.r),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(20.r)),
               borderSide: const BorderSide(
-                color: Colors.white,
-                width: 1.0,
+                color: Color(0xffB4B0CE),
+                width: 3.0,
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(20.r)),
-              borderSide: const BorderSide(color: Colors.white),
+              borderSide: const BorderSide(color: Colors.black, width: 3.0),
             ),
             errorStyle: TextStyle(
               color: Colors.red,

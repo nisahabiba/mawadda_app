@@ -7,7 +7,7 @@ import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/core/navigation/bloc/navigation_bloc.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+//import 'package:flutter_svg/svg.dart';
 
 import '../../core/di/injector.dart';
 
@@ -47,16 +47,22 @@ class AuthPage extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              'Mawadda',
-                              style: GoogleFonts.dawningOfANewDay(
-                                  color: Colors.black, fontSize: 80),
-                            ),
-                            Text(
-                              'Pre-Marriage Guides\nfor Muslimah',
-                              style: GoogleFonts.averiaGruesaLibre(
-                                  color: Colors.black, fontSize: 15),
-                            )
+                            Material(
+                                color: Colors.transparent,
+                                child: Text(
+                                  'Mawadda',
+                                  style: GoogleFonts.dawningOfANewDay(
+                                      color: Colors.black,
+                                      fontSize: 80,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                            Material(
+                                color: Colors.transparent,
+                                child: Text(
+                                  'Pre-Marriage Guides\nfor Muslimah',
+                                  style: GoogleFonts.averiaGruesaLibre(
+                                      color: Colors.black, fontSize: 15),
+                                ))
                           ],
                         )),
                     Container(
@@ -120,11 +126,13 @@ class AuthPage extends StatelessWidget {
                           ]),
                     ),
                     SizedBox(height: 10.h),
-                    Text(
-                      '*sign up if you have not created any account',
-                      style: GoogleFonts.averiaGruesaLibre(
-                          color: Colors.black, fontSize: 9),
-                    ),
+                    Material(
+                        color: Colors.transparent,
+                        child: Text(
+                          '*sign up if you have not created any account',
+                          style: GoogleFonts.averiaGruesaLibre(
+                              color: Colors.black, fontSize: 9),
+                        )),
                   ]),
             )));
   }
