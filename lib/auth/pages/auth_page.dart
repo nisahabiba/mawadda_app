@@ -20,7 +20,12 @@ class AuthPage extends StatelessWidget {
     return BlocProvider(
         create: (_) => getIt<NavigationBloc>(),
         child: Container(
-            color: const Color(0XFFFFD4AB),
+            constraints: const BoxConstraints.expand(),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/image_back.png"),
+                  fit: BoxFit.cover),
+            ),
             padding: EdgeInsets.only(
               top: 20.r,
               left: 16.r,
@@ -31,20 +36,29 @@ class AuthPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 0.5.sh,
-                      width: 290.w,
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 3, color: Colors.black),
-                          color: Colors.white,
-                          borderRadius: const BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20))),
-                      child: Text(
-                        'Mawadda',
-                        style: GoogleFonts.dawningOfANewDay(
-                            color: Colors.black, fontSize: 80),
-                      ),
-                    ),
+                        height: 0.5.sh,
+                        width: 290.w,
+                        decoration: BoxDecoration(
+                            border: Border.all(width: 3, color: Colors.black),
+                            color: Colors.white,
+                            borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(20))),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Mawadda',
+                              style: GoogleFonts.dawningOfANewDay(
+                                  color: Colors.black, fontSize: 80),
+                            ),
+                            Text(
+                              'Pre-Marriage Guides\nfor Muslimah',
+                              style: GoogleFonts.averiaGruesaLibre(
+                                  color: Colors.black, fontSize: 15),
+                            )
+                          ],
+                        )),
                     Container(
                       height: 0.2.sh,
                       width: 290.w,

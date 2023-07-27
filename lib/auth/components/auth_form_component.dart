@@ -32,8 +32,7 @@ class AuthFormComponent extends StatelessWidget {
             filled: true,
             isDense: true,
             hintText: hintText,
-            hintStyle:
-                TextStyle(color: const Color(0xffEB9D73), fontSize: 12.sp),
+            hintStyle: TextStyle(color: Colors.black, fontSize: 12.sp),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(20.r)),
               borderSide: const BorderSide(color: Colors.red, width: 1.0),

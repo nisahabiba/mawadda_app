@@ -21,7 +21,11 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
         body: Container(
       height: 1.sh,
-      color: const Color(0XFFFFD4AB),
+      constraints: const BoxConstraints.expand(),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
+      ),
       padding: EdgeInsets.all(10.r),
       child: Center(
           child: ListView(
@@ -31,25 +35,26 @@ class LoginPage extends StatelessWidget {
             height: 0.3.sh,
           ),
           DefaultTextStyle(
-            style: GoogleFonts.averiaGruesaLibre(color: Colors.white),
+            style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
             child: Container(
               padding: EdgeInsets.only(
                 left: 10.r,
                 right: 10.r,
               ),
               height: 0.65.sh,
-              child: Stack(
-                alignment: AlignmentDirectional.topCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    'assets/gradient_card.svg',
-                    width: 1.sw,
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 40.h,
-                      ),
+                  Container(
+                    height: 0.1.sh,
+                    width: 290.w,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 3, color: Colors.black),
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            topLeft: Radius.circular(20))),
+                    child: Column(children: [
                       Text(
                         'Welcome Back!',
                         style: TextStyle(
@@ -62,80 +67,101 @@ class LoginPage extends StatelessWidget {
                           fontSize: 20.sp,
                         ),
                       ),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      AuthFormComponent(
-                        formKey: 'email',
-                        controller: emailCtr,
-                        hintText: 'Your Email',
-                        textInputType: TextInputType.emailAddress,
-                      ),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      AuthFormComponent(
-                        formKey: 'password',
-                        controller: passwordCtr,
-                        hintText: 'Your Password',
-                        textInputType: TextInputType.number,
-                      ),
-                      SizedBox(
-                        height: 50.h,
-                      ),
-                      SizedBox(
-                        height: 38.h,
-                        width: 0.8.sw,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xff70303A)),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()));
-                          },
-                          child: const Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
+                    ]),
+                  ),
+                  Container(
+                    height: 0.45.sh,
+                    padding: EdgeInsets.only(
+                      left: 10.r,
+                      right: 10.r,
+                    ),
+                    width: 290.w,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 3, color: Colors.black),
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                            bottomRight: Radius.circular(20),
+                            bottomLeft: Radius.circular(20))),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 40.h,
                         ),
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '*if you dont have created any account, please',
-                            style: TextStyle(
-                              color: const Color(0xff70303A),
-                              fontSize: 9.sp,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        AuthFormComponent(
+                          formKey: 'email',
+                          controller: emailCtr,
+                          hintText: 'Your Email',
+                          textInputType: TextInputType.emailAddress,
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        AuthFormComponent(
+                          formKey: 'password',
+                          controller: passwordCtr,
+                          hintText: 'Your Password',
+                          textInputType: TextInputType.number,
+                        ),
+                        SizedBox(
+                          height: 50.h,
+                        ),
+                        SizedBox(
+                          height: 38.h,
+                          width: 0.8.sw,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xff70303A)),
+                            onPressed: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => RegisterPage()));
+                                      builder: (context) => const HomePage()));
                             },
-                            child: Text(
-                              'Sign Up',
+                            child: const Text(
+                              'Login',
                               style: TextStyle(
-                                color: const Color(0xffCB442B),
-                                fontSize: 9.sp,
-                                fontWeight: FontWeight.w600,
-                                decoration: TextDecoration.underline,
+                                color: Colors.white,
                               ),
                             ),
                           ),
-                        ],
-                      )
-                    ],
+                        ),
+                        SizedBox(
+                          height: 15.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '*if you dont have created any account, please',
+                              style: TextStyle(
+                                color: const Color(0xff70303A),
+                                fontSize: 9.sp,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => RegisterPage()));
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 9.sp,
+                                  fontWeight: FontWeight.w600,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),

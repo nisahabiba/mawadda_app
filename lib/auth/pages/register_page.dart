@@ -20,8 +20,11 @@ class RegisterPage extends StatelessWidget {
 
     return Scaffold(
         body: Container(
-      height: 1.sh,
-      color: const Color(0XFFFFD4AB),
+      constraints: const BoxConstraints.expand(),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
+      ),
       padding: EdgeInsets.all(10.r),
       child: Center(
         child: ListView(
