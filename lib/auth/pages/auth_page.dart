@@ -18,73 +18,100 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => getIt<NavigationBloc>(),
-      child: Container(
-        color: const Color(0XFFFFD4AB),
-        padding: EdgeInsets.only(
-          top: 20.r,
-          left: 16.r,
-          right: 16.r,
-        ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset('assets/front_card.svg'),
-              SizedBox(
-                height: 20.h,
-              ),
-              SizedBox(
-                height: 40.h,
-                width: 169.w,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xffA04452)),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
+        create: (_) => getIt<NavigationBloc>(),
+        child: Container(
+            color: const Color(0XFFFFD4AB),
+            padding: EdgeInsets.only(
+              top: 20.r,
+              left: 16.r,
+              right: 16.r,
+            ),
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 0.5.sh,
+                      width: 290.w,
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 3, color: Colors.black),
+                          color: Colors.white,
+                          borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              topLeft: Radius.circular(20))),
+                      child: Text(
+                        'Mawadda',
+                        style: GoogleFonts.dawningOfANewDay(
+                            color: Colors.black, fontSize: 80),
                       ),
-                    );
-                  },
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20.h),
-              SizedBox(
-                height: 36.h,
-                width: 169.w,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xff791624)),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RegisterPage(),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    'Sign Up',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10.h),
-              Text(
-                '*sign up if you have not created any account',
-                style: GoogleFonts.averiaGruesaLibre(
-                    color: Color(0xff791624), fontSize: 9),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+                    ),
+                    Container(
+                      height: 0.2.sh,
+                      width: 290.w,
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 3, color: Colors.black),
+                          color: Color(0xffDFDCEF),
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20))),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 36.h,
+                              width: 169.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xffFAC6EA),
+                                    side: BorderSide(
+                                        width: 3.0, color: Colors.black)),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const LoginPage(),
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  'Login',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 10.h),
+                            SizedBox(
+                              height: 36.h,
+                              width: 169.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xffB4B0CE),
+                                    side: BorderSide(
+                                        width: 3.0, color: Colors.black)),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RegisterPage(),
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  'Sign Up',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              ),
+                            ),
+                          ]),
+                    ),
+                    SizedBox(height: 10.h),
+                    Text(
+                      '*sign up if you have not created any account',
+                      style: GoogleFonts.averiaGruesaLibre(
+                          color: Colors.black, fontSize: 9),
+                    ),
+                  ]),
+            )));
   }
 }
