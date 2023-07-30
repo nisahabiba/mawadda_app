@@ -4,8 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/auth/components/auth_form_component.dart';
+import 'package:mawadda_app/auth/components/password_form_component.dart';
 import 'package:mawadda_app/auth/pages/login_page.dart';
 import 'package:mawadda_app/auth/pages/succeed_signup.dart';
+import 'package:mawadda_app/auth/utils/auth_string_util.dart';
 
 @RoutePage()
 class RegisterPage extends StatelessWidget {
@@ -94,6 +96,11 @@ class RegisterPage extends StatelessWidget {
                             controller: nameCtr,
                             hintText: 'Your Name',
                             textInputType: TextInputType.text,
+                            validator: (value) => validateEmailNameForm(
+                                context: context,
+                                value: value,
+                                isEmail: false,
+                                isNameTrue: isNameTrue),
                           ),
                           SizedBox(
                             height: 20.h,
@@ -103,24 +110,39 @@ class RegisterPage extends StatelessWidget {
                             controller: emailCtr,
                             hintText: 'Your Email',
                             textInputType: TextInputType.emailAddress,
+                            validator: (value) => validateEmailNameForm(
+                                context: context,
+                                value: value,
+                                isEmail: true,
+                                isEmailTrue: isEmailTrue),
                           ),
                           SizedBox(
                             height: 20.h,
                           ),
-                          AuthFormComponent(
+                          PasswordFormComponent(
                             formKey: 'password',
                             controller: passwordCtr,
                             hintText: 'Set your password',
                             textInputType: TextInputType.number,
+                            validator: (value) => validatePasswordForm(
+                              context: context,
+                              password: value,
+                              isPasswordTrue: isPasswordTrue,
+                            ),
                           ),
                           SizedBox(
                             height: 20.h,
                           ),
-                          AuthFormComponent(
+                          PasswordFormComponent(
                             formKey: 'confirm_password',
                             controller: confirmPasswordCtr,
                             hintText: 'Confirm your password',
                             textInputType: TextInputType.number,
+                            validator: (value) => validateConfirmPasswordForm(
+                                context: context,
+                                password: passwordCtr.text,
+                                confirmPassword: value,
+                                isConfirmPasswordTrue: isConfirmPasswordTrue),
                           ),
                           SizedBox(
                             height: 10.h,
@@ -134,10 +156,10 @@ class RegisterPage extends StatelessWidget {
                                   side: BorderSide(
                                       width: 3.0, color: Colors.black)),
                               onPressed: () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => SucceedPage(),
+                                    builder: (context) => const SucceedPage(),
                                   ),
                                 );
                               },
@@ -165,7 +187,8 @@ class RegisterPage extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => LoginPage()));
+                                          builder: (context) =>
+                                              const LoginPage()));
                                 },
                                 child: Text(
                                   'Log In',

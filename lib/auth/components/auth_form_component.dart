@@ -6,14 +6,16 @@ class AuthFormComponent extends StatelessWidget {
   final String? formKey;
   final String hintText;
   final TextInputType textInputType;
+  final Function(String? value) validator;
 
-  const AuthFormComponent({
-    Key? key,
-    required this.controller,
-    this.formKey,
-    required this.hintText,
-    required this.textInputType,
-  }) : super(key: key);
+  const AuthFormComponent(
+      {Key? key,
+      required this.controller,
+      this.formKey,
+      required this.hintText,
+      required this.textInputType,
+      required this.validator})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class AuthFormComponent extends StatelessWidget {
         decoration: InputDecoration(
             fillColor: Colors.white,
             filled: true,
-            isDense: true,
+            //isDense: true,
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.black, fontSize: 12.sp),
             errorBorder: OutlineInputBorder(
@@ -57,6 +59,7 @@ class AuthFormComponent extends StatelessWidget {
               color: Colors.red,
               fontSize: 10.sp,
             )),
+        validator: (value) => validator(value),
       ),
     );
   }

@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:mawadda_app/auth/components/auth_form_component.dart';
-import 'package:mawadda_app/home/pages/home_page.dart';
+import 'package:mawadda_app/auth/components/password_form_component.dart';
 import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/auth/pages/succeed_signup.dart';
+import 'package:mawadda_app/home/pages/home_page.dart';
+import 'package:mawadda_app/auth/utils/auth_string_util.dart';
 
 import '../../main.dart';
 
@@ -95,15 +98,27 @@ class LoginPage extends StatelessWidget {
                           controller: emailCtr,
                           hintText: 'Your Email',
                           textInputType: TextInputType.emailAddress,
+                          validator: (value) => validateEmailNameForm(
+                            context: context,
+                            isEmail: true,
+                            value: value,
+                            isEmailTrue: isEmailTrue,
+                          ),
                         ),
                         SizedBox(
                           height: 20.h,
                         ),
-                        AuthFormComponent(
+                        PasswordFormComponent(
                           formKey: 'password',
                           controller: passwordCtr,
                           hintText: 'Your Password',
                           textInputType: TextInputType.number,
+                          validator: (value) => validatePasswordForm(
+                            context: context,
+                            isEmail: true,
+                            value: value,
+                            isPasswordTrue: isPasswordTrue,
+                          ),
                         ),
                         SizedBox(
                           height: 120.h,
