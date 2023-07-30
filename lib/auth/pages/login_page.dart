@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -128,22 +130,30 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 38.h,
                           width: 0.8.sw,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xffFAC6EA),
-                                side: BorderSide(
-                                    width: 3.0, color: Colors.black)),
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
-                                ),
-                              );
-                            },
-                            child: const Text(
-                              'Login',
-                              style: TextStyle(color: Colors.black),
+                          child: Obx(
+                            () => ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: isEmailTrue.value == true &&
+                                          isPasswordTrue == true
+                                      ? Color(0xffFAC6EA)
+                                      : Colors.grey,
+                                  side: BorderSide(
+                                      width: 3.0, color: Colors.black)),
+                              onPressed: () {
+                                if (isEmailTrue.value == true &&
+                                    isPasswordTrue == true) {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const HomePage(),
+                                    ),
+                                  );
+                                }
+                              },
+                              child: const Text(
+                                'Login',
+                                style: TextStyle(color: Colors.black),
+                              ),
                             ),
                           ),
                         ),

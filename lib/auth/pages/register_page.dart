@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,10 +55,10 @@ class RegisterPage extends StatelessWidget {
                     Container(
                       height: 93.h,
                       width: 290.w,
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           border: Border.all(width: 3, color: Colors.black),
-                          color: Color(0xffDFDCEF),
+                          color: const Color(0xffDFDCEF),
                           borderRadius: const BorderRadius.only(
                               topRight: Radius.circular(20),
                               topLeft: Radius.circular(20))),
@@ -154,22 +156,35 @@ class RegisterPage extends StatelessWidget {
                           SizedBox(
                             height: 38.h,
                             width: 0.8.sw,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xffFAC6EA),
-                                  side: BorderSide(
-                                      width: 3.0, color: Colors.black)),
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const SucceedPage(),
-                                  ),
-                                );
-                              },
-                              child: const Text(
-                                'Login',
-                                style: TextStyle(color: Colors.black),
+                            child: Obx(
+                              () => ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: isEmailTrue == true &&
+                                            isNameTrue == true &&
+                                            isPasswordTrue == true &&
+                                            isConfirmPasswordTrue == true
+                                        ? const Color(0xffFAC6EA)
+                                        : Colors.grey,
+                                    side: const BorderSide(
+                                        width: 3.0, color: Colors.black)),
+                                onPressed: () {
+                                  if (isEmailTrue == true &&
+                                      isNameTrue == true &&
+                                      isPasswordTrue == true &&
+                                      isConfirmPasswordTrue == true) {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SucceedPage(),
+                                      ),
+                                    );
+                                  }
+                                },
+                                child: const Text(
+                                  'Register',
+                                  style: TextStyle(color: Colors.black),
+                                ),
                               ),
                             ),
                           ),

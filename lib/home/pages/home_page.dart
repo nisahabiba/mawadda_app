@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../auth/pages/auth_page.dart';
+
 // import 'package:mawadda_app/auth/components/auth_form_component.dart';
 // import 'package:mawadda_app/auth/pages/register_page.dart';
 // import 'package:mawadda_app/auth/pages/succeed_signup.dart';
@@ -43,7 +45,15 @@ class _NavigationMainState extends State<NavigationMain> {
         backgroundColor: Color(0xffD1B1BE),
         actions: <Widget>[
           IconButton(
-              onPressed: () {}, icon: Icon(Icons.logout, color: Colors.black))
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AuthPage(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.logout, color: Colors.black))
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
