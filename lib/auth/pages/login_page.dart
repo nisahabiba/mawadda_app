@@ -13,6 +13,7 @@ import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
 import 'package:mawadda_app/auth/utils/auth_string_util.dart';
 
+import '../../core/router/router.dart';
 import '../../main.dart';
 
 @RoutePage()
@@ -142,12 +143,13 @@ class LoginPage extends StatelessWidget {
                               onPressed: () {
                                 if (isEmailTrue.value == true &&
                                     isPasswordTrue == true) {
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const HomePage(),
-                                    ),
-                                  );
+                                  // Navigator.pushReplacement(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => const HomePage(),
+                                  //   ),
+                                  // );
+                                  context.router.replace(HomeRoute());
                                 }
                               },
                               child: const Text(

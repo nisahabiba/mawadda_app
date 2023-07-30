@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../auth/pages/auth_page.dart';
+import '../../core/router/router.dart';
 
 // import 'package:mawadda_app/auth/components/auth_form_component.dart';
 // import 'package:mawadda_app/auth/pages/register_page.dart';
@@ -46,12 +47,13 @@ class _NavigationMainState extends State<NavigationMain> {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AuthPage(),
-                  ),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => const AuthPage(),
+                //   ),
+                // );
+                context.router.replace(AuthRoute());
               },
               icon: Icon(Icons.logout, color: Colors.black))
         ],
