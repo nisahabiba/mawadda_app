@@ -2,43 +2,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:mawadda_app/auth/components/auth_form_component.dart';
-import 'package:mawadda_app/auth/pages/register_page.dart';
-import 'package:mawadda_app/auth/pages/succeed_signup.dart';
-
-// class HomePage extends StatelessWidget {
-//   const HomePage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     const appTitle = 'Mawadda';
-
-//     return MaterialApp(
-//       title: appTitle,
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(
-//         primarySwatch: Colors.deepPurple,
-//       ),
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: const Text(appTitle),
-//           backgroundColor: Color(0xFFA04452),
-//           actions: <Widget>[
-//             IconButton(onPressed: () {}, icon: Icon(Icons.logout))
-//           ],
-//         ),
-//         body: Container(
-//             height: 1.sh,
-//             color: const Color(0XFFFFD4AB),
-//             padding: EdgeInsets.all(10.r)),
-//       ),
-//     );
-//   }
-// }
-//---------------------------
+// import 'package:mawadda_app/auth/components/auth_form_component.dart';
+// import 'package:mawadda_app/auth/pages/register_page.dart';
+// import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -64,18 +32,25 @@ class _NavigationMainState extends State<NavigationMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mawadda'),
-        backgroundColor: const Color(0xFFA04452),
+        centerTitle: true,
+        title: Text(
+          'Mawadda',
+          style: GoogleFonts.dawningOfANewDay(
+              color: Colors.black,
+              fontSize: 24.sp,
+              fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.transparent,
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.logout))
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
-        unselectedItemColor: const Color(0xffFFD4AB),
+        unselectedItemColor: Colors.black,
         unselectedLabelStyle: GoogleFonts.averiaGruesaLibre(),
         selectedLabelStyle: GoogleFonts.averiaGruesaLibre(),
-        backgroundColor: const Color(0xffA04452),
+        backgroundColor: const Color(0xffDFDCEF),
         selectedFontSize: 15.sp,
         unselectedFontSize: 15.sp,
         onTap: (int index) {
@@ -88,7 +63,7 @@ class _NavigationMainState extends State<NavigationMain> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home_outlined,
-              color: Colors.white,
+              color: Colors.black,
             ),
             activeIcon: Icon(
               Icons.home,
@@ -99,7 +74,7 @@ class _NavigationMainState extends State<NavigationMain> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.flag_outlined,
-              color: Colors.white,
+              color: Colors.black,
             ),
             activeIcon: Icon(
               Icons.flag,
@@ -110,7 +85,7 @@ class _NavigationMainState extends State<NavigationMain> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person_outlined,
-              color: Colors.white,
+              color: Colors.black,
             ),
             activeIcon: Icon(
               Icons.person,
@@ -120,15 +95,25 @@ class _NavigationMainState extends State<NavigationMain> {
           ),
         ],
       ),
+      extendBodyBehindAppBar: true,
       body: <Widget>[
         Container(
-          color: const Color(0XFFFFD4AB),
           alignment: Alignment.center,
+          constraints: const BoxConstraints.expand(),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
+          ),
           child: DefaultTextStyle(
-            style: GoogleFonts.averiaGruesaLibre(color: Colors.white),
+            style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
             child: ListView(
               children: [
-                Image.asset('assets/main_header.png'),
+                Container(
+                  height: 254.h,
+                  width: 329.w,
+                  padding: EdgeInsets.all(15),
+                  child: Image(image: AssetImage('assets/main_header_new.png')),
+                ),
 
 //--------------Container-1 [Check Profile]
                 Container(
@@ -138,8 +123,9 @@ class _NavigationMainState extends State<NavigationMain> {
                     children: [
                       Card(
                         elevation: 0,
-                        color: const Color(0xFFBC7568),
+                        color: Colors.white,
                         shape: const RoundedRectangleBorder(
+                            side: BorderSide(color: Colors.black, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(25))),
                         child: SizedBox(
@@ -152,16 +138,23 @@ class _NavigationMainState extends State<NavigationMain> {
                                 Text(
                                   'Have you completed\nyour profile?',
                                   style: GoogleFonts.averiaGruesaLibre(
-                                      color: Colors.white, fontSize: 16.sp),
+                                      fontSize: 16.sp),
                                 ),
                                 ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xFFF0677C),
+                                        backgroundColor: Color(0xFFB4B0CE),
                                         shape: RoundedRectangleBorder(
+                                            side: BorderSide(
+                                                color: Colors.black, width: 3),
                                             borderRadius:
                                                 BorderRadius.circular(10))),
                                     onPressed: () {},
-                                    child: const Text('Check Profile'))
+                                    child: Text(
+                                      'Check Profile',
+                                      style: GoogleFonts.averiaGruesaLibre(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                    ))
                               ],
                             ),
                           ),
@@ -181,6 +174,7 @@ class _NavigationMainState extends State<NavigationMain> {
                         elevation: 0,
                         color: Colors.white,
                         shape: const RoundedRectangleBorder(
+                            side: BorderSide(color: Colors.black, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(25))),
                         child: SizedBox(
@@ -197,13 +191,11 @@ class _NavigationMainState extends State<NavigationMain> {
                                     Text(
                                       "Let's Start\nthe Missions",
                                       style: GoogleFonts.averiaGruesaLibre(
-                                          color: const Color(0xFFF0677C),
                                           fontSize: 20.sp),
                                     ),
                                     Text(
                                       'Learn something\nnew to prepare\nyourself for\nmarriage',
                                       style: GoogleFonts.averiaGruesaLibre(
-                                          color: const Color(0xFFFEB9D73),
                                           fontSize: 10.sp),
                                     ),
                                   ],
@@ -212,18 +204,26 @@ class _NavigationMainState extends State<NavigationMain> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Image.asset(
-                                      'assets/icon_mission.png',
+                                      'assets/icon_mission_new.png',
                                       width: 0.35.sw,
                                     ),
                                     ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                                const Color(0xFFF0677C),
+                                                const Color(0xFFFAC6EA),
                                             shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                    color: Colors.black,
+                                                    width: 3),
                                                 borderRadius:
                                                     BorderRadius.circular(10))),
                                         onPressed: () {},
-                                        child: const Text('Start'))
+                                        child: Text('Start',
+                                            style:
+                                                GoogleFonts.averiaGruesaLibre(
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.bold)))
                                   ],
                                 ),
                               ],
@@ -243,8 +243,9 @@ class _NavigationMainState extends State<NavigationMain> {
                     children: [
                       Card(
                         elevation: 0,
-                        color: Color(0xFFBC7568),
+                        color: Colors.white,
                         shape: const RoundedRectangleBorder(
+                            side: BorderSide(color: Colors.black, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(25))),
                         child: SizedBox(
@@ -261,7 +262,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                     Text(
                                       "Recent\nArticles",
                                       style: GoogleFonts.averiaGruesaLibre(
-                                          color: Colors.white, fontSize: 20.sp),
+                                          fontSize: 20.sp),
                                     ),
                                     SizedBox(
                                       height: 5.h,
@@ -269,7 +270,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                     Text(
                                       'No time to complete\nmission? It’s OK!\nLet’s read some new\ninsights here.',
                                       style: GoogleFonts.averiaGruesaLibre(
-                                          color: Colors.white, fontSize: 10.sp),
+                                          fontSize: 10.sp),
                                     ),
                                   ],
                                 ),
@@ -283,12 +284,20 @@ class _NavigationMainState extends State<NavigationMain> {
                                     ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                                const Color(0xFFF0677C),
+                                                const Color(0xFFFAC6EA),
                                             shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                    color: Colors.black,
+                                                    width: 3),
                                                 borderRadius:
                                                     BorderRadius.circular(10))),
                                         onPressed: () {},
-                                        child: const Text('Read More'))
+                                        child: Text('Read More',
+                                            style:
+                                                GoogleFonts.averiaGruesaLibre(
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.bold)))
                                   ],
                                 ),
                               ],
@@ -309,8 +318,9 @@ class _NavigationMainState extends State<NavigationMain> {
                     children: [
                       Card(
                         elevation: 0,
-                        color: Color(0xFFBC7568),
+                        color: Colors.white,
                         shape: const RoundedRectangleBorder(
+                            side: BorderSide(color: Colors.black, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(25))),
                         child: SizedBox(
@@ -327,7 +337,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                     Text(
                                       "Watch\nVideos",
                                       style: GoogleFonts.averiaGruesaLibre(
-                                          color: Colors.white, fontSize: 20.sp),
+                                          fontSize: 20.sp),
                                     ),
                                     SizedBox(
                                       height: 5.h,
@@ -335,7 +345,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                     Text(
                                       'Easy way to get\nmore pre-marital\nknowledge on your\nleisure time!',
                                       style: GoogleFonts.averiaGruesaLibre(
-                                          color: Colors.white, fontSize: 10.sp),
+                                          fontSize: 10.sp),
                                     ),
                                   ],
                                 ),
@@ -349,12 +359,20 @@ class _NavigationMainState extends State<NavigationMain> {
                                     ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                                const Color(0xFFF0677C),
+                                                const Color(0xFFFAC6EA),
                                             shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                    color: Colors.black,
+                                                    width: 3),
                                                 borderRadius:
                                                     BorderRadius.circular(10))),
                                         onPressed: () {},
-                                        child: const Text('Watch More'))
+                                        child: Text('Watch More',
+                                            style:
+                                                GoogleFonts.averiaGruesaLibre(
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.bold)))
                                   ],
                                 ),
                               ],

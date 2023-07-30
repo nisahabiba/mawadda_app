@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/auth/components/auth_form_component.dart';
 import 'package:mawadda_app/auth/components/password_form_component.dart';
 import 'package:mawadda_app/auth/pages/register_page.dart';
-import 'package:mawadda_app/auth/pages/succeed_signup.dart';
+//import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
 import 'package:mawadda_app/auth/utils/auth_string_util.dart';
 
