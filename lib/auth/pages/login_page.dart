@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:mawadda_app/auth/components/auth_form_component.dart';
@@ -21,6 +21,9 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final emailCtr = TextEditingController();
     final passwordCtr = TextEditingController();
+    final RxBool isEmailTrue = false.obs;
+    final RxBool isPasswordTrue = false.obs;
+
     return Scaffold(
         body: Container(
       height: 1.sh,
@@ -115,8 +118,7 @@ class LoginPage extends StatelessWidget {
                           textInputType: TextInputType.number,
                           validator: (value) => validatePasswordForm(
                             context: context,
-                            isEmail: true,
-                            value: value,
+                            password: value,
                             isPasswordTrue: isPasswordTrue,
                           ),
                         ),

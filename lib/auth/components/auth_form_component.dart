@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class AuthFormComponent extends StatelessWidget {
   final TextEditingController controller;
@@ -32,7 +33,7 @@ class AuthFormComponent extends StatelessWidget {
         decoration: InputDecoration(
             fillColor: Colors.white,
             filled: true,
-            //isDense: true,
+            isDense: true,
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.black, fontSize: 12.sp),
             errorBorder: OutlineInputBorder(

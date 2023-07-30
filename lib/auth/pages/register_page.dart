@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/auth/components/auth_form_component.dart';
 import 'package:mawadda_app/auth/components/password_form_component.dart';
@@ -19,6 +19,10 @@ class RegisterPage extends StatelessWidget {
     final emailCtr = TextEditingController();
     final passwordCtr = TextEditingController();
     final confirmPasswordCtr = TextEditingController();
+    final RxBool isNameTrue = false.obs;
+    final RxBool isEmailTrue = false.obs;
+    final RxBool isPasswordTrue = false.obs;
+    final RxBool isConfirmPasswordTrue = false.obs;
 
     return Scaffold(
         body: Container(
@@ -103,7 +107,7 @@ class RegisterPage extends StatelessWidget {
                                 isNameTrue: isNameTrue),
                           ),
                           SizedBox(
-                            height: 20.h,
+                            height: 10.h,
                           ),
                           AuthFormComponent(
                             formKey: 'email',
@@ -117,7 +121,7 @@ class RegisterPage extends StatelessWidget {
                                 isEmailTrue: isEmailTrue),
                           ),
                           SizedBox(
-                            height: 20.h,
+                            height: 10.h,
                           ),
                           PasswordFormComponent(
                             formKey: 'password',
@@ -131,7 +135,7 @@ class RegisterPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 20.h,
+                            height: 10.h,
                           ),
                           PasswordFormComponent(
                             formKey: 'confirm_password',
