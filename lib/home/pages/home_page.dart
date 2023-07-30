@@ -40,9 +40,10 @@ class _NavigationMainState extends State<NavigationMain> {
               fontSize: 24.sp,
               fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xffD1B1BE),
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.logout))
+          IconButton(
+              onPressed: () {}, icon: Icon(Icons.logout, color: Colors.black))
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -87,12 +87,19 @@ String? validateConfirmPasswordForm({
     WidgetsBinding.instance.addPostFrameCallback((_) {
       isConfirmPasswordTrue.value = false;
     });
-    return 'Password does not match. Try Again!';
+    return 'Password confirmation is required!';
   } else {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      isConfirmPasswordTrue.value = true;
-    });
-    return null;
+    if (confirmPassword != password) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        isConfirmPasswordTrue.value = false;
+      });
+      return 'Password does not match!';
+    } else {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        isConfirmPasswordTrue.value = true;
+      });
+      return null;
+    }
   }
 }
 // TODO Implement this library.

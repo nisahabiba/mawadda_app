@@ -20,48 +20,44 @@ class AuthFormComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 292.w,
-      height: 42.h,
-      child: TextFormField(
-        key: Key(formKey ?? ''),
-        controller: controller,
-        textInputAction: TextInputAction.next,
-        keyboardType: textInputType,
-        autofocus: false,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        decoration: InputDecoration(
-            fillColor: Colors.white,
-            filled: true,
-            isDense: true,
-            hintText: hintText,
-            hintStyle: TextStyle(color: Colors.black, fontSize: 12.sp),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.r)),
-              borderSide: const BorderSide(color: Colors.red, width: 1.0),
+    return TextFormField(
+      key: Key(formKey ?? ''),
+      controller: controller,
+      textInputAction: TextInputAction.next,
+      keyboardType: textInputType,
+      autofocus: false,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          isDense: true,
+          hintText: hintText,
+          hintStyle: TextStyle(color: Colors.black, fontSize: 12.sp),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.r)),
+            borderSide: const BorderSide(color: Colors.red, width: 1.0),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.r)),
+            borderSide: const BorderSide(color: Colors.red, width: 1.0),
+          ),
+          contentPadding: EdgeInsets.all(15.r),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.r)),
+            borderSide: const BorderSide(
+              color: Color(0xffB4B0CE),
+              width: 3.0,
             ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.r)),
-              borderSide: const BorderSide(color: Colors.red, width: 1.0),
-            ),
-            contentPadding: EdgeInsets.all(15.r),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.r)),
-              borderSide: const BorderSide(
-                color: Color(0xffB4B0CE),
-                width: 3.0,
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.r)),
-              borderSide: const BorderSide(color: Colors.black, width: 3.0),
-            ),
-            errorStyle: TextStyle(
-              color: Colors.red,
-              fontSize: 10.sp,
-            )),
-        validator: (value) => validator(value),
-      ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.r)),
+            borderSide: const BorderSide(color: Colors.black, width: 3.0),
+          ),
+          errorStyle: TextStyle(
+            color: Colors.red,
+            fontSize: 10.sp,
+          )),
+      validator: (value) => validator(value),
     );
   }
 }

@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
                 left: 10.r,
                 right: 10.r,
               ),
-              height: 0.65.sh,
+              // height: 0.65.sh,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -79,7 +79,7 @@ class LoginPage extends StatelessWidget {
                         ]),
                   ),
                   Container(
-                    height: 0.45.sh,
+                    // height: 0.45.sh,
                     padding: EdgeInsets.only(
                       left: 10.r,
                       right: 10.r,
@@ -178,7 +178,10 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                           ],
-                        )
+                        ),
+                        SizedBox(
+                          height: 15.h,
+                        ),
                       ],
                     ),
                   )
