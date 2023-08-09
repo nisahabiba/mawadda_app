@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unused_import
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +43,7 @@ class _NavigationMainState extends State<NavigationMain> {
               fontSize: 24.sp,
               fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Color(0xffD1B1BE),
+        backgroundColor: const Color(0xffD1B1BE),
         actions: <Widget>[
           IconButton(
               onPressed: () {
@@ -53,9 +53,9 @@ class _NavigationMainState extends State<NavigationMain> {
                 //     builder: (context) => const AuthPage(),
                 //   ),
                 // );
-                context.router.replace(AuthRoute());
+                context.router.replace(const AuthRoute());
               },
-              icon: Icon(Icons.logout, color: Colors.black))
+              icon: const Icon(Icons.logout, color: Colors.black))
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -124,8 +124,9 @@ class _NavigationMainState extends State<NavigationMain> {
                 Container(
                   height: 254.h,
                   width: 329.w,
-                  padding: EdgeInsets.all(15),
-                  child: Image(image: AssetImage('assets/main_header_new.png')),
+                  padding: const EdgeInsets.all(15),
+                  child: const Image(
+                      image: AssetImage('assets/main_header_new.png')),
                 ),
 
 //--------------Container-1 [Check Profile]
@@ -155,9 +156,10 @@ class _NavigationMainState extends State<NavigationMain> {
                                 ),
                                 ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xFFB4B0CE),
+                                        backgroundColor:
+                                            const Color(0xFFB4B0CE),
                                         shape: RoundedRectangleBorder(
-                                            side: BorderSide(
+                                            side: const BorderSide(
                                                 color: Colors.black, width: 3),
                                             borderRadius:
                                                 BorderRadius.circular(10))),
@@ -225,7 +227,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                             backgroundColor:
                                                 const Color(0xFFFAC6EA),
                                             shape: RoundedRectangleBorder(
-                                                side: BorderSide(
+                                                side: const BorderSide(
                                                     color: Colors.black,
                                                     width: 3),
                                                 borderRadius:
@@ -299,7 +301,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                             backgroundColor:
                                                 const Color(0xFFFAC6EA),
                                             shape: RoundedRectangleBorder(
-                                                side: BorderSide(
+                                                side: const BorderSide(
                                                     color: Colors.black,
                                                     width: 3),
                                                 borderRadius:
@@ -374,7 +376,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                             backgroundColor:
                                                 const Color(0xFFFAC6EA),
                                             shape: RoundedRectangleBorder(
-                                                side: BorderSide(
+                                                side: const BorderSide(
                                                     color: Colors.black,
                                                     width: 3),
                                                 borderRadius:
@@ -400,15 +402,160 @@ class _NavigationMainState extends State<NavigationMain> {
             ),
           ),
         ),
+
+//------------------------- MISSION
         Container(
-          color: const Color(0XFFFFD4AB),
-          alignment: Alignment.center,
-          child: const Text('Page 2'),
-        ),
+            alignment: Alignment.center,
+            constraints: const BoxConstraints.expand(),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/image_back.png"),
+                  fit: BoxFit.cover),
+            )),
+
+//------------------------- PROFILE
         Container(
-          color: const Color(0XFFFFD4AB),
           alignment: Alignment.center,
-          child: const Text('Page 3'),
+          constraints: const BoxConstraints.expand(),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
+          ),
+          child: DefaultTextStyle(
+            style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
+            child: ListView(
+              children: [
+                Container(
+                    height: 150.h,
+                    width: 329.w,
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.person_rounded,
+                          color: Colors.black,
+                          size: 50,
+                        ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text("(Username)"),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text("email_here@gmail.com"),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFB4B0CE),
+                              shape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                      color: Colors.black, width: 3),
+                                  borderRadius: BorderRadius.circular(10))),
+                          onPressed: () {},
+                          child: Text(
+                            'Edit Profile',
+                            style: GoogleFonts.averiaGruesaLibre(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    )),
+
+//--------------Container-1 [Check Rank]
+                Container(
+                  padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
+                  child: Stack(
+                    alignment: AlignmentDirectional.topCenter,
+                    children: [
+                      Card(
+                          elevation: 0,
+                          color: Colors.white,
+                          shape: const RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.black, width: 3),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 10.h),
+                              Text("You are now..."),
+                              Image.asset(
+                                "assets/avatar_score.png",
+                                width: 162.w,
+                              ),
+                              Text("Level 1"),
+                              SizedBox(height: 10.h),
+                              Text("Beginner"),
+                              SizedBox(height: 10.h),
+                              Container(
+                                alignment: Alignment.center,
+                                height: 38.h,
+                                width: 1.sw,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(width: 3, color: Colors.black),
+                                  color: const Color(0xffDFDCEF),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20),
+                                  ),
+                                ),
+                                child:
+                                    Text("You have completed 0/10 mission(s)"),
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+
+//-------------Container-2 [Start Mission]
+                Container(
+                  padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
+                  child: Stack(
+                    alignment: AlignmentDirectional.topCenter,
+                    children: [
+                      Card(
+                          elevation: 0,
+                          color: Colors.white,
+                          shape: const RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.black, width: 3),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 10.h),
+                              Text("How far are you?"),
+                              SizedBox(height: 10.h),
+                              Container(
+                                alignment: Alignment.center,
+                                height: 38.h,
+                                width: 1.sw,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(width: 3, color: Colors.black),
+                                  color: const Color(0xffDFDCEF),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20),
+                                  ),
+                                ),
+                                child:
+                                    Text("You have completed 0/10 mission(s)"),
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ][currentPageIndex],
     );
