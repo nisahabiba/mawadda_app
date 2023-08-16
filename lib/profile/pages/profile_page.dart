@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mawadda_app/home/pages/edit_profile_page.dart';
+import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
 
 import '../../auth/pages/auth_page.dart';
 import '../../core/router/router.dart';
@@ -69,7 +69,53 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: GoogleFonts.averiaGruesaLibre(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
-                )
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
+                  child: Stack(
+                    alignment: AlignmentDirectional.topCenter,
+                    children: [
+                      Card(
+                          elevation: 0,
+                          color: Colors.white,
+                          shape: const RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.black, width: 3),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 10.h),
+                              Text("You are now..."),
+                              Image.asset(
+                                "assets/avatar_score.png",
+                                width: 162.w,
+                              ),
+                              Text("Level 1"),
+                              SizedBox(height: 10.h),
+                              Text("Beginner"),
+                              SizedBox(height: 10.h),
+                              Container(
+                                alignment: Alignment.center,
+                                height: 38.h,
+                                width: 1.sw,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(width: 3, color: Colors.black),
+                                  color: const Color(0xffDFDCEF),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20),
+                                  ),
+                                ),
+                                child:
+                                    Text("You have completed 0/10 mission(s)"),
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
               ],
             ),
           )

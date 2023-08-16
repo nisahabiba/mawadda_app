@@ -143,12 +143,6 @@ class LoginPage extends StatelessWidget {
                               onPressed: () {
                                 if (isEmailTrue.value == true &&
                                     isPasswordTrue == true) {
-                                  // Navigator.pushReplacement(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => const HomePage(),
-                                  //   ),
-                                  // );
                                   context.router.replace(HomeRoute());
                                 }
                               },
