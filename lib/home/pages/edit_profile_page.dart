@@ -33,12 +33,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const AuthPage(),
-                //   ),
-                // );
                 context.router.replace(const AuthRoute());
               },
               icon: const Icon(Icons.logout, color: Colors.black))

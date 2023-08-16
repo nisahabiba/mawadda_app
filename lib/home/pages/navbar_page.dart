@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/home/pages/edit_profile_page.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
+import 'package:mawadda_app/home/pages/mission_page.dart';
 import 'package:mawadda_app/home/pages/profile_page.dart';
 
 import '../../auth/pages/auth_page.dart';
@@ -20,11 +21,18 @@ class NavbarPage extends StatefulWidget {
 class _NavbarPageState extends State<NavbarPage> {
   int currentPageIndex = 0;
 
-  final _pageOptions = [HomePage(), EditProfilePage(), ProfilePage()];
+  final _pageOptions = [
+    HomePage(),
+    ProfilePage(),
+    EditProfilePage(),
+    MissionPage()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      body: _pageOptions[currentPageIndex],
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -93,8 +101,6 @@ class _NavbarPageState extends State<NavbarPage> {
           ),
         ],
       ),
-      extendBodyBehindAppBar: true,
-      body: _pageOptions[currentPageIndex],
     );
   }
 }
