@@ -401,9 +401,8 @@ class _NavigationMainState extends State<NavigationMain> {
         ),
 
 //------------------------- PROFILE
-          ProfilePage(),
-          MissionPage()
-        ),
+        const MissionPage(),
+        const ProfilePage(),
       ][currentPageIndex],
     );
   }
