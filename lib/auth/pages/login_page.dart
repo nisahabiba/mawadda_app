@@ -6,13 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:mawadda_app/auth/components/auth_form_component.dart';
-import 'package:mawadda_app/auth/components/password_form_component.dart';
 import 'package:mawadda_app/auth/pages/register_page.dart';
 //import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
 import 'package:mawadda_app/auth/utils/auth_string_util.dart';
 
+import '../../core/components/form_component.dart';
+import '../../core/components/password_form_component.dart';
 import '../../core/router/router.dart';
 import '../../main.dart';
 
@@ -99,7 +99,7 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 10.h,
                         ),
-                        AuthFormComponent(
+                        FormComponent(
                           formKey: 'email',
                           controller: emailCtr,
                           hintText: 'Your Email',

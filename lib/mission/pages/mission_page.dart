@@ -25,38 +25,192 @@ class _MissionPageState extends State<MissionPage> {
             image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
       ),
       padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
-      child: Stack(
-        alignment: AlignmentDirectional.topCenter,
-        children: [
-          Card(
-              elevation: 0,
-              color: Colors.white,
-              shape: const RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black, width: 3),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+      child: DefaultTextStyle(
+        style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
+        child: ListView(children: [
+          const Center(
+            child: Text(
+              "Let's Start The Mission",
+              style: TextStyle(fontSize: 30),
+            ),
+          ),
+          Center(
+            child: Image.asset(
+              "assets/icon_mission.png",
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
                 children: [
-                  SizedBox(height: 10.h),
-                  Text("How far are you?"),
-                  SizedBox(height: 10.h),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 38.h,
-                    width: 1.sw,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 3, color: Colors.black),
-                      color: const Color(0xffDFDCEF),
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(20),
-                        bottomLeft: Radius.circular(20),
+                  //------------Mission 1
+                  GestureDetector(
+                    onTap: () {},
+                    child: Card(
+                      elevation: 0,
+                      color: Colors.white,
+                      shape: const RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.black, width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 150.w,
+                            width: 150.w,
+                            child: Image.asset(
+                              "assets/pic_mission1.png",
+                              height: 150.w,
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 40.w,
+                            width: 150.w,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 3, color: Colors.black),
+                              color: const Color(0xffDFDCEF),
+                              borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
+                              ),
+                            ),
+                            child: Text("Health & Pregnancy"),
+                          )
+                        ],
                       ),
                     ),
-                    child: Text("You have completed 0/10 mission(s)"),
-                  )
+                  ),
+                  //------------Mission 2
+                  GestureDetector(
+                    onTap: () {},
+                    child: Card(
+                      elevation: 0,
+                      color: Colors.white,
+                      shape: const RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.black, width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 150.w,
+                            width: 150.w,
+                            child: Image.asset(
+                              "assets/pic_mission2.png",
+                              height: 150.w,
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 40.w,
+                            width: 150.w,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 3, color: Colors.black),
+                              color: const Color(0xffDFDCEF),
+                              borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
+                              ),
+                            ),
+                            child: Text("Emotional Control"),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
-              )),
-        ],
+              ),
+              Row(
+                children: [
+                  //------------Mission 3
+                  GestureDetector(
+                    onTap: () {},
+                    child: Card(
+                      elevation: 0,
+                      color: Colors.white,
+                      shape: const RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.black, width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 150.w,
+                            width: 150.w,
+                            child: Image.asset(
+                              "assets/pic_mission3.png",
+                              height: 150.w,
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 40.w,
+                            width: 150.w,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 3, color: Colors.black),
+                              color: const Color(0xffDFDCEF),
+                              borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
+                              ),
+                            ),
+                            child: Text("Parenting"),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  //------------Mission 4
+                  GestureDetector(
+                    onTap: () {},
+                    child: Card(
+                      elevation: 0,
+                      color: Colors.white,
+                      shape: const RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.black, width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 150.w,
+                            width: 150.w,
+                            child: Image.asset(
+                              "assets/pic_mission4.png",
+                              height: 150.w,
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 40.w,
+                            width: 150.w,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 3, color: Colors.black),
+                              color: const Color(0xffDFDCEF),
+                              borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
+                              ),
+                            ),
+                            child: Text("Financial Stability"),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+          Container(
+            height: 0.2.sh,
+            width: 1.sw,
+            color: Colors.white,
+          )
+        ]),
       ),
     );
   }
