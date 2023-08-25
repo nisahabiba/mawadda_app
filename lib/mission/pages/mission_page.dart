@@ -1,11 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
-
-import '../../auth/pages/auth_page.dart';
-import '../../core/router/router.dart';
 
 class MissionPage extends StatefulWidget {
   const MissionPage({super.key});
@@ -24,7 +19,7 @@ class _MissionPageState extends State<MissionPage> {
         image: DecorationImage(
             image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
       ),
-      padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
+      //padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
       child: DefaultTextStyle(
         style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
         child: ListView(children: [
@@ -40,10 +35,10 @@ class _MissionPageState extends State<MissionPage> {
             ),
           ),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //------------Mission 1
                   GestureDetector(
@@ -57,7 +52,7 @@ class _MissionPageState extends State<MissionPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
+                          SizedBox(
                             height: 150.w,
                             width: 150.w,
                             child: Image.asset(
@@ -77,7 +72,7 @@ class _MissionPageState extends State<MissionPage> {
                                 bottomLeft: Radius.circular(20),
                               ),
                             ),
-                            child: Text("Health & Pregnancy"),
+                            child: const Text("Health & Pregnancy"),
                           )
                         ],
                       ),
@@ -95,7 +90,7 @@ class _MissionPageState extends State<MissionPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
+                          SizedBox(
                             height: 150.w,
                             width: 150.w,
                             child: Image.asset(
@@ -115,7 +110,7 @@ class _MissionPageState extends State<MissionPage> {
                                 bottomLeft: Radius.circular(20),
                               ),
                             ),
-                            child: Text("Emotional Control"),
+                            child: const Text("Emotional Control"),
                           )
                         ],
                       ),
@@ -124,6 +119,7 @@ class _MissionPageState extends State<MissionPage> {
                 ],
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //------------Mission 3
                   GestureDetector(
@@ -137,7 +133,7 @@ class _MissionPageState extends State<MissionPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
+                          SizedBox(
                             height: 150.w,
                             width: 150.w,
                             child: Image.asset(
@@ -157,7 +153,7 @@ class _MissionPageState extends State<MissionPage> {
                                 bottomLeft: Radius.circular(20),
                               ),
                             ),
-                            child: Text("Parenting"),
+                            child: const Text("Parenting"),
                           )
                         ],
                       ),
@@ -175,7 +171,7 @@ class _MissionPageState extends State<MissionPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
+                          SizedBox(
                             height: 150.w,
                             width: 150.w,
                             child: Image.asset(
@@ -195,7 +191,7 @@ class _MissionPageState extends State<MissionPage> {
                                 bottomLeft: Radius.circular(20),
                               ),
                             ),
-                            child: Text("Financial Stability"),
+                            child: const Text("Financial Stability"),
                           )
                         ],
                       ),

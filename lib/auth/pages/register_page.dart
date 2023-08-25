@@ -34,7 +34,7 @@ class RegisterPage extends StatelessWidget {
         image: DecorationImage(
             image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
       ),
-      padding: EdgeInsets.all(10.r),
+      padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
       child: Center(
         child: ListView(
           children: [

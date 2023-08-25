@@ -7,14 +7,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:mawadda_app/auth/pages/register_page.dart';
-//import 'package:mawadda_app/auth/pages/succeed_signup.dart';
-import 'package:mawadda_app/home/pages/home_page.dart';
+
 import 'package:mawadda_app/auth/utils/auth_string_util.dart';
 
 import '../../core/components/form_component.dart';
 import '../../core/components/password_form_component.dart';
 import '../../core/router/router.dart';
-import '../../main.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {
@@ -35,7 +33,7 @@ class LoginPage extends StatelessWidget {
         image: DecorationImage(
             image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
       ),
-      padding: EdgeInsets.all(10.r),
+      padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
       child: Center(
           child: ListView(
         children: [
@@ -57,10 +55,10 @@ class LoginPage extends StatelessWidget {
                   Container(
                     height: 93.h,
                     width: 290.w,
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         border: Border.all(width: 3, color: Colors.black),
-                        color: Color(0xffDFDCEF),
+                        color: const Color(0xffDFDCEF),
                         borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(20),
                             topLeft: Radius.circular(20))),
@@ -136,14 +134,14 @@ class LoginPage extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: isEmailTrue.value == true &&
                                           isPasswordTrue == true
-                                      ? Color(0xffFAC6EA)
+                                      ? const Color(0xffFAC6EA)
                                       : Colors.grey,
-                                  side: BorderSide(
+                                  side: const BorderSide(
                                       width: 3.0, color: Colors.black)),
                               onPressed: () {
                                 if (isEmailTrue.value == true &&
                                     isPasswordTrue == true) {
-                                  context.router.replace(HomeRoute());
+                                  context.router.replace(const HomeRoute());
                                 }
                               },
                               child: const Text(
@@ -171,7 +169,8 @@ class LoginPage extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => RegisterPage()));
+                                        builder: (context) =>
+                                            const RegisterPage()));
                               },
                               child: Text(
                                 'Sign Up',

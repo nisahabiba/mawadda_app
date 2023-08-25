@@ -23,7 +23,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     switch (currentPage) {
       case CurrentProfilePage.editProfilePage:
-        return EditProfilePage();
+        return const EditProfilePage();
       default:
         return Container(
           alignment: Alignment.center,
@@ -36,15 +36,18 @@ class _ProfilePageState extends State<ProfilePage> {
             style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
             child: ListView(children: [
               Container(
-                height: 150.h,
+                height: 0.25.sh,
                 width: 329.w,
                 padding: const EdgeInsets.all(15),
                 child: Column(
                   children: [
-                    const Icon(
-                      Icons.person_rounded,
-                      color: Colors.black,
-                      size: 50,
+                    Container(
+                      width: 70.0,
+                      height: 70.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
                     ),
                     SizedBox(
                       height: 5.h,
@@ -166,6 +169,5 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         );
     }
-    ;
   }
 }

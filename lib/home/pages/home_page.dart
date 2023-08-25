@@ -61,7 +61,7 @@ class _NavigationMainState extends State<NavigationMain> {
             currentPageIndex = index;
           });
         },
-        indicatorColor: Color(0xffB4B0CE),
+        indicatorColor: const Color(0xffB4B0CE),
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
