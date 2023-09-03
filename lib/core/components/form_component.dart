@@ -8,15 +8,19 @@ class FormComponent extends StatelessWidget {
   final String hintText;
   final TextInputType textInputType;
   final Function(String? value) validator;
+  final bool isReadOnly;
+  final Function()? onTap;
 
-  const FormComponent(
-      {Key? key,
-      required this.controller,
-      this.formKey,
-      required this.hintText,
-      required this.textInputType,
-      required this.validator})
-      : super(key: key);
+  const FormComponent({
+    Key? key,
+    required this.controller,
+    this.formKey,
+    required this.hintText,
+    required this.textInputType,
+    required this.validator,
+    this.isReadOnly = false,
+    this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +31,8 @@ class FormComponent extends StatelessWidget {
       keyboardType: textInputType,
       autofocus: false,
       autovalidateMode: AutovalidateMode.onUserInteraction,
+      readOnly: isReadOnly,
+      onTap: onTap,
       decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,

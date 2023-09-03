@@ -9,6 +9,8 @@ import 'firebase_options.dart';
 import 'core/di/injector.dart';
 import 'core/navigation/bloc/navigation_bloc.dart';
 import 'core/router/router.dart';
+import 'profile/bloc/navigation/profile_navigation_cubit.dart';
+import 'auth/bloc/login/login_bloc.dart';
 
 void main() {
   mainApp();
@@ -42,6 +44,12 @@ class _AppState extends State<App> {
       providers: [
         BlocProvider(
           create: (_) => getIt<NavigationBloc>()..add(const AppStartedEv()),
+        ),
+        BlocProvider(
+          create: (_) => getIt<LoginBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => getIt<ProfileNavigationCubit>(),
         ),
       ],
       child: ScreenUtilInit(

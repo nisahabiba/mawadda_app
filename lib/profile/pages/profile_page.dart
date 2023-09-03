@@ -1,14 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, unused_import
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
 
 import '../../auth/pages/auth_page.dart';
 import '../../core/router/router.dart';
-
-enum CurrentProfilePage { profilePage, editProfilePage }
+import '../bloc/navigation/profile_navigation_cubit.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -18,13 +18,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  CurrentProfilePage currentPage = CurrentProfilePage.profilePage;
   @override
   Widget build(BuildContext context) {
-    switch (currentPage) {
-      case CurrentProfilePage.editProfilePage:
+    return BlocBuilder<ProfileNavigationCubit, ProfileNavigationState>(
+        builder: (context, state) {
+      if (state == const EditProfileSt()) {
         return const EditProfilePage();
-      default:
+      } else {
         return Container(
           alignment: Alignment.center,
           constraints: const BoxConstraints.expand(),
@@ -68,9 +68,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                   color: Colors.black, width: 3),
                               borderRadius: BorderRadius.circular(10))),
                       onPressed: () {
-                        setState(() {
-                          currentPage = CurrentProfilePage.editProfilePage;
-                        });
+                        context.read<ProfileNavigationCubit>().changePage(
+                              CurrentProfilePage.editProfilePage,
+                            );
                       },
                       child: Text(
                         'Edit Profile',
@@ -168,6 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ]),
           ),
         );
-    }
+      }
+    });
   }
 }

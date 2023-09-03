@@ -2,10 +2,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
+import 'package:intl/intl.dart';
 import '../../auth/pages/auth_page.dart';
 //import '../../auth/utils/auth_string_util.dart';
 import '../../core/components/edit_profile_form_components.dart';
@@ -22,21 +24,19 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   int currentPageIndex = 0;
+  final nameCtr = TextEditingController();
+  final emailCtr = TextEditingController();
+  final birthCtr = TextEditingController();
+  final countryCtr = TextEditingController();
+  final phoneCtr = TextEditingController();
+  final RxBool isNameTrue = false.obs;
+  final RxBool isEmailTrue = false.obs;
+  final RxBool isBirthTrue = false.obs;
+  final RxBool isCountryTrue = false.obs;
+  final RxBool isPhoneTrue = false.obs;
 
   @override
   Widget build(BuildContext context) {
-    final nameCtr = TextEditingController();
-    final emailCtr = TextEditingController();
-    final birthCtr = TextEditingController();
-    final countryCtr = TextEditingController();
-    final phoneCtr = TextEditingController();
-    final RxBool isNameTrue = false.obs;
-    final RxBool isEmailTrue = false.obs;
-    final RxBool isBirthTrue = false.obs;
-    final RxBool isCountryTrue = false.obs;
-    final RxBool isPhoneTrue = false.obs;
-    DateTime date = DateTime(2016, 10, 26);
-
     return Container(
       alignment: Alignment.center,
       constraints: const BoxConstraints.expand(),
@@ -47,8 +47,33 @@ class _EditProfilePageState extends State<EditProfilePage> {
       child: DefaultTextStyle(
         style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
         child: Container(
-          padding: EdgeInsets.only(top: 40.w, left: 40.w, right: 40.w),
+          padding: EdgeInsets.only(top: 20.w, left: 10.w, right: 10.w),
           child: ListView(children: [
+            Stack(
+              children: [
+                Center(
+                  child: Text(
+                    "Edit Profile",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    context.read<ProfileNavigationCubit>().changePage(
+                          CurrentProfilePage.profilePage,
+                        );
+                  },
+                  child: Icon(Icons.arrow_back_ios_new_rounded),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
             Container(
               width: 100.0,
               height: 100.0,
@@ -64,13 +89,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 formKey: 'name',
                 controller: nameCtr,
                 hintText: 'Your name',
-                textInputType: TextInputType.emailAddress,
-                validator: (value) => validateNameForm(
-                      context: context,
-                      isName: true,
-                      value: value,
-                      isNameTrue: isNameTrue,
-                    )),
+                textInputType: TextInputType.text,
+                validator: (value) => {}),
             SizedBox(
               height: 10.h,
             ),
@@ -89,23 +109,26 @@ class _EditProfilePageState extends State<EditProfilePage> {
               height: 10.h,
             ),
             FormComponent(
-                formKey: 'birthdate',
-                controller: birthCtr,
-                hintText: 'Birth Date (DD/MM/YY)',
-                textInputType: TextInputType.datetime,
-                validator: (value) => ()),
-            Text("Birthdate"),
-            // CupertinoDatePicker(
-            //   initialDateTime: date,
-            //   mode: CupertinoDatePickerMode.date,
-            //   use24hFormat: true,
-            //   // This shows day of week alongside day of month
-            //   showDayOfWeek: true,
-            //   // This is called when the user changes the date.
-            //   onDateTimeChanged: (DateTime newDate) {
-            //     setState(() => date = newDate);
-            //   },
-            // ),
+              formKey: 'birthdate',
+              controller: birthCtr,
+              hintText: 'Birth Date (DD/MM/YY)',
+              textInputType: TextInputType.datetime,
+              isReadOnly: true,
+              validator: (value) {},
+              onTap: () async {
+                final DateTime? date = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(1950),
+                  lastDate: DateTime.now(),
+                  onDatePickerModeChange: (value) {},
+                );
+                setState(() {
+                  birthCtr.text =
+                      DateFormat('dd/MM/yyyy').format(date!).toString();
+                });
+              },
+            ),
             SizedBox(
               height: 10.h,
             ),
