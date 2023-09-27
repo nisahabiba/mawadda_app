@@ -90,7 +90,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 controller: nameCtr,
                 hintText: 'Your name',
                 textInputType: TextInputType.text,
-                validator: (value) => {}),
+                validator: (value) {}),
             SizedBox(
               height: 10.h,
             ),
@@ -137,7 +137,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 controller: countryCtr,
                 hintText: 'Your Country (e.g. Malaysia)',
                 textInputType: TextInputType.text,
-                validator: (value) => ()),
+                validator: (value) {}),
             SizedBox(
               height: 10.h,
             ),
@@ -146,7 +146,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 controller: phoneCtr,
                 hintText: 'Your Phone Number (e.g. 60123123123)',
                 textInputType: TextInputType.number,
-                validator: (value) => ()),
+                validator: (value) {}),
             SizedBox(
               height: 20.h,
             ),

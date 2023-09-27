@@ -82,50 +82,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
-                child: Stack(
-                  alignment: AlignmentDirectional.topCenter,
-                  children: [
-                    Card(
-                        elevation: 0,
-                        color: Colors.white,
-                        shape: const RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black, width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(height: 10.h),
-                            const Text("You are now..."),
-                            Image.asset(
-                              "assets/avatar_score.png",
-                              width: 162.w,
-                            ),
-                            const Text("Level 1"),
-                            SizedBox(height: 10.h),
-                            const Text("Beginner"),
-                            SizedBox(height: 10.h),
-                            Container(
-                              alignment: Alignment.center,
-                              height: 38.h,
-                              width: 1.sw,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(width: 3, color: Colors.black),
-                                color: const Color(0xffDFDCEF),
-                                borderRadius: const BorderRadius.only(
-                                  bottomRight: Radius.circular(20),
-                                  bottomLeft: Radius.circular(20),
-                                ),
-                              ),
-                              child: const Text(
-                                  "You have completed 0/10 mission(s)"),
-                            )
-                          ],
-                        )),
-                  ],
-                ),
+                child: const Text("Your Progress",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 24)),
               ),
               Container(
                 padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
@@ -133,35 +92,31 @@ class _ProfilePageState extends State<ProfilePage> {
                   alignment: AlignmentDirectional.topCenter,
                   children: [
                     Card(
-                        elevation: 0,
-                        color: Colors.white,
-                        shape: const RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black, width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Column(
+                      elevation: 0,
+                      color: Colors.white,
+                      shape: const RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.black, width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Container(
+                        width: 1.sw,
+                        height: 100.h,
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: 10.h),
-                            const Text(" How far are you?"),
-                            Container(
-                              alignment: Alignment.center,
-                              height: 38.h,
-                              width: 1.sw,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(width: 3, color: Colors.black),
-                                color: const Color(0xffDFDCEF),
-                                borderRadius: const BorderRadius.only(
-                                  bottomRight: Radius.circular(20),
-                                  bottomLeft: Radius.circular(20),
-                                ),
-                              ),
-                              child: const Text(
-                                  "You have completed 0/10 mission(s)"),
-                            )
+                            const Icon(
+                              Icons.check_circle,
+                              size: 40.0,
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            const Text(
+                                "You have completed Sub-Topic 1 from: \n“Health & Pregnancy” topic"),
                           ],
-                        )),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

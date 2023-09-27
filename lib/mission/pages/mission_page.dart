@@ -201,10 +201,20 @@ class _MissionPageState extends State<MissionPage> {
               )
             ],
           ),
+          SizedBox(
+            height: 10.w,
+          ),
           Container(
-            height: 0.2.sh,
+            //height: 0.2.sh,
             width: 1.sw,
-            color: Colors.white,
+            //color: Colors.white,
+            padding: const EdgeInsets.only(
+                top: 10.0, bottom: 30.0, left: 50.0, right: 50.0),
+            child: const Text(
+              """Narrated Abu Huraira: The Prophet (ﷺ) said, 
+"A woman is married for four things, i.e., her wealth, her family status, her beauty and her religion. So you should marry the religious woman (otherwise) you will be a losers. [Sahih al-Bukhari 5090]""",
+              textAlign: TextAlign.center,
+            ),
           )
         ]),
       ),

@@ -3,7 +3,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/articles/pages/articles_page.dart';
 import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
+import 'package:mawadda_app/videos/pages/videos_page.dart';
 
 import '../../auth/pages/auth_page.dart';
 import '../../core/router/router.dart';
@@ -142,7 +144,15 @@ class _NavigationMainState extends State<NavigationMain> {
                                                 color: Colors.black, width: 3),
                                             borderRadius:
                                                 BorderRadius.circular(10))),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ProfilePage(),
+                                        ),
+                                      );
+                                    },
                                     child: Text(
                                       'Check Profile',
                                       style: GoogleFonts.averiaGruesaLibre(
@@ -211,7 +221,15 @@ class _NavigationMainState extends State<NavigationMain> {
                                                     width: 3),
                                                 borderRadius:
                                                     BorderRadius.circular(10))),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const MissionPage(),
+                                            ),
+                                          );
+                                        },
                                         child: Text('Start',
                                             style:
                                                 GoogleFonts.averiaGruesaLibre(
@@ -285,7 +303,15 @@ class _NavigationMainState extends State<NavigationMain> {
                                                     width: 3),
                                                 borderRadius:
                                                     BorderRadius.circular(10))),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const ArticlesPage(),
+                                            ),
+                                          );
+                                        },
                                         child: Text('Read More',
                                             style:
                                                 GoogleFonts.averiaGruesaLibre(
@@ -360,7 +386,15 @@ class _NavigationMainState extends State<NavigationMain> {
                                                     width: 3),
                                                 borderRadius:
                                                     BorderRadius.circular(10))),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const VideosPage(),
+                                            ),
+                                          );
+                                        },
                                         child: Text('Watch More',
                                             style:
                                                 GoogleFonts.averiaGruesaLibre(
