@@ -11,6 +11,8 @@ import 'core/navigation/bloc/navigation_bloc.dart';
 import 'core/router/router.dart';
 import 'profile/bloc/navigation/profile_navigation_cubit.dart';
 import 'auth/bloc/login/login_bloc.dart';
+import 'package:mawadda_app/home/pages/home_page.dart';
+import 'package:mawadda_app/auth/pages/login_page.dart';
 
 void main() {
   mainApp();
@@ -79,11 +81,13 @@ class MainPage extends StatelessWidget {
         debugPrint('Navigation State : $state');
 
         if (state == const AuthSt()) {
-          context.router.replace(const AuthRoute());
+          //context.router.replace(const AuthRoute());
+          return const LoginPage();
         }
 
         if (state == const HomeSt()) {
           // context.router.replace(const LoginRoute());
+          return const HomePage();
         }
         return Container(
           color: Colors.white,
