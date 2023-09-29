@@ -75,7 +75,7 @@ class ArticlesPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10))),
                               onPressed: () {},
                               child: Text(
-                                'by Shahina Siddiqui',
+                                'by Peguam Syarie Faiz Adnaan Associates',
                                 style: GoogleFonts.averiaGruesaLibre(
                                     color: Colors.black, fontSize: 12),
                               ),
