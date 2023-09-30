@@ -152,7 +152,11 @@ class LoginPage extends StatelessWidget {
                                   onPressed: () {
                                     if (isEmailTrue.value == true &&
                                         isPasswordTrue == true) {
-                                      context.router.replace(const HomeRoute());
+                                      //context.router.replace(const HomeRoute())
+                                      context.read<LoginBloc>().add(
+                                          LoginFetchEv(
+                                              password: passwordCtr.text,
+                                              email: emailCtr.text));
                                     }
                                   },
                                   child: const Text(
