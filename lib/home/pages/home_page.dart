@@ -8,6 +8,7 @@ import 'package:mawadda_app/articles/pages/articles_page.dart';
 import 'package:mawadda_app/core/navigation/bloc/navigation_bloc.dart';
 import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
 import 'package:mawadda_app/videos/pages/videos_page.dart';
+import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
 
 import '../../auth/pages/auth_page.dart';
 import '../../core/router/router.dart';
@@ -147,15 +148,7 @@ class _NavigationMainState extends State<NavigationMain> {
                                                 color: Colors.black, width: 3),
                                             borderRadius:
                                                 BorderRadius.circular(10))),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const ProfilePage(),
-                                        ),
-                                      );
-                                    },
+                                    onPressed: () {},
                                     child: Text(
                                       'Check Profile',
                                       style: GoogleFonts.averiaGruesaLibre(

@@ -10,8 +10,8 @@ enum CurrentProfilePage { profilePage, editProfilePage }
 class ProfileNavigationCubit extends Cubit<ProfileNavigationState> {
   ProfileNavigationCubit() : super(const ProfileSt());
 
-  void changePage(CurrentProfilePage currenPage) {
-    if (currenPage == CurrentProfilePage.editProfilePage) {
+  void changePage(CurrentProfilePage currentPage) {
+    if (currentPage == CurrentProfilePage.editProfilePage) {
       emit(
         const EditProfileSt(),
       );
