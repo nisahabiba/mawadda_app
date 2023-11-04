@@ -17,6 +17,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     this.authRepository,
   ) : super(LoginInitialSt()) {
     on<LoginFetchEv>((event, emit) async {
+      emit(LoginLoadingSt());
       final login = await authRepository.signInWithEmailAndPassword(
         event.email,
         event.password,
@@ -30,6 +31,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       debugPrint('Credential : ${event.email} -- ${event.password}');
       debugPrint('Login : $login');
+      debugPrint('Login UID : ${login!.user!.uid}');
     });
   }
 }
