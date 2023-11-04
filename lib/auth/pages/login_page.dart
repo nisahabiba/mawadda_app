@@ -32,7 +32,8 @@ class LoginPage extends StatelessWidget {
       listener: (context, state) {
         debugPrint('Login State : $state');
         if (state == LoginSuccessSt()) {
-          context.read<NavigationBloc>().add(const HomeEv());
+          // context.read<NavigationBloc>().add(const HomeEv());
+          context.router.replace(const HomeRoute());
         }
       },
       child: Scaffold(
@@ -154,9 +155,11 @@ class LoginPage extends StatelessWidget {
                                         isPasswordTrue == true) {
                                       //context.router.replace(const HomeRoute())
                                       context.read<LoginBloc>().add(
-                                          LoginFetchEv(
+                                            LoginFetchEv(
                                               password: passwordCtr.text,
-                                              email: emailCtr.text));
+                                              email: emailCtr.text,
+                                            ),
+                                          );
                                     }
                                   },
                                   child: const Text(

@@ -10,6 +10,7 @@ import '../../auth/pages/auth_page.dart';
 import '../../core/router/router.dart';
 import '../bloc/navigation/profile_navigation_cubit.dart';
 
+@RoutePage()
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -29,298 +30,289 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileNavigationCubit, ProfileNavigationState>(
-        builder: (context, state) {
-      if (state == const EditProfileSt()) {
-        return const EditProfilePage();
-      } else {
-        return Container(
-          alignment: Alignment.center,
-          constraints: const BoxConstraints.expand(),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
-          ),
-          child: DefaultTextStyle(
-            style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
-            child: ListView(children: [
-              Container(
-                height: 170.h,
-                width: 329.w,
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  children: [
-                    Container(
-                      width: 70.0,
-                      height: 70.0,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    const Text("(Username)"),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    const Text("email_here@gmail.com"),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFB4B0CE),
-                          shape: RoundedRectangleBorder(
-                              side: const BorderSide(
-                                  color: Colors.black, width: 3),
-                              borderRadius: BorderRadius.circular(10))),
-                      onPressed: () {
-                        context.read<ProfileNavigationCubit>().changePage(
-                              CurrentProfilePage.editProfilePage,
-                            );
-                      },
-                      child: Text(
-                        'Edit Profile',
-                        style: GoogleFonts.averiaGruesaLibre(
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
+    return Container(
+      alignment: Alignment.center,
+      constraints: const BoxConstraints.expand(),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
+      ),
+      child: DefaultTextStyle(
+        style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
+        child: ListView(children: [
+          Container(
+            height: 170.h,
+            width: 329.w,
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              children: [
+                Container(
+                  width: 70.0,
+                  height: 70.0,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
                 ),
-              ),
-              Divider(
-                height: 0,
-                color: Colors.black,
-              ),
-              SizedBox(
-                height: 20.w,
-              ),
-              Container(
-                child: const Text("Your Progress",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 24)),
-              ),
-              SizedBox(
-                height: 20.w,
-              ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                const Text("(Username)"),
+                SizedBox(
+                  height: 5.h,
+                ),
+                const Text("email_here@gmail.com"),
+                SizedBox(
+                  height: 5.h,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFB4B0CE),
+                      shape: RoundedRectangleBorder(
+                          side: const BorderSide(color: Colors.black, width: 3),
+                          borderRadius: BorderRadius.circular(10))),
+                  onPressed: () {
+                    // context.read<ProfileNavigationCubit>().changePage(
+                    //       CurrentProfilePage.editProfilePage,
+                    //     );
+                    // context.router.push(EditProfileRoute());
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //   builder: (context) => EditProfilePage(),
+                    // ));
+                    // AutoRouter.of(context).push(const EditProfileRoute());
+                    context.pushRoute(const EditProfileRoute());
+                  },
+                  child: Text(
+                    'Edit Profile',
+                    style: GoogleFonts.averiaGruesaLibre(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Divider(
+            height: 0,
+            color: Colors.black,
+          ),
+          SizedBox(
+            height: 20.w,
+          ),
+          const Text("Your Progress",
+              textAlign: TextAlign.center, style: TextStyle(fontSize: 24)),
+          SizedBox(
+            height: 20.w,
+          ),
 
 //---------------------------> Topic 1
 
-              Column(children: [
-                Stack(
-                  alignment: AlignmentDirectional.topCenter,
-                  children: [
-                    Card(
-                        elevation: 0,
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black, width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Container(
-                          width: 0.9.sw,
-                          height: 50,
-                          padding: EdgeInsets.only(left: 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Topic 1: Health & Pregnancy",
-                                style: GoogleFonts.averiaGruesaLibre(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          ),
-                        )),
-                  ],
-                ),
-                LabeledCheckbox(
-                    label: 'Sub-topic 1 : Pre-marital health screening?',
-                    padding: EdgeInsets.only(left: 40, right: 20),
-                    value: _checkBoxValue1,
-                    onChanged: (bool newValue) {
-                      setState(() {
-                        _checkBoxValue1 = newValue;
-                      });
-                    }),
-                LabeledCheckbox(
-                    label: 'Sub-topic 2 : About fertility & pregnancy',
-                    padding: EdgeInsets.only(left: 40, right: 20),
-                    value: _checkBoxValue2,
-                    onChanged: (bool newValue) {
-                      setState(() {
-                        _checkBoxValue2 = newValue;
-                      });
-                    }),
-              ]),
+          Column(children: [
+            Stack(
+              alignment: AlignmentDirectional.topCenter,
+              children: [
+                Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Container(
+                      width: 0.9.sw,
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Topic 1: Health & Pregnancy",
+                            style: GoogleFonts.averiaGruesaLibre(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    )),
+              ],
+            ),
+            LabeledCheckbox(
+                label: 'Sub-topic 1 : Pre-marital health screening?',
+                padding: const EdgeInsets.only(left: 40, right: 20),
+                value: _checkBoxValue1,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _checkBoxValue1 = newValue;
+                  });
+                }),
+            LabeledCheckbox(
+                label: 'Sub-topic 2 : About fertility & pregnancy',
+                padding: const EdgeInsets.only(left: 40, right: 20),
+                value: _checkBoxValue2,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _checkBoxValue2 = newValue;
+                  });
+                }),
+          ]),
 
 //---------------------------> Topic 2
 
-              Column(children: [
-                Stack(
-                  alignment: AlignmentDirectional.topCenter,
-                  children: [
-                    Card(
-                        elevation: 0,
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black, width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Container(
-                          width: 0.9.sw,
-                          height: 50,
-                          padding: EdgeInsets.only(left: 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Topic 2: Emotional Control",
-                                style: GoogleFonts.averiaGruesaLibre(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          ),
-                        )),
-                  ],
-                ),
-                LabeledCheckbox(
-                    label: 'Sub-topic 1 : Understanding yourself',
-                    padding: EdgeInsets.only(left: 40, right: 20),
-                    value: _checkBoxValue3,
-                    onChanged: (bool newValue) {
-                      setState(() {
-                        _checkBoxValue3 = newValue;
-                      });
-                    }),
-                LabeledCheckbox(
-                    label: 'Sub-topic 2 : Communication is the key!',
-                    padding: EdgeInsets.only(left: 40, right: 20),
-                    value: _checkBoxValue4,
-                    onChanged: (bool newValue) {
-                      setState(() {
-                        _checkBoxValue4 = newValue;
-                      });
-                    }),
-              ]),
+          Column(children: [
+            Stack(
+              alignment: AlignmentDirectional.topCenter,
+              children: [
+                Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Container(
+                      width: 0.9.sw,
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Topic 2: Emotional Control",
+                            style: GoogleFonts.averiaGruesaLibre(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    )),
+              ],
+            ),
+            LabeledCheckbox(
+                label: 'Sub-topic 1 : Understanding yourself',
+                padding: const EdgeInsets.only(left: 40, right: 20),
+                value: _checkBoxValue3,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _checkBoxValue3 = newValue;
+                  });
+                }),
+            LabeledCheckbox(
+                label: 'Sub-topic 2 : Communication is the key!',
+                padding: const EdgeInsets.only(left: 40, right: 20),
+                value: _checkBoxValue4,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _checkBoxValue4 = newValue;
+                  });
+                }),
+          ]),
 
 //---------------------------> Topic 3
 
-              Column(children: [
-                Stack(
-                  alignment: AlignmentDirectional.topCenter,
-                  children: [
-                    Card(
-                        elevation: 0,
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black, width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Container(
-                          width: 0.9.sw,
-                          height: 50,
-                          padding: EdgeInsets.only(left: 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Topic 3: Parenting",
-                                style: GoogleFonts.averiaGruesaLibre(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          ),
-                        )),
-                  ],
-                ),
-                LabeledCheckbox(
-                    label: 'Sub-topic 1 : Am I ready to have kids?',
-                    padding: EdgeInsets.only(left: 40, right: 20),
-                    value: _checkBoxValue5,
-                    onChanged: (bool newValue) {
-                      setState(() {
-                        _checkBoxValue5 = newValue;
-                      });
-                    }),
-                LabeledCheckbox(
-                    label: 'Sub-topic 2 : Learn about the motherhood',
-                    padding: EdgeInsets.only(left: 40, right: 20),
-                    value: _checkBoxValue6,
-                    onChanged: (bool newValue) {
-                      setState(() {
-                        _checkBoxValue6 = newValue;
-                      });
-                    }),
-              ]),
+          Column(children: [
+            Stack(
+              alignment: AlignmentDirectional.topCenter,
+              children: [
+                Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Container(
+                      width: 0.9.sw,
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Topic 3: Parenting",
+                            style: GoogleFonts.averiaGruesaLibre(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    )),
+              ],
+            ),
+            LabeledCheckbox(
+                label: 'Sub-topic 1 : Am I ready to have kids?',
+                padding: const EdgeInsets.only(left: 40, right: 20),
+                value: _checkBoxValue5,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _checkBoxValue5 = newValue;
+                  });
+                }),
+            LabeledCheckbox(
+                label: 'Sub-topic 2 : Learn about the motherhood',
+                padding: const EdgeInsets.only(left: 40, right: 20),
+                value: _checkBoxValue6,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _checkBoxValue6 = newValue;
+                  });
+                }),
+          ]),
 
 //---------------------------> Topic 4
 
-              Column(children: [
-                Stack(
-                  alignment: AlignmentDirectional.topCenter,
-                  children: [
-                    Card(
-                        elevation: 0,
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black, width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        child: Container(
-                          width: 0.9.sw,
-                          height: 50,
-                          padding: EdgeInsets.only(left: 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Topic 4: Financial Stability",
-                                style: GoogleFonts.averiaGruesaLibre(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          ),
-                        )),
-                  ],
-                ),
-                LabeledCheckbox(
-                    label: 'Sub-topic 1 : You and Your Money Value',
-                    padding: EdgeInsets.only(left: 40, right: 20),
-                    value: _checkBoxValue7,
-                    onChanged: (bool newValue) {
-                      setState(() {
-                        _checkBoxValue7 = newValue;
-                      });
-                    }),
-                LabeledCheckbox(
-                    label: 'Sub-topic 2 : Financial Management',
-                    padding: EdgeInsets.only(left: 40, right: 20),
-                    value: _checkBoxValue8,
-                    onChanged: (bool newValue) {
-                      setState(() {
-                        _checkBoxValue8 = newValue;
-                      });
-                    }),
-                SizedBox(
-                  height: 20.w,
-                )
-              ]),
-            ]),
-          ),
-        );
-      }
-    });
+          Column(children: [
+            Stack(
+              alignment: AlignmentDirectional.topCenter,
+              children: [
+                Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Container(
+                      width: 0.9.sw,
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Topic 4: Financial Stability",
+                            style: GoogleFonts.averiaGruesaLibre(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    )),
+              ],
+            ),
+            LabeledCheckbox(
+                label: 'Sub-topic 1 : You and Your Money Value',
+                padding: const EdgeInsets.only(left: 40, right: 20),
+                value: _checkBoxValue7,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _checkBoxValue7 = newValue;
+                  });
+                }),
+            LabeledCheckbox(
+                label: 'Sub-topic 2 : Financial Management',
+                padding: const EdgeInsets.only(left: 40, right: 20),
+                value: _checkBoxValue8,
+                onChanged: (bool newValue) {
+                  setState(() {
+                    _checkBoxValue8 = newValue;
+                  });
+                }),
+            SizedBox(
+              height: 20.w,
+            )
+          ]),
+        ]),
+      ),
+    );
   }
 }
 

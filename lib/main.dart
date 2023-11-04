@@ -59,12 +59,15 @@ class _AppState extends State<App> {
         splitScreenMode: true,
         ensureScreenSize: true,
         child: MaterialApp.router(
-            theme: ThemeData(
-              useMaterial3: true,
-              textTheme: GoogleFonts.averiaGruesaLibreTextTheme(),
-            ),
-            routerDelegate: _appRouter.delegate(),
-            routeInformationParser: _appRouter.defaultRouteParser()),
+          theme: ThemeData(
+            useMaterial3: true,
+            textTheme: GoogleFonts.averiaGruesaLibreTextTheme(),
+          ),
+          routerConfig: _appRouter.config(),
+          key: _appRouter.key,
+          // routerDelegate: _appRouter.delegate(),
+          // routeInformationParser: _appRouter.defaultRouteParser(),
+        ),
       ),
     );
   }
@@ -81,13 +84,15 @@ class MainPage extends StatelessWidget {
         debugPrint('Navigation State : $state');
 
         if (state == const AuthSt()) {
-          //context.router.replace(const AuthRoute());
-          return const LoginPage();
+          // context.router.replace(const AuthRoute());
+          // return const LoginPage();
+          context.replaceRoute(const AuthRoute());
         }
 
         if (state == const HomeSt()) {
-          // context.router.replace(const LoginRoute());
-          return const HomePage();
+          // context.router.replace(const HomeRoute());
+          context.replaceRoute(const HomeRoute());
+          // return const HomePage();
         }
         return Container(
           color: Colors.white,

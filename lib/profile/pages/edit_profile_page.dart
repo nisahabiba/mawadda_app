@@ -1,20 +1,21 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, unused_import
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
 import 'package:intl/intl.dart';
+import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
+
 import '../../auth/pages/auth_page.dart';
 //import '../../auth/utils/auth_string_util.dart';
 import '../../core/components/edit_profile_form_components.dart';
 import '../../core/components/form_component.dart';
-import '../../profile/utils/profile_string_util.dart';
 import '../../core/router/router.dart';
+import '../../profile/utils/profile_string_util.dart';
 
+@RoutePage()
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
 
@@ -37,155 +38,158 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      constraints: const BoxConstraints.expand(),
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
-      ),
-      child: DefaultTextStyle(
-        style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
-        child: Container(
-          padding: EdgeInsets.only(top: 20.w, left: 10.w, right: 10.w),
-          child: ListView(children: [
-            Stack(
-              children: [
-                Center(
-                  child: Text(
-                    "Edit Profile",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
+    return Material(
+      child: Container(
+        alignment: Alignment.center,
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/image_back.png"), fit: BoxFit.cover),
+        ),
+        child: DefaultTextStyle(
+          style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
+          child: Container(
+            padding: EdgeInsets.only(top: 20.w, left: 10.w, right: 10.w),
+            child: ListView(children: [
+              Stack(
+                children: [
+                  Center(
+                    child: Text(
+                      "Edit Profile",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      // context.read<ProfileNavigationCubit>().changePage(
+                      //       CurrentProfilePage.profilePage,
+                      //     );
+                      context.popRoute();
+                    },
+                    child: Icon(Icons.arrow_back_ios_new_rounded),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Container(
+                width: 100.0,
+                height: 100.0,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+              ),
+              SizedBox(
+                height: 40.h,
+              ),
+              FormComponent(
+                  formKey: 'name',
+                  controller: nameCtr,
+                  hintText: 'Your name',
+                  textInputType: TextInputType.text,
+                  validator: (value) {}),
+              SizedBox(
+                height: 10.h,
+              ),
+              FormComponent(
+                  formKey: 'email',
+                  controller: emailCtr,
+                  hintText: 'Your Email',
+                  textInputType: TextInputType.emailAddress,
+                  validator: (value) => validateEmailForm(
+                        context: context,
+                        isEmail: true,
+                        value: value,
+                        isEmailTrue: isEmailTrue,
+                      )),
+              SizedBox(
+                height: 10.h,
+              ),
+              FormComponent(
+                formKey: 'birthdate',
+                controller: birthCtr,
+                hintText: 'Birth Date (DD/MM/YY)',
+                textInputType: TextInputType.datetime,
+                isReadOnly: true,
+                validator: (value) {},
+                onTap: () async {
+                  final DateTime? date = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1950),
+                    lastDate: DateTime.now(),
+                    onDatePickerModeChange: (value) {},
+                  );
+                  setState(() {
+                    birthCtr.text =
+                        DateFormat('dd/MM/yyyy').format(date!).toString();
+                  });
+                },
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              FormComponent(
+                  formKey: 'country',
+                  controller: countryCtr,
+                  hintText: 'Your Country (e.g. Malaysia)',
+                  textInputType: TextInputType.text,
+                  validator: (value) {}),
+              SizedBox(
+                height: 10.h,
+              ),
+              FormComponent(
+                  formKey: 'phone',
+                  controller: phoneCtr,
+                  hintText: 'Your Phone Number (e.g. 60123123123)',
+                  textInputType: TextInputType.number,
+                  validator: (value) {}),
+              SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 38.h,
+                width: 0.8.sw,
+                child: Obx(
+                  () => ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: isNameTrue.value == true ||
+                                isEmailTrue.value == true ||
+                                isBirthTrue.value == true ||
+                                isCountryTrue.value == true ||
+                                isPhoneTrue.value == true
+                            ? const Color(0xffFAC6EA)
+                            : Colors.grey,
+                        side: const BorderSide(width: 3.0, color: Colors.black),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0))),
+                    onPressed: () {
+                      if (isNameTrue.value == true ||
+                          isEmailTrue.value == true ||
+                          isBirthTrue.value == true ||
+                          isCountryTrue.value == true ||
+                          isPhoneTrue.value == true) {
+                        context.router.replace(const HomeRoute());
+                      }
+                    },
+                    child: const Text(
+                      'Save Profile',
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    context.read<ProfileNavigationCubit>().changePage(
-                          CurrentProfilePage.profilePage,
-                        );
-                  },
-                  child: Icon(Icons.arrow_back_ios_new_rounded),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Container(
-              width: 100.0,
-              height: 100.0,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
               ),
-            ),
-            SizedBox(
-              height: 40.h,
-            ),
-            FormComponent(
-                formKey: 'name',
-                controller: nameCtr,
-                hintText: 'Your name',
-                textInputType: TextInputType.text,
-                validator: (value) {}),
-            SizedBox(
-              height: 10.h,
-            ),
-            FormComponent(
-                formKey: 'email',
-                controller: emailCtr,
-                hintText: 'Your Email',
-                textInputType: TextInputType.emailAddress,
-                validator: (value) => validateEmailForm(
-                      context: context,
-                      isEmail: true,
-                      value: value,
-                      isEmailTrue: isEmailTrue,
-                    )),
-            SizedBox(
-              height: 10.h,
-            ),
-            FormComponent(
-              formKey: 'birthdate',
-              controller: birthCtr,
-              hintText: 'Birth Date (DD/MM/YY)',
-              textInputType: TextInputType.datetime,
-              isReadOnly: true,
-              validator: (value) {},
-              onTap: () async {
-                final DateTime? date = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(1950),
-                  lastDate: DateTime.now(),
-                  onDatePickerModeChange: (value) {},
-                );
-                setState(() {
-                  birthCtr.text =
-                      DateFormat('dd/MM/yyyy').format(date!).toString();
-                });
-              },
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            FormComponent(
-                formKey: 'country',
-                controller: countryCtr,
-                hintText: 'Your Country (e.g. Malaysia)',
-                textInputType: TextInputType.text,
-                validator: (value) {}),
-            SizedBox(
-              height: 10.h,
-            ),
-            FormComponent(
-                formKey: 'phone',
-                controller: phoneCtr,
-                hintText: 'Your Phone Number (e.g. 60123123123)',
-                textInputType: TextInputType.number,
-                validator: (value) {}),
-            SizedBox(
-              height: 20.h,
-            ),
-            SizedBox(
-              height: 38.h,
-              width: 0.8.sw,
-              child: Obx(
-                () => ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: isNameTrue.value == true ||
-                              isEmailTrue.value == true ||
-                              isBirthTrue.value == true ||
-                              isCountryTrue.value == true ||
-                              isPhoneTrue.value == true
-                          ? const Color(0xffFAC6EA)
-                          : Colors.grey,
-                      side: const BorderSide(width: 3.0, color: Colors.black),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0))),
-                  onPressed: () {
-                    if (isNameTrue.value == true ||
-                        isEmailTrue.value == true ||
-                        isBirthTrue.value == true ||
-                        isCountryTrue.value == true ||
-                        isPhoneTrue.value == true) {
-                      context.router.replace(const HomeRoute());
-                    }
-                  },
-                  child: const Text(
-                    'Save Profile',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
+              SizedBox(
+                height: 20.h,
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-          ]),
+            ]),
+          ),
         ),
       ),
     );
