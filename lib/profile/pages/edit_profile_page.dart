@@ -70,7 +70,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       //     );
                       context.popRoute();
                     },
-                    child: Icon(Icons.arrow_back_ios_new_rounded),
+                    child: const Icon(Icons.arrow_back_ios_new_rounded),
                   ),
                 ],
               ),

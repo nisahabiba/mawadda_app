@@ -1,40 +1,9 @@
 part of 'login_bloc.dart';
 
-class LoginState extends Equatable {
-  const LoginState();
-
-  @override
-  List<Object> get props => [];
-}
-
-class LoginInitialSt extends LoginState {
-  @override
-  String toString() => 'LoginState.InitialSt';
-
-  @override
-  List<Object> get props => [];
-}
-
-class LoginLoadingSt extends LoginState {
-  @override
-  String toString() => 'LoginState.LoadingSt';
-
-  @override
-  List<Object> get props => [];
-}
-
-class LoginSuccessSt extends LoginState {
-  @override
-  String toString() => 'LoginState.SuccessSt';
-
-  @override
-  List<Object> get props => [];
-}
-
-class LoginFailedSt extends LoginState {
-  @override
-  String toString() => 'LoginState.FailedSt';
-
-  @override
-  List<Object> get props => [];
+@freezed
+class LoginState with _$LoginState {
+  factory LoginState.initial() = _Initial;
+  const factory LoginState.loading() = _Loading;
+  const factory LoginState.success() = _Success;
+  const factory LoginState.failed({required String message}) = _Failed;
 }
