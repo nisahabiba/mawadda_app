@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
     return AutoTabsScaffold(
       routes: const [
         HomeRouteView(),
+        // ProfileNavigationRoute(),
         MissionRoute(),
         ProfileRoute(),
         // EditProfileRoute(),

@@ -81,6 +81,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SucceedSignUpPage(),
       );
     },
+    VideosRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const VideosPage(),
+      );
+    },
   };
 }
 
@@ -234,6 +240,20 @@ class SucceedSignUpRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SucceedSignUpRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [VideosPage]
+class VideosRoute extends PageRouteInfo<void> {
+  const VideosRoute({List<PageRouteInfo>? children})
+      : super(
+          VideosRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'VideosRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

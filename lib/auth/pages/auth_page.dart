@@ -116,6 +116,7 @@ class AuthPage extends StatelessWidget {
                           //     builder: (context) => const RegisterPage(),
                           //   ),
                           // );
+                          // context.router.push(const RegisterRoute());
                           context.pushRoute(const RegisterRoute());
                         },
                         child: const Text(

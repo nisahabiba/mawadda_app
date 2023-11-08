@@ -11,6 +11,7 @@ import '../../mission/pages/mission_page.dart';
 import '../../profile/pages/edit_profile_page.dart';
 import '../../profile/pages/profile_navigation_page.dart';
 import '../../profile/pages/profile_page.dart';
+import '../../videos/pages/videos_page.dart';
 
 part 'router.gr.dart';
 

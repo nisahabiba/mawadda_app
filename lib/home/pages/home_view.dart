@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/core/router/router.dart';
 
 import '../../articles/pages/articles_page.dart';
 import '../../mission/pages/mission_page.dart';
@@ -289,13 +290,14 @@ class HomePageView extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(10))),
                                     onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const VideosPage(),
-                                        ),
-                                      );
+                                      // Navigator.push(
+                                      //   context,
+                                      //   MaterialPageRoute(
+                                      //     builder: (context) =>
+                                      //         const VideosPage(),
+                                      //   ),
+                                      // );
+                                      context.pushRoute(const VideosRoute());
                                     },
                                     child: Text('Watch More',
                                         style: GoogleFonts.averiaGruesaLibre(
