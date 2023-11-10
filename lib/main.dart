@@ -59,19 +59,20 @@ class _AppState extends State<App> {
         ),
       ],
       child: ScreenUtilInit(
-          designSize: const Size(360, 720),
-          splitScreenMode: true,
-          ensureScreenSize: true,
-          child: MaterialApp.router(
-            theme: ThemeData(
-              useMaterial3: true,
-              textTheme: GoogleFonts.averiaGruesaLibreTextTheme(),
-            ),
-            routerConfig: _appRouter.config(),
-            key: _appRouter.key,
-            //routerDelegate: _appRouter.delegate(),
-            //routeInformationParser: _appRouter.defaultRouteParser()),
-          )),
+        designSize: const Size(360, 720),
+        splitScreenMode: true,
+        ensureScreenSize: true,
+        child: MaterialApp.router(
+          theme: ThemeData(
+            useMaterial3: true,
+            textTheme: GoogleFonts.averiaGruesaLibreTextTheme(),
+          ),
+          routerConfig: _appRouter.config(),
+          key: _appRouter.key,
+          //routerDelegate: _appRouter.delegate(),
+          //routeInformationParser: _appRouter.defaultRouteParser()),
+        ),
+      ),
     );
   }
 }
@@ -88,12 +89,14 @@ class MainPage extends StatelessWidget {
 
         if (state == const AuthSt()) {
           //context.router.replace(const AuthRoute());
-          return const LoginPage();
+          //return const LoginPage();
+          context.replaceRoute(const AuthRoute());
         }
 
         if (state == const HomeSt()) {
           // context.router.replace(const LoginRoute());
-          return const HomePage();
+          //return const HomePage();
+          context.replaceRoute(const HomeRoute());
         }
         return Container(
           color: Colors.white,
