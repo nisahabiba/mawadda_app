@@ -59,17 +59,19 @@ class _AppState extends State<App> {
         ),
       ],
       child: ScreenUtilInit(
-        designSize: const Size(360, 720),
-        splitScreenMode: true,
-        ensureScreenSize: true,
-        child: MaterialApp.router(
+          designSize: const Size(360, 720),
+          splitScreenMode: true,
+          ensureScreenSize: true,
+          child: MaterialApp.router(
             theme: ThemeData(
               useMaterial3: true,
               textTheme: GoogleFonts.averiaGruesaLibreTextTheme(),
             ),
-            routerDelegate: _appRouter.delegate(),
-            routeInformationParser: _appRouter.defaultRouteParser()),
-      ),
+            routerConfig: _appRouter.config(),
+            key: _appRouter.key,
+            //routerDelegate: _appRouter.delegate(),
+            //routeInformationParser: _appRouter.defaultRouteParser()),
+          )),
     );
   }
 }
