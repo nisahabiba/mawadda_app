@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mawadda_app/auth/bloc/register/register_cubit.dart';
 import 'firebase_options.dart';
 import 'core/di/injector.dart';
 import 'core/navigation/bloc/navigation_bloc.dart';
@@ -49,6 +50,9 @@ class _AppState extends State<App> {
         ),
         BlocProvider(
           create: (_) => getIt<LoginBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => getIt<RegisterCubit>(),
         ),
         BlocProvider(
           create: (_) => getIt<ProfileNavigationCubit>(),

@@ -51,6 +51,8 @@ dependencies:
   freezed_annotation: ^2.4.1
   dartz: ^0.10.1
   cloud_firestore: ^4.13.0
+  fluttertoast: ^8.2.3
+  loader_overlay: ^2.3.2
 
 dev_dependencies:
   flutter_test:
