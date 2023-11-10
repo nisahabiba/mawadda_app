@@ -2,9 +2,11 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/auth/bloc/register/register_cubit.dart';
 import 'package:mawadda_app/auth/pages/login_page.dart';
 import 'package:mawadda_app/auth/pages/succeed_signup.dart';
 import 'package:mawadda_app/auth/utils/auth_string_util.dart';
@@ -173,13 +175,18 @@ class RegisterPage extends StatelessWidget {
                                       isNameTrue == true &&
                                       isPasswordTrue == true &&
                                       isConfirmPasswordTrue == true) {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const SucceedPage(),
-                                      ),
-                                    );
+                                    context.read<RegisterCubit>().addUser(
+                                          name: nameCtr.text,
+                                          email: emailCtr.text,
+                                          password: passwordCtr.text,
+                                        );
+                                    // Navigator.pushReplacement(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //     builder: (context) =>
+                                    //         const SucceedPage(),
+                                    //   ),
+                                    // );
                                   }
                                 },
                                 child: const Text(

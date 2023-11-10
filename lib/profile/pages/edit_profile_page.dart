@@ -15,6 +15,7 @@ import '../../core/components/form_component.dart';
 import '../../profile/utils/profile_string_util.dart';
 import '../../core/router/router.dart';
 
+@RoutePage()
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
 

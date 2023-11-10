@@ -10,6 +10,7 @@ import '../../auth/pages/auth_page.dart';
 import '../../core/router/router.dart';
 import '../bloc/navigation/profile_navigation_cubit.dart';
 
+@RoutePage()
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 

@@ -1,37 +1,64 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../core/error/failures.dart';
+
 @lazySingleton
 class AuthRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  Future<UserCredential?> registerWithEmailAndPassword(
-      String email, String password) async {
+  Future<Either<Failure, dynamic>> addUser({
+    required String name,
+    required String email,
+  }) async {
     try {
-      UserCredential userCredential =
-          await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      return userCredential;
+      final CollectionReference users = firestore.collection('users');
+
+      // ignore: unused_local_variable
+      final result = await users.add({
+        'name': name, // John Doe
+        'email': email, // Stokes and Sons
+      });
+
+      return const Right(true);
     } catch (e) {
-      debugPrint('Error: $e');
-      return null;
+      return Left(RemoteFailure(message: e.toString()));
     }
   }
 
-  Future<UserCredential?> signInWithEmailAndPassword(
+  Future<Either<Failure, UserCredential?>> registerWithEmailAndPassword(
       String email, String password) async {
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+      final userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return userCredential;
+      return Right(userCredential);
     } catch (e) {
       debugPrint('Error: $e');
-      return null;
+      String message = '';
+      if (e.toString().contains('email-already-in-use')) {
+        message = 'User sudah digunakan';
+      }
+      return Left(RemoteFailure(message: message));
+    }
+  }
+
+  Future<Either<Failure, UserCredential?>> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      final userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return Right(userCredential);
+    } catch (e) {
+      debugPrint('Error: $e');
+      return const Left(RemoteFailure(message: 'User tidak ditemukan'));
     }
   }
 
