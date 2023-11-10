@@ -25,7 +25,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       login.fold(
         (l) => emit(LoginState.failed(message: l.message)),
         (r) => emit(
-          const LoginState.success(),
+          LoginState.success(
+            accessToken: r!.user!.uid,
+          ),
         ),
       );
 

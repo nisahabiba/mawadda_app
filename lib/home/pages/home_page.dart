@@ -3,10 +3,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:mawadda_app/articles/pages/articles_page.dart';
-import 'package:mawadda_app/core/navigation/bloc/navigation_bloc.dart';
+import 'package:mawadda_app/auth/bloc/bloc/auth_bloc.dart';
+
 import 'package:mawadda_app/home/pages/home_view.dart';
 import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
 import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
@@ -54,6 +56,7 @@ class _HomePageState extends State<HomePage> {
           actions: <Widget>[
             IconButton(
                 onPressed: () {
+                  context.read<AuthBloc>().add(const AuthEvent.loggedOut());
                   context.replaceRoute(const AuthRoute());
                   // context.router.replace(const AuthRoute());
                   // context.read<NavigationBloc>().add(const AuthEv());

@@ -5,11 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/auth/bloc/bloc/auth_bloc.dart';
 
 import 'auth/bloc/login/login_bloc.dart';
 import 'auth/bloc/register/register_cubit.dart';
 import 'core/di/injector.dart';
-import 'core/navigation/bloc/navigation_bloc.dart';
+
 import 'core/router/router.dart';
 import 'firebase_options.dart';
 import 'profile/bloc/navigation/profile_navigation_cubit.dart';
@@ -45,7 +46,7 @@ class _AppState extends State<App> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => getIt<NavigationBloc>()..add(const AppStartedEv()),
+          create: (_) => getIt<AuthBloc>()..add(const AuthEvent.appStarted()),
         ),
         BlocProvider(
           create: (_) => getIt<LoginBloc>(),
@@ -82,25 +83,21 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NavigationBloc, NavigationState>(
-      builder: (context, state) {
-        debugPrint('Navigation State : $state');
-
-        if (state == const AuthSt()) {
-          // context.router.replace(const AuthRoute());
-          // return const LoginPage();
-          context.replaceRoute(const AuthRoute());
-        }
-
-        if (state == const HomeSt()) {
-          // context.router.replace(const HomeRoute());
-          context.replaceRoute(const HomeRoute());
-          // return const HomePage();
-        }
-        return Container(
-          color: Colors.white,
-        );
-      },
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) => state.maybeWhen(
+        orElse: () => context.replaceRoute(
+          const AuthRoute(),
+        ),
+        authenticated: () => context.replaceRoute(
+          const HomeRoute(),
+        ),
+        unAuthenticated: () => context.replaceRoute(
+          const AuthRoute(),
+        ),
+      ),
+      child: Container(
+        color: Colors.white,
+      ),
     );
   }
 }

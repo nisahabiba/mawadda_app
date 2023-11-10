@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:mawadda_app/auth/bloc/bloc/auth_bloc.dart';
 import 'package:mawadda_app/auth/bloc/login/login_bloc.dart';
-import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/auth/utils/auth_string_util.dart';
 
 import '../../core/components/custom_loader_overlay_component.dart';
@@ -42,9 +42,12 @@ class LoginPage extends StatelessWidget {
 
               return null;
             },
-            success: () {
+            success: (token) {
               context.loaderOverlay.hide();
               context.router.replace(const HomeRoute());
+              context.read<AuthBloc>().add(
+                    AuthEvent.loggedIn(accessToken: token),
+                  );
               return null;
             },
           ),
