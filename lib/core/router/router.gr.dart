@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ArticlesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ArticlesPage(),
+      );
+    },
     AuthRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -25,6 +31,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const EditProfilePage(),
+      );
+    },
+    HomeNavigationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeNavigationPage(),
       );
     },
     HomeRoute.name: (routeData) {
@@ -91,6 +103,20 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [ArticlesPage]
+class ArticlesRoute extends PageRouteInfo<void> {
+  const ArticlesRoute({List<PageRouteInfo>? children})
+      : super(
+          ArticlesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ArticlesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [AuthPage]
 class AuthRoute extends PageRouteInfo<void> {
   const AuthRoute({List<PageRouteInfo>? children})
@@ -114,6 +140,20 @@ class EditProfileRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'EditProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomeNavigationPage]
+class HomeNavigationRoute extends PageRouteInfo<void> {
+  const HomeNavigationRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeNavigationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeNavigationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

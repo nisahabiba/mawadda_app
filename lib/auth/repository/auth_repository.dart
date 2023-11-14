@@ -58,7 +58,14 @@ class AuthRepository {
       return Right(userCredential);
     } catch (e) {
       debugPrint('Error: $e');
-      return const Left(RemoteFailure(message: 'User tidak ditemukan'));
+
+      if (e.toString().contains('network-request-failed')) {
+        return const Left(RemoteFailure(message: 'Network Timeout'));
+      }
+      if (e.toString().contains('INVALID_LOGIN_CREDENTIALS')) {
+        return const Left(RemoteFailure(message: 'User tidak ditemukan'));
+      }
+      return const Left(RemoteFailure(message: 'Unknown Error'));
     }
   }
 

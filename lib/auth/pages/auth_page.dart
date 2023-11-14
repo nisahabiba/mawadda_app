@@ -77,12 +77,6 @@ class AuthPage extends StatelessWidget {
                           side: const BorderSide(
                               width: 3.0, color: Colors.black)),
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => const LoginPage(),
-                        //   ),
-                        // );
                         context.pushRoute(const LoginRoute());
                       },
                       child: const Text(
@@ -101,13 +95,6 @@ class AuthPage extends StatelessWidget {
                           side: const BorderSide(
                               width: 3.0, color: Colors.black)),
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => const RegisterPage(),
-                        //   ),
-                        // );
-                        // context.router.push(const RegisterRoute());
                         context.pushRoute(const RegisterRoute());
                       },
                       child: const Text(

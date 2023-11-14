@@ -44,10 +44,17 @@ class LoginPage extends StatelessWidget {
             },
             success: (token) {
               context.loaderOverlay.hide();
-              context.router.replace(const HomeRoute());
               context.read<AuthBloc>().add(
                     AuthEvent.loggedIn(accessToken: token),
                   );
+              // context.replaceRoute(const HomeRoute());
+              // context.router.replace(const HomeRoute());
+              context.router.replaceAll(
+                [
+                  const HomeRoute(),
+                ],
+              );
+
               return null;
             },
           ),

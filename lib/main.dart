@@ -69,8 +69,6 @@ class _AppState extends State<App> {
           ),
           routerConfig: _appRouter.config(),
           key: _appRouter.key,
-          // routerDelegate: _appRouter.delegate(),
-          // routeInformationParser: _appRouter.defaultRouteParser(),
         ),
       ),
     );
