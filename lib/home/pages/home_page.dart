@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mawadda_app/articles/pages/articles_page.dart';
+import 'package:mawadda_app/home/pages/articles/articles_page.dart';
 import 'package:mawadda_app/core/navigation/bloc/navigation_bloc.dart';
 import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
-import 'package:mawadda_app/videos/pages/videos_page.dart';
+import 'package:mawadda_app/home/pages/videos/videos_page.dart';
 import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
 
 import '../../auth/pages/auth_page.dart';

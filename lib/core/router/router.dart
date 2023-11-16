@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:mawadda_app/auth/pages/succeed_signup.dart';
+import 'package:mawadda_app/home/pages/articles/articles_page.dart';
+import 'package:mawadda_app/home/pages/home_navigation_page.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
 import 'package:mawadda_app/home/pages/home_view.dart';
+import 'package:mawadda_app/home/pages/videos/videos_page.dart';
 import 'package:mawadda_app/mission/pages/mission_page.dart';
 //import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
 import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
@@ -32,11 +35,25 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       page: LoginRoute.page,
     ),
+    AutoRoute(
+      page: RegisterRoute.page,
+    ),
+    AutoRoute(
+      page: SucceedRoute.page,
+    ),
     AutoRoute(page: SucceedRoute.page),
     AutoRoute(page: HomeRoute.page, children: [
-      AutoRoute(
-        page: HomeRouteView.page,
-      ),
+      AutoRoute(page: HomeNavigationRoute.page, children: [
+        AutoRoute(
+          page: HomeRouteView.page,
+        ),
+        AutoRoute(
+          page: ArticlesRoute.page,
+        ),
+        AutoRoute(
+          page: VideosRoute.page,
+        ),
+      ]),
       AutoRoute(
         page: MissionRoute.page,
       ),

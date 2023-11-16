@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
 
-import '../../articles/pages/articles_page.dart';
+import 'articles/articles_page.dart';
 import '../../mission/pages/mission_page.dart';
-import '../../videos/pages/videos_page.dart';
+import 'videos/videos_page.dart';
 
 @RoutePage()
 class HomePageView extends StatelessWidget {
@@ -133,13 +133,8 @@ class HomePageView extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(10))),
                                     onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const MissionPage(),
-                                        ),
-                                      );
+                                      context.router
+                                          .navigate(const MissionRoute());
                                     },
                                     child: Text('Start',
                                         style: GoogleFonts.averiaGruesaLibre(
@@ -211,13 +206,7 @@ class HomePageView extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(10))),
                                     onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const ArticlesPage(),
-                                        ),
-                                      );
+                                      context.pushRoute(const ArticlesRoute());
                                     },
                                     child: Text('Read More',
                                         style: GoogleFonts.averiaGruesaLibre(
@@ -290,13 +279,7 @@ class HomePageView extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(10))),
                                     onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const VideosPage(),
-                                        ),
-                                      );
+                                      context.pushRoute(const VideosRoute());
                                     },
                                     child: Text('Watch More',
                                         style: GoogleFonts.averiaGruesaLibre(
