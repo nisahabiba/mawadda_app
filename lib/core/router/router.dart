@@ -5,6 +5,8 @@ import 'package:mawadda_app/home/pages/home_navigation_page.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
 import 'package:mawadda_app/home/pages/home_view.dart';
 import 'package:mawadda_app/home/pages/videos/videos_page.dart';
+import 'package:mawadda_app/mission/pages/mission_navigation_page.dart';
+import 'package:mawadda_app/mission/pages/mission_topic_one.dart';
 import 'package:mawadda_app/mission/pages/mission_page.dart';
 //import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
 import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
@@ -58,7 +60,10 @@ class AppRouter extends _$AppRouter {
         page: MissionRoute.page,
       ),
       AutoRoute(
-        page: TopicOneRoute.page,
+        page: MissionTopicOneRoute.page,
+      ),
+      AutoRoute(
+        page: MissionNavigationRoute.page,
       ),
       AutoRoute(page: ProfileNavigationRoute.page, children: [
         AutoRoute(

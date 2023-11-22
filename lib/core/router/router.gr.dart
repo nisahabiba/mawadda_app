@@ -75,6 +75,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MissionPage(),
       );
     },
+    MissionTopicOneRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionTopicOnePage(),
+      );
+    },
     ProfileNavigationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -244,6 +250,20 @@ class MissionRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MissionRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionTopicOnePage]
+class MissionTopicOneRoute extends PageRouteInfo<void> {
+  const MissionTopicOneRoute({List<PageRouteInfo>? children})
+      : super(
+          MissionTopicOneRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionTopicOneRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

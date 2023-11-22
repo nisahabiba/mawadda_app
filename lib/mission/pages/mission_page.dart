@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
 
@@ -43,14 +44,16 @@ class _MissionPageState extends State<MissionPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //------------Mission 1
-                  GestureDetector(
-                    onTap: () {
-                      context.router.replaceAll(
-                        [
-                          const HomeRoute(),
-                        ],
-                      );
+                  //-----------------------Mission 1
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 0, vertical: 0),
+                    ),
+                    onPressed: () {
+                      context.pushRoute(const MissionTopicOneRoute());
                     },
                     child: Card(
                       elevation: 0,
