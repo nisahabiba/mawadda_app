@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mawadda_app/auth/bloc/auth/auth_bloc.dart';
 import 'package:mawadda_app/auth/bloc/register/register_cubit.dart';
 import 'firebase_options.dart';
 import 'core/di/injector.dart';
@@ -47,6 +48,9 @@ class _AppState extends State<App> {
       providers: [
         BlocProvider(
           create: (_) => getIt<NavigationBloc>()..add(const AppStartedEv()),
+        ),
+        BlocProvider(
+          create: (_) => getIt<AuthBloc>()..add(const AuthEvent.appStarted()),
         ),
         BlocProvider(
           create: (_) => getIt<LoginBloc>(),

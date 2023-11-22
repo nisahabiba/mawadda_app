@@ -29,8 +29,11 @@ class ArticlesPage extends StatelessWidget {
                 SizedBox(
                   width: 10.w,
                 ),
-                Text("What do you wanna\nread today, Beautiful?",
-                    textAlign: TextAlign.left, style: TextStyle(fontSize: 24)),
+                const Text(
+                  "What do you wanna\nread today, Beautiful?",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 24),
+                ),
               ],
             ),
           ),

@@ -57,6 +57,9 @@ class AppRouter extends _$AppRouter {
       AutoRoute(
         page: MissionRoute.page,
       ),
+      AutoRoute(
+        page: TopicOneRoute.page,
+      ),
       AutoRoute(page: ProfileNavigationRoute.page, children: [
         AutoRoute(
           page: ProfileRoute.page,
