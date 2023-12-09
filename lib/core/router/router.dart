@@ -10,7 +10,9 @@ import '../../home/pages/articles/articles_page.dart';
 import '../../home/pages/home_navigation_page.dart';
 import '../../home/pages/home_view.dart';
 import '../../main.dart';
+import '../../mission/pages/mission_navigation_page.dart';
 import '../../mission/pages/mission_page.dart';
+import '../../mission/pages/mission_topic_one.dart';
 import '../../profile/pages/edit_profile_page.dart';
 import '../../profile/pages/profile_navigation_page.dart';
 import '../../profile/pages/profile_page.dart';
@@ -44,7 +46,15 @@ class AppRouter extends _$AppRouter {
           ),
         ]),
         AutoRoute(
-          page: MissionRoute.page,
+          page: MissionNavigationRoute.page,
+          children: [
+            AutoRoute(
+              page: MissionTopicOneRoute.page,
+            ),
+            AutoRoute(
+              page: MissionRoute.page,
+            ),
+          ],
         ),
         AutoRoute(
           page: ProfileNavigationRoute.page,

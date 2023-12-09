@@ -63,10 +63,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MainPage(),
       );
     },
+    MissionNavigationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionNavigationPage(),
+      );
+    },
     MissionRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const MissionPage(),
+      );
+    },
+    MissionTopicOneRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionTopicOnePage(),
       );
     },
     ProfileNavigationRoute.name: (routeData) {
@@ -215,6 +227,20 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MissionNavigationPage]
+class MissionNavigationRoute extends PageRouteInfo<void> {
+  const MissionNavigationRoute({List<PageRouteInfo>? children})
+      : super(
+          MissionNavigationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionNavigationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [MissionPage]
 class MissionRoute extends PageRouteInfo<void> {
   const MissionRoute({List<PageRouteInfo>? children})
@@ -224,6 +250,20 @@ class MissionRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MissionRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionTopicOnePage]
+class MissionTopicOneRoute extends PageRouteInfo<void> {
+  const MissionTopicOneRoute({List<PageRouteInfo>? children})
+      : super(
+          MissionTopicOneRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionTopicOneRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
