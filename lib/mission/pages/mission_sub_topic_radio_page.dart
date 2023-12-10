@@ -8,6 +8,14 @@ class MissionSubTopicRadioPage extends StatefulWidget {
   const MissionSubTopicRadioPage({super.key});
 
   @override
+  State<MissionSubTopicRadioPage> createState() =>
+      _MissionSubTopicRadioPageState();
+}
+
+class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
+  int selectedOption = 0;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
