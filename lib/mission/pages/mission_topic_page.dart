@@ -1,11 +1,33 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:mawadda_app/core/router/router.dart';
+
 @RoutePage()
 class MissionTopicPage extends StatelessWidget {
-  const MissionTopicPage({super.key});
+  const MissionTopicPage({
+    Key? key,
+    required this.title,
+    required this.subTitle,
+    required this.subTitleDetails,
+    required this.subTopic1,
+    required this.subTopic2,
+    required this.ref1,
+    required this.ref2,
+    required this.ref3,
+  }) : super(key: key);
+
+  final String title;
+  final String subTitle;
+  final String subTitleDetails;
+  final String subTopic1;
+  final String subTopic2;
+  final String ref1;
+  final String ref2;
+  final String ref3;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +41,9 @@ class MissionTopicPage extends StatelessWidget {
       child: DefaultTextStyle(
         style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
         child: ListView(children: [
-          const Center(
+          Center(
             child: Text(
-              "Health & Pregnancy",
+              title,
               style: TextStyle(fontSize: 30),
             ),
           ),
@@ -57,7 +79,7 @@ class MissionTopicPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Why do we need to\nlearn about this?",
+                                subTitle,
                                 style: GoogleFonts.averiaGruesaLibre(
                                     fontSize: 20.sp),
                               ),
@@ -65,7 +87,7 @@ class MissionTopicPage extends StatelessWidget {
                                 height: 5.h,
                               ),
                               Text(
-                                "Because health can protect us\nfrom illness, and at the same\ntime, we provide the better\nlife quality to the next\ngeneration.",
+                                subTitleDetails,
                                 style: GoogleFonts.averiaGruesaLibre(
                                     fontSize: 10.sp),
                               ),
@@ -79,40 +101,42 @@ class MissionTopicPage extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(
-                top: 10.r, left: 10.r, right: 10.r, bottom: 3.r),
-            child: Stack(
-              alignment: AlignmentDirectional.topCenter,
-              children: [
-                Card(
-                  elevation: 0,
-                  color: Colors.white,
-                  shape: const RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 3),
-                      borderRadius: BorderRadius.all(Radius.circular(25))),
-                  child: SizedBox(
-                    width: 1.sw,
-                    height: 110,
-                    child: const Center(
-                      child: Row(),
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      width: 0.7.sw,
-                      child: const Text(
-                        "Sub-topic 1\nPre-Marital Health Screening?",
-                        textAlign: TextAlign.center,
+          GestureDetector(
+            onTap: () async {
+              final navigateToSubTopic =
+                  await context.pushRoute(const MissionSubTopicRoute());
+            },
+            child: Container(
+              padding: EdgeInsets.only(
+                  top: 10.r, left: 10.r, right: 10.r, bottom: 3.r),
+              child: Stack(
+                alignment: AlignmentDirectional.topCenter,
+                children: [
+                  Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(25))),
+                    child: SizedBox(
+                      width: 1.sw,
+                      height: 110,
+                      child: const Center(
+                        child: Row(),
                       ),
                     ),
-                    InkWell(
-                      // mau dikasih effect splash tapi belum berhasil
-                      onTap: () {},
-                      child: Card(
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        width: 0.7.sw,
+                        child: Text(
+                          "Sub-topic 1\n$subTopic1",
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Card(
                         elevation: 0,
                         color: const Color(0xffB4B0CE),
                         shape: const RoundedRectangleBorder(
@@ -131,10 +155,10 @@ class MissionTopicPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                    )
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Container(
@@ -162,8 +186,8 @@ class MissionTopicPage extends StatelessWidget {
                   children: [
                     Container(
                       width: 0.7.sw,
-                      child: const Text(
-                        "Sub-topic 2\nDo I need to change my\nlifestyle before marriage?s",
+                      child: Text(
+                        "Sub-topic 2\n$subTopic2",
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -197,16 +221,14 @@ class MissionTopicPage extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.only(left: 30, right: 30),
-            child: const Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("References:\n"),
-                Text(
-                    "1. National Health Marriage Resource Center. (2008) | What is the Relationship of Marriage to Physical Health?"),
-                Text(
-                    "2. B. (n.d.). A premarital screening for a happy marriage | Bangkok Hospital"),
-                Text("3. Pre Marital Check Up Malaysia - SunMed.")
+                Text("1. $ref1"),
+                Text("2. $ref2"),
+                Text("3. $ref3.")
               ],
             ),
           )

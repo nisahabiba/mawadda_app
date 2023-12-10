@@ -16,7 +16,6 @@ class MissionPage extends StatefulWidget {
 class _MissionPageState extends State<MissionPage> {
   @override
   Widget build(BuildContext context) {
-    int selectedOption = 1;
     return Container(
       alignment: Alignment.center,
       constraints: const BoxConstraints.expand(),

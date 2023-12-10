@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/core/router/router.dart';
 
 @RoutePage()
 class MissionSubTopicPage extends StatelessWidget {
@@ -81,7 +82,7 @@ class MissionSubTopicPage extends StatelessWidget {
                                             BorderRadius.circular(10)),
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
-                                  context.pushRoute(const ArticlesRoute());
+                                  context.popRoute();
                                 },
                                 child: Text(
                                   'Back',
@@ -102,7 +103,8 @@ class MissionSubTopicPage extends StatelessWidget {
                                             BorderRadius.circular(10)),
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
-                                  context.pushRoute(const ArticlesRoute());
+                                  context.pushRoute(
+                                      const MissionSubTopicRadioRoute());
                                 },
                                 child: Text(
                                   'Yes, next!',

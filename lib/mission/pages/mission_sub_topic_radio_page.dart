@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/core/router/router.dart';
 
 @RoutePage()
 class MissionSubTopicRadioPage extends StatefulWidget {
@@ -72,30 +73,54 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
             ),
           ),
           Container(
+            padding: EdgeInsets.all(10),
             child: Column(
               children: [
-                ListTile(
-                  title: const Text("The spread of genetic disease"),
-                  leading: Radio(
-                    value: 1,
-                    groupValue: selectedOption,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedOption = value!;
-                      });
-                    },
+                Card(
+                  elevation: 0,
+                  color: const Color(0xffB4B0CE),
+                  shape: const RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.black, width: 3),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: ListTile(
+                    title: const Text("The spread of genetic disease"),
+                    leading: Radio(
+                      value: 1,
+                      groupValue: selectedOption,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedOption = value!;
+                        });
+                        context.router.popForced();
+                        context.router
+                            .popAndPushAll([const MissionSubTopicRoute()]);
+                      },
+                    ),
                   ),
                 ),
-                ListTile(
-                  title: const Text("The couple’s mental readiness"),
-                  leading: Radio(
-                    value: 2,
-                    groupValue: selectedOption,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedOption = value!;
-                      });
-                    },
+                SizedBox(
+                  height: 10.h,
+                ),
+                Card(
+                  elevation: 0,
+                  color: const Color(0xffB4B0CE),
+                  shape: const RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.black, width: 3),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: ListTile(
+                    title: const Text("The couple’s mental readiness"),
+                    leading: Radio(
+                      value: 2,
+                      groupValue: selectedOption,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedOption = value!;
+                        });
+                        context.router.popForced();
+                        context.router
+                            .popAndPushAll([const MissionSubTopicRoute()]);
+                      },
+                    ),
                   ),
                 ),
               ],
