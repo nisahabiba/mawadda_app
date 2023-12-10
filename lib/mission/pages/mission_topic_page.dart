@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage()
-class MissionTopicOnePage extends StatelessWidget {
-  const MissionTopicOnePage({super.key});
+class MissionTopicPage extends StatelessWidget {
+  const MissionTopicPage({super.key});
 
   @override
   Widget build(BuildContext context) {
