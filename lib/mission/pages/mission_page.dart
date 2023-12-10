@@ -46,7 +46,7 @@ class _MissionPageState extends State<MissionPage> {
                   //------------Mission 1
                   GestureDetector(
                     onTap: () {
-                      context.pushRoute(const MissionTopicOneRoute());
+                      context.pushRoute(const MissionTopicRoute());
                     },
                     child: Card(
                       elevation: 0,

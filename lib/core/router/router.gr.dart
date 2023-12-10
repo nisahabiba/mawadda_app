@@ -75,10 +75,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MissionPage(),
       );
     },
-    MissionTopicOneRoute.name: (routeData) {
+    MissionSubTopicRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MissionTopicOnePage(),
+        child: const MissionSubTopicPage(),
+      );
+    },
+    MissionSubTopicRadioRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicRadioPage(),
+      );
+    },
+    MissionTopicRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionTopicPage(),
       );
     },
     ProfileNavigationRoute.name: (routeData) {
@@ -255,15 +267,43 @@ class MissionRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [MissionTopicOnePage]
-class MissionTopicOneRoute extends PageRouteInfo<void> {
-  const MissionTopicOneRoute({List<PageRouteInfo>? children})
+/// [MissionSubTopicPage]
+class MissionSubTopicRoute extends PageRouteInfo<void> {
+  const MissionSubTopicRoute({List<PageRouteInfo>? children})
       : super(
-          MissionTopicOneRoute.name,
+          MissionSubTopicRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'MissionTopicOneRoute';
+  static const String name = 'MissionSubTopicRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionSubTopicRadioPage]
+class MissionSubTopicRadioRoute extends PageRouteInfo<void> {
+  const MissionSubTopicRadioRoute({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRadioRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRadioRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionTopicPage]
+class MissionTopicRoute extends PageRouteInfo<void> {
+  const MissionTopicRoute({List<PageRouteInfo>? children})
+      : super(
+          MissionTopicRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionTopicRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

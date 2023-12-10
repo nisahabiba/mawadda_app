@@ -12,7 +12,9 @@ import '../../home/pages/home_view.dart';
 import '../../main.dart';
 import '../../mission/pages/mission_navigation_page.dart';
 import '../../mission/pages/mission_page.dart';
-import '../../mission/pages/mission_topic_one.dart';
+import '../../mission/pages/mission_sub_topic_page.dart';
+import '../../mission/pages/mission_sub_topic_radio_page.dart';
+import '../../mission/pages/mission_topic_page.dart';
 import '../../profile/pages/edit_profile_page.dart';
 import '../../profile/pages/profile_navigation_page.dart';
 import '../../profile/pages/profile_page.dart';
@@ -34,25 +36,34 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       page: HomeRoute.page,
       children: [
-        AutoRoute(page: HomeNavigationRoute.page, children: [
-          AutoRoute(
-            page: HomeRouteView.page,
-          ),
-          AutoRoute(
-            page: ArticlesRoute.page,
-          ),
-          AutoRoute(
-            page: VideosRoute.page,
-          ),
-        ]),
+        AutoRoute(
+          page: HomeNavigationRoute.page,
+          children: [
+            AutoRoute(
+              page: HomeRouteView.page,
+            ),
+            AutoRoute(
+              page: ArticlesRoute.page,
+            ),
+            AutoRoute(
+              page: VideosRoute.page,
+            ),
+          ],
+        ),
         AutoRoute(
           page: MissionNavigationRoute.page,
           children: [
             AutoRoute(
-              page: MissionTopicOneRoute.page,
+              page: MissionRoute.page,
             ),
             AutoRoute(
-              page: MissionRoute.page,
+              page: MissionTopicRoute.page,
+            ),
+            AutoRoute(
+              page: MissionSubTopicRoute.page,
+            ),
+            AutoRoute(
+              page: MissionSubTopicRadioRoute.page,
             ),
           ],
         ),
