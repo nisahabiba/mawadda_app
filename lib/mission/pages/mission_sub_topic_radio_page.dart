@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage()
-class MissionTopicOnePage extends StatelessWidget {
-  const MissionTopicOnePage({super.key});
+class MissionSubTopicRadioPage extends StatefulWidget {
+  const MissionSubTopicRadioPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -96,5 +96,11 @@ class MissionTopicOnePage extends StatelessWidget {
         ]),
       ),
     );
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
   }
 }
