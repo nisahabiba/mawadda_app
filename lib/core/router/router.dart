@@ -57,13 +57,21 @@ class AppRouter extends _$AppRouter {
         ),
       ]),
       AutoRoute(
-        page: MissionRoute.page,
-      ),
-      AutoRoute(
-        page: MissionTopicOneRoute.page,
-      ),
-      AutoRoute(
         page: MissionNavigationRoute.page,
+        children: [
+          AutoRoute(
+            page: MissionRoute.page,
+          ),
+          AutoRoute(
+            page: MissionTopicRoute.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute.page,
+          ),
+        ],
       ),
       AutoRoute(page: ProfileNavigationRoute.page, children: [
         AutoRoute(
