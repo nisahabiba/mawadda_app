@@ -65,7 +65,10 @@ class HomePageView extends StatelessWidget {
                                             color: Colors.black, width: 3),
                                         borderRadius:
                                             BorderRadius.circular(10))),
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.router
+                                      .navigate(const ProfileNavigationRoute());
+                                },
                                 child: Text(
                                   'Check Profile',
                                   style: GoogleFonts.averiaGruesaLibre(

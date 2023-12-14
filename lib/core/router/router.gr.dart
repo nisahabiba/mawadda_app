@@ -94,17 +94,19 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     MissionTopicRoute.name: (routeData) {
+      final args = routeData.argsAs<MissionTopicRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: MissionTopicPage(
-          title: '',
-          subTitle: '',
-          subTitleDetails: '',
-          subTopic1: '',
-          subTopic2: '',
-          ref1: '',
-          ref2: '',
-          ref3: '',
+          key: args.key,
+          title: args.title,
+          subTitle: args.subTitle,
+          subTitleDetails: args.subTitleDetails,
+          subTopic1: args.subTopic1,
+          subTopic2: args.subTopic2,
+          ref1: args.ref1,
+          ref2: args.ref2,
+          ref3: args.ref3,
         ),
       );
     },
@@ -325,16 +327,75 @@ class MissionTopicOneRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MissionTopicPage]
-class MissionTopicRoute extends PageRouteInfo<void> {
-  const MissionTopicRoute({List<PageRouteInfo>? children})
-      : super(
+class MissionTopicRoute extends PageRouteInfo<MissionTopicRouteArgs> {
+  MissionTopicRoute({
+    Key? key,
+    required String title,
+    required String subTitle,
+    required String subTitleDetails,
+    required String subTopic1,
+    required String subTopic2,
+    required String ref1,
+    required String ref2,
+    required String ref3,
+    List<PageRouteInfo>? children,
+  }) : super(
           MissionTopicRoute.name,
+          args: MissionTopicRouteArgs(
+            key: key,
+            title: title,
+            subTitle: subTitle,
+            subTitleDetails: subTitleDetails,
+            subTopic1: subTopic1,
+            subTopic2: subTopic2,
+            ref1: ref1,
+            ref2: ref2,
+            ref3: ref3,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'MissionTopicRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<MissionTopicRouteArgs> page =
+      PageInfo<MissionTopicRouteArgs>(name);
+}
+
+class MissionTopicRouteArgs {
+  const MissionTopicRouteArgs({
+    this.key,
+    required this.title,
+    required this.subTitle,
+    required this.subTitleDetails,
+    required this.subTopic1,
+    required this.subTopic2,
+    required this.ref1,
+    required this.ref2,
+    required this.ref3,
+  });
+
+  final Key? key;
+
+  final String title;
+
+  final String subTitle;
+
+  final String subTitleDetails;
+
+  final String subTopic1;
+
+  final String subTopic2;
+
+  final String ref1;
+
+  final String ref2;
+
+  final String ref3;
+
+  @override
+  String toString() {
+    return 'MissionTopicRouteArgs{key: $key, title: $title, subTitle: $subTitle, subTitleDetails: $subTitleDetails, subTopic1: $subTopic1, subTopic2: $subTopic2, ref1: $ref1, ref2: $ref2, ref3: $ref3}';
+  }
 }
 
 /// generated route for
