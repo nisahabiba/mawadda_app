@@ -41,7 +41,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final _appRouter = AppRouter();
+  final _appRouter = getIt<AppRouter>();
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -73,8 +73,6 @@ class _AppState extends State<App> {
           ),
           routerConfig: _appRouter.config(),
           key: _appRouter.key,
-          //routerDelegate: _appRouter.delegate(),
-          //routeInformationParser: _appRouter.defaultRouteParser()),
         ),
       ),
     );
@@ -87,25 +85,41 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NavigationBloc, NavigationState>(
-      builder: (context, state) {
-        debugPrint('Navigation State : $state');
-
-        if (state == const AuthSt()) {
-          //context.router.replace(const AuthRoute());
-          //return const LoginPage();
-          context.replaceRoute(const AuthRoute());
-        }
-
-        if (state == const HomeSt()) {
-          // context.router.replace(const LoginRoute());
-          //return const HomePage();
-          context.replaceRoute(const HomeRoute());
-        }
-        return Container(
-          color: Colors.white,
-        );
-      },
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) => state.maybeWhen(
+        orElse: () => context.replaceRoute(
+          const AuthRoute(),
+        ),
+        authenticated: () => context.replaceRoute(
+          const HomeRoute(),
+        ),
+        unAuthenticated: () => context.replaceRoute(
+          const AuthRoute(),
+        ),
+      ),
+      child: Container(
+        color: Colors.white,
+      ),
     );
+    //   return BlocBuilder<NavigationBloc, NavigationState>(
+    //     builder: (context, state) {
+    //       debugPrint('Navigation State : $state');
+
+    //       if (state == const AuthSt()) {
+    //         //context.router.replace(const AuthRoute());
+    //         //return const LoginPage();
+    //         context.replaceRoute(const AuthRoute());
+    //       }
+
+    //       if (state == const HomeSt()) {
+    //         // context.router.replace(const LoginRoute());
+    //         //return const HomePage();
+    //         context.replaceRoute(const HomeRoute());
+    //       }
+    //       return Container(
+    //         color: Colors.white,
+    //       );
+    //     },
+    //   );
   }
 }

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/core/di/injector.dart';
 import 'package:mawadda_app/core/router/router.dart';
 
 import 'articles/articles_page.dart';
@@ -66,8 +67,10 @@ class HomePageView extends StatelessWidget {
                                         borderRadius:
                                             BorderRadius.circular(10))),
                                 onPressed: () {
-                                  context.router
-                                      .navigate(const ProfileNavigationRoute());
+                                  // context.router
+                                  //     .navigate(const ProfileNavigationRoute());
+                                  getIt<AppRouter>()
+                                      .navigate(const ProfileRoute());
                                 },
                                 child: Text(
                                   'Check Profile',
@@ -136,7 +139,9 @@ class HomePageView extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(10))),
                                     onPressed: () {
-                                      context.router
+                                      // context.router
+                                      //     .navigate(const MissionRoute());
+                                      getIt<AppRouter>()
                                           .navigate(const MissionRoute());
                                     },
                                     child: Text('Start',

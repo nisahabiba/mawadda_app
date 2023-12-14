@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/core/router/router.dart';
 
 @RoutePage()
 class ArticlesPage extends StatelessWidget {
@@ -78,7 +79,14 @@ class ArticlesPage extends StatelessWidget {
                                       side: const BorderSide(
                                           color: Colors.black, width: 3),
                                       borderRadius: BorderRadius.circular(10))),
-                              onPressed: () {},
+                              onPressed: () {
+                                context.pushRoute(
+                                  WebViewRoute(
+                                    url:
+                                        'https://peguamsyariefas.com.my/marriage-in-islam-beyond-the-words-i-do',
+                                  ),
+                                );
+                              },
                               child: Text(
                                 'by Peguam Syarie Faiz Adnaan Associates',
                                 style: GoogleFonts.averiaGruesaLibre(
