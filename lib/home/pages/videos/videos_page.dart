@@ -2,6 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/core/router/router.dart';
+
+import '../../../core/util/global_util.dart';
 
 @RoutePage()
 class VideosPage extends StatelessWidget {
@@ -19,7 +22,7 @@ class VideosPage extends StatelessWidget {
       child: DefaultTextStyle(
         style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
         child: ListView(children: [
-          Container(
+          SizedBox(
             width: 1.sw,
             height: 0.15.sh,
             child: Row(
@@ -29,7 +32,7 @@ class VideosPage extends StatelessWidget {
                 SizedBox(
                   width: 1.w,
                 ),
-                Text("What do you wanna\nwatch today, Beautiful?",
+                const Text("What do you wanna\nwatch today, Beautiful?",
                     textAlign: TextAlign.left, style: TextStyle(fontSize: 24)),
               ],
             ),
@@ -68,7 +71,19 @@ class VideosPage extends StatelessWidget {
                                       side: const BorderSide(
                                           color: Colors.black, width: 3),
                                       borderRadius: BorderRadius.circular(10))),
-                              onPressed: () {},
+                              onPressed: () {
+                                // GlobalUtil.launchAppUrl(
+                                //   Uri.parse(
+                                //       'https://youtu.be/IHFsIXHWnYo?si=g70QUkJpfTa40oz6'),
+                                //   context,
+                                // );
+                                context.pushRoute(
+                                  WebViewRoute(
+                                    url:
+                                        'https://youtu.be/IHFsIXHWnYo?si=g70QUkJpfTa40oz6',
+                                  ),
+                                );
+                              },
                               child: Text(
                                 'by Mufti Menk',
                                 style: GoogleFonts.averiaGruesaLibre(
@@ -101,7 +116,7 @@ class VideosPage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       side: BorderSide(color: Colors.black, width: 3),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
+                  child: SizedBox(
                     width: 1.sw,
                     height: 100.h,
                     child: Row(
@@ -166,7 +181,7 @@ class VideosPage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       side: BorderSide(color: Colors.black, width: 3),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
+                  child: SizedBox(
                     width: 1.sw,
                     height: 100.h,
                     child: Row(
@@ -231,7 +246,7 @@ class VideosPage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       side: BorderSide(color: Colors.black, width: 3),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
+                  child: SizedBox(
                     width: 1.sw,
                     height: 100.h,
                     child: Row(

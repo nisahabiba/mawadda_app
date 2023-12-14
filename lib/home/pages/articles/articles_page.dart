@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../core/router/router.dart';
+import '../../../core/util/global_util.dart';
+
 @RoutePage()
 class ArticlesPage extends StatelessWidget {
   const ArticlesPage({super.key});
@@ -19,7 +22,7 @@ class ArticlesPage extends StatelessWidget {
       child: DefaultTextStyle(
         style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
         child: ListView(children: [
-          Container(
+          SizedBox(
             width: 1.sw,
             height: 0.15.sh,
             child: Row(
@@ -29,7 +32,7 @@ class ArticlesPage extends StatelessWidget {
                 SizedBox(
                   width: 10.w,
                 ),
-                Text("What do you wanna\nread today, Beautiful?",
+                const Text("What do you wanna\nread today, Beautiful?",
                     textAlign: TextAlign.left, style: TextStyle(fontSize: 24)),
               ],
             ),
@@ -75,7 +78,19 @@ class ArticlesPage extends StatelessWidget {
                                       side: const BorderSide(
                                           color: Colors.black, width: 3),
                                       borderRadius: BorderRadius.circular(10))),
-                              onPressed: () {},
+                              onPressed: () {
+                                context.pushRoute(
+                                  WebViewRoute(
+                                    url:
+                                        'https://peguamsyariefas.com.my/marriage-in-islam-beyond-the-words-i-do',
+                                  ),
+                                );
+                                // GlobalUtil.launchAppUrl(
+                                //   Uri.parse(
+                                //       'https://peguamsyariefas.com.my/marriage-in-islam-beyond-the-words-i-do'),
+                                //   context,
+                                // );
+                              },
                               child: Text(
                                 'by Peguam Syarie Faiz Adnaan Associates',
                                 style: GoogleFonts.averiaGruesaLibre(
@@ -107,7 +122,7 @@ class ArticlesPage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       side: BorderSide(color: Colors.black, width: 3),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
+                  child: SizedBox(
                     width: 1.sw,
                     height: 100.h,
                     child: Row(
@@ -169,7 +184,7 @@ class ArticlesPage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       side: BorderSide(color: Colors.black, width: 3),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
+                  child: SizedBox(
                     width: 1.sw,
                     height: 100.h,
                     child: Row(
@@ -231,7 +246,7 @@ class ArticlesPage extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       side: BorderSide(color: Colors.black, width: 3),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
+                  child: SizedBox(
                     width: 1.sw,
                     height: 100.h,
                     child: Row(

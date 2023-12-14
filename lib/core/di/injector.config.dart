@@ -10,17 +10,19 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:shared_preferences/shared_preferences.dart' as _i9;
+import 'package:shared_preferences/shared_preferences.dart' as _i11;
 
-import '../../auth/bloc/bloc/auth_bloc.dart' as _i11;
-import '../../auth/bloc/login/login_bloc.dart' as _i6;
-import '../../auth/bloc/register/register_cubit.dart' as _i8;
-import '../../auth/repository/auth_repository.dart' as _i3;
-import '../../auth/utils/auth_util.dart' as _i4;
-import '../../profile/bloc/navigation/profile_navigation_cubit.dart' as _i7;
-import '../util/global_util.dart' as _i5;
-import '../util/shared_preferences_util.dart' as _i10;
-import 'injector.dart' as _i12;
+import '../../auth/bloc/bloc/auth_bloc.dart' as _i13;
+import '../../auth/bloc/login/login_bloc.dart' as _i7;
+import '../../auth/bloc/register/register_cubit.dart' as _i10;
+import '../../auth/repository/auth_repository.dart' as _i4;
+import '../../auth/utils/auth_util.dart' as _i5;
+import '../../profile/bloc/navigation/profile_navigation_cubit.dart' as _i9;
+import '../page/chrome_safari_webview_page.dart' as _i8;
+import '../router/router.dart' as _i3;
+import '../util/global_util.dart' as _i6;
+import '../util/shared_preferences_util.dart' as _i12;
+import 'injector.dart' as _i14;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -34,23 +36,27 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     final registerModule = _$RegisterModule();
-    gh.lazySingleton<_i3.AuthRepository>(() => _i3.AuthRepository());
-    gh.lazySingleton<_i4.AuthUtil>(() => _i4.AuthUtil());
-    gh.factory<_i5.GlobalUtil>(() => _i5.GlobalUtil());
-    gh.factory<_i6.LoginBloc>(() => _i6.LoginBloc(gh<_i3.AuthRepository>()));
-    gh.lazySingleton<_i7.ProfileNavigationCubit>(
-        () => _i7.ProfileNavigationCubit());
-    gh.factory<_i8.RegisterCubit>(
-        () => _i8.RegisterCubit(gh<_i3.AuthRepository>()));
-    await gh.lazySingletonAsync<_i9.SharedPreferences>(
+    gh.singleton<_i3.AppRouter>(_i3.AppRouter());
+    gh.lazySingleton<_i4.AuthRepository>(() => _i4.AuthRepository());
+    gh.lazySingleton<_i5.AuthUtil>(() => _i5.AuthUtil());
+    gh.factory<_i6.GlobalUtil>(() => _i6.GlobalUtil());
+    gh.factory<_i7.LoginBloc>(() => _i7.LoginBloc(gh<_i4.AuthRepository>()));
+    gh.lazySingleton<_i8.MyChromeSafariBrowser>(
+        () => _i8.MyChromeSafariBrowser());
+    gh.lazySingleton<_i8.OpenBrowser>(() => _i8.OpenBrowser());
+    gh.lazySingleton<_i9.ProfileNavigationCubit>(
+        () => _i9.ProfileNavigationCubit());
+    gh.factory<_i10.RegisterCubit>(
+        () => _i10.RegisterCubit(gh<_i4.AuthRepository>()));
+    await gh.lazySingletonAsync<_i11.SharedPreferences>(
       () => registerModule.prefs,
       preResolve: true,
     );
-    gh.lazySingleton<_i10.SharedPreferencesUtil>(
-        () => _i10.SharedPreferencesUtil());
-    gh.factory<_i11.AuthBloc>(() => _i11.AuthBloc(gh<_i4.AuthUtil>()));
+    gh.lazySingleton<_i12.SharedPreferencesUtil>(
+        () => _i12.SharedPreferencesUtil());
+    gh.factory<_i13.AuthBloc>(() => _i13.AuthBloc(gh<_i5.AuthUtil>()));
     return this;
   }
 }
 
-class _$RegisterModule extends _i12.RegisterModule {}
+class _$RegisterModule extends _i14.RegisterModule {}

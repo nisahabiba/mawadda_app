@@ -40,7 +40,8 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final _appRouter = AppRouter();
+  final _appRouter = getIt<AppRouter>();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../core/di/injector.dart';
 import '../../core/router/router.dart';
 
 @RoutePage()
@@ -65,6 +66,8 @@ class HomePageView extends StatelessWidget {
                                 onPressed: () {
                                   // context.router
                                   //     .navigate(const ProfileNavigationRoute());
+                                  getIt<AppRouter>()
+                                      .navigate(const ProfileRoute());
                                 },
                                 child: Text(
                                   'Check Profile',
@@ -133,7 +136,8 @@ class HomePageView extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(10))),
                                     onPressed: () {
-                                      context.router
+                                      // context.navigateTo(const MissionRoute());
+                                      getIt<AppRouter>()
                                           .navigate(const MissionRoute());
                                     },
                                     child: Text('Start',

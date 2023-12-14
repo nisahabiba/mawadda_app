@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
 
@@ -19,9 +20,11 @@ import '../../profile/pages/edit_profile_page.dart';
 import '../../profile/pages/profile_navigation_page.dart';
 import '../../profile/pages/profile_page.dart';
 import '../../home/pages/videos/videos_page.dart';
+import '../page/webview_page.dart';
 
 part 'router.gr.dart';
 
+@singleton
 @AutoRouterConfig()
 class AppRouter extends _$AppRouter {
   @override
@@ -91,6 +94,9 @@ class AppRouter extends _$AppRouter {
     ),
     AutoRoute(
       page: SucceedSignUpRoute.page,
+    ),
+    AutoRoute(
+      page: WebViewRoute.page,
     ),
   ];
 }
