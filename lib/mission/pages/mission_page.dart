@@ -49,14 +49,17 @@ class _MissionPageState extends State<MissionPage> {
                     onTap: () {
                       context.pushRoute(
                         MissionTopicRoute(
-                          title: 'Health',
-                          subTitle: '',
-                          subTitleDetails: '',
-                          subTopic1: '',
-                          subTopic2: '',
-                          ref1: '',
-                          ref2: '',
-                          ref3: '',
+                          title: 'Health & Pregnancy',
+                          subTitle: 'Why do we need to\nlearn about this?',
+                          subTitleDetails:
+                              'Because health can protect us\nfrom illness, and at the same\ntime, we provide the better\nlife quality to the next\ngeneration.',
+                          subTopic1: 'Pre-Marital Health Screening?',
+                          subTopic2: 'Fertility & pregnancy',
+                          ref1:
+                              'National Health Marriage Resource Center. (2008) |\nWhat is the Relationship of Marriage to Physical Health?',
+                          ref2:
+                              'B. (n.d.). A premarital screening for a happy marriage | Bangkok Hospital ',
+                          ref3: 'Pre Marital Check Up Malaysia - SunMed.',
                         ),
                       );
                     },
