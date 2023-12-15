@@ -89,5 +89,8 @@ class AppRouter extends _$AppRouter {
         ),
       ]),
     ]),
+    AutoRoute(
+      page: WebViewRoute.page,
+    ),
   ];
 }

@@ -41,23 +41,32 @@ class ArticlesPage extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
             width: 1.sw,
-            child: Card(
-                elevation: 0,
-                color: Colors.white,
-                shape: const RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.black, width: 3),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Stack(
-                  children: [
-                    SizedBox(
-                      width: 1.sw,
-                      height: 210.h,
-                      child: Image.asset(
-                        "assets/back_article_header.png",
-                        fit: BoxFit.fill,
-                      ),
+            child: GestureDetector(
+                onTap: () {
+                  context.pushRoute(
+                    WebViewRoute(
+                      url:
+                          'https://peguamsyariefas.com.my/marriage-in-islam-beyond-the-words-i-do',
                     ),
-                    Container(
+                  );
+                },
+                child: Card(
+                  elevation: 0,
+                  color: Colors.white,
+                  shape: const RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.black, width: 3),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                        width: 1.sw,
+                        height: 210.h,
+                        child: Image.asset(
+                          "assets/back_article_header.png",
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      Container(
                         padding: EdgeInsets.only(left: 20.r),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,30 +81,29 @@ class ArticlesPage extends StatelessWidget {
                                   color: Colors.white,
                                   decoration: TextDecoration.underline),
                             ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFB4B0CE),
-                                  shape: RoundedRectangleBorder(
-                                      side: const BorderSide(
-                                          color: Colors.black, width: 3),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onPressed: () {
-                                context.pushRoute(
-                                  WebViewRoute(
-                                    url:
-                                        'https://peguamsyariefas.com.my/marriage-in-islam-beyond-the-words-i-do',
-                                  ),
-                                );
-                              },
-                              child: Text(
-                                'by Peguam Syarie Faiz Adnaan Associates',
-                                style: GoogleFonts.averiaGruesaLibre(
-                                    color: Colors.black, fontSize: 12),
+                            Card(
+                              elevation: 0,
+                              color: Color(0xFFB4B0CE),
+                              shape: const RoundedRectangleBorder(
+                                  side:
+                                      BorderSide(color: Colors.black, width: 3),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                              child: Container(
+                                padding: EdgeInsets.all(10),
+                                height: 30.h,
+                                child: Text(
+                                  'by Peguam Syarie Faiz Adnaan Associates',
+                                  style: GoogleFonts.averiaGruesaLibre(
+                                      color: Colors.black, fontSize: 12),
+                                ),
                               ),
                             )
                           ],
-                        )),
-                  ],
+                        ),
+                      ),
+                    ],
+                  ),
                 )),
           ),
           Container(
@@ -107,189 +115,234 @@ class ArticlesPage extends StatelessWidget {
 
 //--------------------> Article 1
 
-          Container(
-            padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
-            child: Stack(
-              alignment: AlignmentDirectional.topCenter,
-              children: [
-                Card(
-                  elevation: 0,
-                  color: Colors.white,
-                  shape: const RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 3),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
-                    width: 1.sw,
-                    height: 100.h,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/pic_article1.png",
-                        ),
-                        SizedBox(
-                          width: 40.w,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Fundamentals of\na Happy Marriage",
-                              style: GoogleFonts.averiaGruesaLibre(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline),
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFB4B0CE),
-                                  shape: RoundedRectangleBorder(
-                                      side: const BorderSide(
-                                          color: Colors.black, width: 3),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onPressed: () {},
-                              child: Text(
-                                'by Shahina Siddiqui',
+          GestureDetector(
+            onTap: () {
+              context.pushRoute(
+                WebViewRoute(
+                    url:
+                        'https://www.soundvision.com/article/fundamentals-of-a-happy-marriage'),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
+              child: Stack(
+                alignment: AlignmentDirectional.topCenter,
+                children: [
+                  Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Container(
+                      width: 1.sw,
+                      height: 100.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/pic_article1.png",
+                          ),
+                          SizedBox(
+                            width: 40.w,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Fundamentals of\na Happy Marriage",
                                 style: GoogleFonts.averiaGruesaLibre(
-                                    color: Colors.black, fontSize: 12),
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
                               ),
-                            )
-                          ],
-                        )
-                      ],
+                              Card(
+                                elevation: 0,
+                                color: Color(0xFFB4B0CE),
+                                shape: const RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        color: Colors.black, width: 3),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.all(10),
+                                  height: 30.h,
+                                  width: 120.h,
+                                  child: Text(
+                                    'by Shahina Siddiqui',
+                                    style: GoogleFonts.averiaGruesaLibre(
+                                        color: Colors.black, fontSize: 12),
+                                  ),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
 
 //--------------------> Article 2
 
-          Container(
-            padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
-            child: Stack(
-              alignment: AlignmentDirectional.topCenter,
-              children: [
-                Card(
-                  elevation: 0,
-                  color: Colors.white,
-                  shape: const RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 3),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
-                    width: 1.sw,
-                    height: 100.h,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/pic_article2.png",
-                        ),
-                        SizedBox(
-                          width: 40.w,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Confessions of a\nShaikh’s Wife Part 1:\nWhat Makes the Man",
-                              style: GoogleFonts.averiaGruesaLibre(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline),
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFB4B0CE),
-                                  shape: RoundedRectangleBorder(
-                                      side: const BorderSide(
-                                          color: Colors.black, width: 3),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onPressed: () {},
-                              child: Text(
-                                'by Umm Fudayl',
+          GestureDetector(
+            onTap: () {
+              context.pushRoute(
+                WebViewRoute(
+                    url:
+                        'https://www.almadina.org/studio/articles/confessions-of-a-shaikhs-wife-part-1-what-makes-the-man'),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
+              child: Stack(
+                alignment: AlignmentDirectional.topCenter,
+                children: [
+                  Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Container(
+                      width: 1.sw,
+                      height: 100.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/pic_article2.png",
+                          ),
+                          SizedBox(
+                            width: 40.w,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Confessions of a\nShaikh’s Wife:\nWhat Makes the Man",
                                 style: GoogleFonts.averiaGruesaLibre(
-                                    color: Colors.black, fontSize: 12),
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
                               ),
-                            )
-                          ],
-                        )
-                      ],
+                              Card(
+                                elevation: 0,
+                                color: Color(0xFFB4B0CE),
+                                shape: const RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        color: Colors.black, width: 3),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.all(10),
+                                  height: 30.h,
+                                  width: 120.h,
+                                  child: Text(
+                                    'by Umm Fudayl',
+                                    style: GoogleFonts.averiaGruesaLibre(
+                                        color: Colors.black, fontSize: 12),
+                                  ),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
 
 //--------------------> Article 3
 
-          Container(
-            padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
-            child: Stack(
-              alignment: AlignmentDirectional.topCenter,
-              children: [
-                Card(
-                  elevation: 0,
-                  color: Colors.white,
-                  shape: const RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 3),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Container(
-                    width: 1.sw,
-                    height: 100.h,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/pic_article3.png",
-                        ),
-                        SizedBox(
-                          width: 40.w,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Pre–nups Protect\nMuslim Women",
-                              style: GoogleFonts.averiaGruesaLibre(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline),
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFB4B0CE),
-                                  shape: RoundedRectangleBorder(
-                                      side: const BorderSide(
-                                          color: Colors.black, width: 3),
-                                      borderRadius: BorderRadius.circular(10))),
-                              onPressed: () {},
-                              child: Text(
-                                'by Aisyah Sulaiman',
+          GestureDetector(
+            onTap: () {
+              context.pushRoute(
+                WebViewRoute(
+                    url:
+                        'https://www.malaysianbar.org.my/article/news/legal-and-general-news/legal-news/pre-nups-protect-muslim-women'),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.only(top: 10.r, left: 10.r, right: 10.r),
+              child: Stack(
+                alignment: AlignmentDirectional.topCenter,
+                children: [
+                  Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Container(
+                      width: 1.sw,
+                      height: 100.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/pic_article3.png",
+                          ),
+                          SizedBox(
+                            width: 40.w,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Pre–nups Protect\nMuslim Women",
                                 style: GoogleFonts.averiaGruesaLibre(
-                                    color: Colors.black, fontSize: 12),
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline),
                               ),
-                            )
-                          ],
-                        )
-                      ],
+                              Card(
+                                elevation: 0,
+                                color: Color(0xFFB4B0CE),
+                                shape: const RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        color: Colors.black, width: 3),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.all(10),
+                                  height: 30.h,
+                                  width: 120.h,
+                                  child: Text(
+                                    'by Aisyah Sulaiman',
+                                    style: GoogleFonts.averiaGruesaLibre(
+                                        color: Colors.black, fontSize: 12),
+                                  ),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
+          )
         ]),
       ),
     );
