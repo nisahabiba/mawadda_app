@@ -41,6 +41,9 @@ class MissionTopicPage extends StatelessWidget {
       child: DefaultTextStyle(
         style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
         child: ListView(children: [
+          SizedBox(
+            height: 20.h,
+          ),
           Center(
             child: Text(
               title,
@@ -78,19 +81,25 @@ class MissionTopicPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                subTitle,
-                                style: GoogleFonts.averiaGruesaLibre(
-                                    fontSize: 20.sp),
+                              SizedBox(
+                                width: 200.w,
+                                child: Text(
+                                  subTitle,
+                                  style: GoogleFonts.averiaGruesaLibre(
+                                      fontSize: 20.sp),
+                                ),
                               ),
                               SizedBox(
                                 height: 5.h,
                               ),
-                              Text(
-                                subTitleDetails,
-                                style: GoogleFonts.averiaGruesaLibre(
-                                    fontSize: 10.sp),
-                              ),
+                              SizedBox(
+                                width: 200.w,
+                                child: Text(
+                                  subTitleDetails,
+                                  style: GoogleFonts.averiaGruesaLibre(
+                                      fontSize: 12.sp),
+                                ),
+                              )
                             ],
                           ),
                         ],
@@ -129,11 +138,12 @@ class MissionTopicPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Container(
+                      SizedBox(
                         width: 0.7.sw,
                         child: Text(
                           "Sub-topic 1\n$subTopic1",
                           textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16),
                         ),
                       ),
                       Card(
@@ -184,12 +194,11 @@ class MissionTopicPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 0.7.sw,
-                      child: Text(
-                        "Sub-topic 2\n$subTopic2",
-                        textAlign: TextAlign.center,
-                      ),
+                      child: Text("Sub-topic 2\n$subTopic2",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16)),
                     ),
                     InkWell(
                       // mau dikasih effect splash tapi belum berhasil
@@ -225,12 +234,15 @@ class MissionTopicPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("References:\n"),
-                Text("1. $ref1"),
-                Text("2. $ref2"),
-                Text("3. $ref3.")
+                Text("References:\n", style: TextStyle(fontSize: 11)),
+                Text("1. $ref1", style: TextStyle(fontSize: 11)),
+                Text("2. $ref2", style: TextStyle(fontSize: 11)),
+                Text("3. $ref3.", style: TextStyle(fontSize: 11))
               ],
             ),
+          ),
+          SizedBox(
+            height: 20.h,
           )
         ]),
       ),

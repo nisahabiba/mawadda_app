@@ -44,22 +44,22 @@ class _MissionPageState extends State<MissionPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //-----------------------Mission 1
+//------------------------ Mission 1
                   GestureDetector(
                     onTap: () {
                       context.pushRoute(
                         MissionTopicRoute(
                           title: 'Health & Pregnancy',
-                          subTitle: 'Why do we need to\nlearn about this?',
+                          subTitle: 'Why do we need to learn about this?',
                           subTitleDetails:
-                              'Because health can protect us\nfrom illness, and at the same\ntime, we provide the better\nlife quality to the next\ngeneration.',
+                              "Because health can protect us from illness, and at the same time, we provide the better life quality to the next generation.",
                           subTopic1: 'Pre-Marital Health Screening?',
                           subTopic2: 'Fertility & pregnancy',
                           ref1:
-                              'National Health Marriage Resource Center. (2008) |\nWhat is the Relationship of Marriage to Physical Health?',
+                              'National Health Marriage Resource Center. (2008) | What is the Relationship of Marriage to Physical Health?',
                           ref2:
                               'B. (n.d.). A premarital screening for a happy marriage | Bangkok Hospital ',
-                          ref3: 'Pre Marital Check Up Malaysia - SunMed.',
+                          ref3: 'Pre Marital Check Up Malaysia - SunMed',
                         ),
                       );
                     },
@@ -98,9 +98,26 @@ class _MissionPageState extends State<MissionPage> {
                       ),
                     ),
                   ),
-                  //------------Mission 2
+//------------------------ Mission 2
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      context.pushRoute(
+                        MissionTopicRoute(
+                          title: 'Emotional Control',
+                          subTitle: 'Why do we need to learn about this?',
+                          subTitleDetails:
+                              'Because it\'s like building a love bridge, keeping talks drama-free, fights under control, and hearts closer. Smooth sailing for your happily ever after!',
+                          subTopic1: 'Understanding your emotions',
+                          subTopic2: 'Healthy communication',
+                          ref1:
+                              'Perloff, R.M. (1993). The Dynamics of Persuasion: Communication and Attitudes in the 21st Century.',
+                          ref2:
+                              'Berlacher, et.al. (2017). The Impact of Communication Skills Training on Cardiology Fellows\' and Attending Physicians\' Perceived Comfort with Difficult Conversations. Journal of Palliative Medicine, 20, 767-769.',
+                          ref3:
+                              'Goleman, D.J. (1995). Emotional Intelligence: Why It Can Matter More Than IQ.',
+                        ),
+                      );
+                    },
                     child: Card(
                       elevation: 0,
                       color: Colors.white,
@@ -141,9 +158,26 @@ class _MissionPageState extends State<MissionPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //------------Mission 3
+//------------------------ Mission 3
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      context.pushRoute(
+                        MissionTopicRoute(
+                          title: 'Parenting',
+                          subTitle: 'Why do we need to learn about this?',
+                          subTitleDetails:
+                              'Because pre-marital parenting discussions build a stronger foundation for your family, ensuring the best way to raise your kids.',
+                          subTopic1: 'Am I ready to have kids?',
+                          subTopic2: 'Motherhood',
+                          ref1:
+                              'Perry, T. (2020). Love, Money, and Parenting. Journal of Economic Issues, 54, 554 - 556.',
+                          ref2:
+                              'Khair, A.U. (2014). The Correlation of Parenting and Socioeconomic Status Towards English Learning Readiness of Children.',
+                          ref3:
+                              'Kanishevska, L. (2020). State of readiness for responsible parenting among high school students in boarding schools. Theoretical and Methodical Problems of Children and Youth Education.',
+                        ),
+                      );
+                    },
                     child: Card(
                       elevation: 0,
                       color: Colors.white,
@@ -179,9 +213,25 @@ class _MissionPageState extends State<MissionPage> {
                       ),
                     ),
                   ),
-                  //------------Mission 4
+//------------------------ Mission 4
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      context.pushRoute(
+                        MissionTopicRoute(
+                            title: 'Financial Stability',
+                            subTitle: 'Why do we need to learn about this?',
+                            subTitleDetails:
+                                'Because understanding each other\'s finances before marriage builds trust, avoids future stress, and paves the way for a shared financial future.',
+                            subTopic1: 'Money in Marriage',
+                            subTopic2: 'Prenuptial Agreement',
+                            ref1:
+                                'Rashid, N., et.al. (2018). Ethics and Financial Reporting Assurance. International Journal of Academic Research in Business and Social Sciences.',
+                            ref2:
+                                'John, L. K., Barasz, K., & Norton, M. I. (2016). Hiding personal information reveals the worst. Proceedings of the National Academy of Sciences of the United States of America, 113(4), 954–959.',
+                            ref3:
+                                'Hatcher, C.B. (2000). Should Households Establish Emergency Funds.'),
+                      );
+                    },
                     child: Card(
                       elevation: 0,
                       color: Colors.white,
