@@ -107,6 +107,7 @@ abstract class _$AppRouter extends RootStackRouter {
           ref1: args.ref1,
           ref2: args.ref2,
           ref3: args.ref3,
+          imageTopic: args.imageTopic,
         ),
       );
     },
@@ -345,6 +346,7 @@ class MissionTopicRoute extends PageRouteInfo<MissionTopicRouteArgs> {
     required String ref1,
     required String ref2,
     required String ref3,
+    required String imageTopic,
     List<PageRouteInfo>? children,
   }) : super(
           MissionTopicRoute.name,
@@ -358,6 +360,7 @@ class MissionTopicRoute extends PageRouteInfo<MissionTopicRouteArgs> {
             ref1: ref1,
             ref2: ref2,
             ref3: ref3,
+            imageTopic: imageTopic,
           ),
           initialChildren: children,
         );
@@ -379,6 +382,7 @@ class MissionTopicRouteArgs {
     required this.ref1,
     required this.ref2,
     required this.ref3,
+    required this.imageTopic,
   });
 
   final Key? key;
@@ -399,9 +403,11 @@ class MissionTopicRouteArgs {
 
   final String ref3;
 
+  final String imageTopic;
+
   @override
   String toString() {
-    return 'MissionTopicRouteArgs{key: $key, title: $title, subTitle: $subTitle, subTitleDetails: $subTitleDetails, subTopic1: $subTopic1, subTopic2: $subTopic2, ref1: $ref1, ref2: $ref2, ref3: $ref3}';
+    return 'MissionTopicRouteArgs{key: $key, title: $title, subTitle: $subTitle, subTitleDetails: $subTitleDetails, subTopic1: $subTopic1, subTopic2: $subTopic2, ref1: $ref1, ref2: $ref2, ref3: $ref3, imageTopic: $imageTopic}';
   }
 }
 

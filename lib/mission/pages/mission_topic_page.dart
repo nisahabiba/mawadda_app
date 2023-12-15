@@ -18,6 +18,7 @@ class MissionTopicPage extends StatelessWidget {
     required this.ref1,
     required this.ref2,
     required this.ref3,
+    required this.imageTopic,
   }) : super(key: key);
 
   final String title;
@@ -28,6 +29,7 @@ class MissionTopicPage extends StatelessWidget {
   final String ref1;
   final String ref2;
   final String ref3;
+  final String imageTopic;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class MissionTopicPage extends StatelessWidget {
         style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
         child: ListView(children: [
           SizedBox(
-            height: 20.h,
+            height: 10.h,
           ),
           Center(
             child: Text(
@@ -73,7 +75,7 @@ class MissionTopicPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/pic_mission1.png',
+                                imageTopic,
                               ),
                             ],
                           ),
@@ -237,7 +239,7 @@ class MissionTopicPage extends StatelessWidget {
                 Text("References:\n", style: TextStyle(fontSize: 11)),
                 Text("1. $ref1", style: TextStyle(fontSize: 11)),
                 Text("2. $ref2", style: TextStyle(fontSize: 11)),
-                Text("3. $ref3.", style: TextStyle(fontSize: 11))
+                Text("3. $ref3", style: TextStyle(fontSize: 11))
               ],
             ),
           ),
