@@ -46,12 +46,33 @@ class MissionTopicPage extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          Center(
-            child: Text(
-              title,
-              style: TextStyle(fontSize: 30),
-            ),
+          Stack(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  context.popRoute();
+                },
+                child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Icon(Icons.keyboard_backspace)),
+              ),
+              Center(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30.sp,
+                  ),
+                ),
+              ),
+            ],
           ),
+          // Center(
+          //   child: Text(
+          //     title,
+          //     style: const TextStyle(fontSize: 30),
+          //   ),
+          // ),
           Container(
             padding: EdgeInsets.only(
                 top: 10.r, left: 10.r, right: 10.r, bottom: 10.r),
@@ -145,7 +166,7 @@ class MissionTopicPage extends StatelessWidget {
                         child: Text(
                           "Sub-topic 1\n$subTopic1",
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16),
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ),
                       Card(
@@ -200,7 +221,7 @@ class MissionTopicPage extends StatelessWidget {
                       width: 0.7.sw,
                       child: Text("Sub-topic 2\n$subTopic2",
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16)),
+                          style: const TextStyle(fontSize: 16)),
                     ),
                     InkWell(
                       // mau dikasih effect splash tapi belum berhasil
@@ -236,10 +257,10 @@ class MissionTopicPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("References:\n", style: TextStyle(fontSize: 11)),
-                Text("1. $ref1", style: TextStyle(fontSize: 11)),
-                Text("2. $ref2", style: TextStyle(fontSize: 11)),
-                Text("3. $ref3", style: TextStyle(fontSize: 11))
+                const Text("References:\n", style: TextStyle(fontSize: 11)),
+                Text("1. $ref1", style: const TextStyle(fontSize: 11)),
+                Text("2. $ref2", style: const TextStyle(fontSize: 11)),
+                Text("3. $ref3", style: const TextStyle(fontSize: 11))
               ],
             ),
           ),

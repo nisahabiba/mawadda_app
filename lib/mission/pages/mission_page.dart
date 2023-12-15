@@ -38,7 +38,7 @@ class _MissionPageState extends State<MissionPage> {
           ),
           Center(
             child: Image.asset(
-              "assets/icon_mission.png",
+              "assets/icon_mission_new.png",
             ),
           ),
           Column(

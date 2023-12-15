@@ -106,6 +106,9 @@ class ArticlesPage extends StatelessWidget {
                   ),
                 )),
           ),
+          SizedBox(
+            height: 10.h,
+          ),
           Container(
             width: 1.sw,
             padding: EdgeInsets.only(left: 20.r),

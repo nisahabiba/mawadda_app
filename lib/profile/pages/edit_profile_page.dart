@@ -68,7 +68,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           CurrentProfilePage.profilePage,
                         );
                   },
-                  child: Icon(Icons.arrow_back_ios_new_rounded),
+                  child: Icon(Icons.keyboard_backspace),
                 ),
               ],
             ),

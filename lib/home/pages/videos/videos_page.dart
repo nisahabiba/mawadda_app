@@ -28,7 +28,7 @@ class VideosPage extends StatelessWidget {
               children: [
                 Image.asset("assets/icon_videos.png"),
                 SizedBox(
-                  width: 1.w,
+                  width: 10,
                 ),
                 Text("What do you wanna\nwatch today, Beautiful?",
                     textAlign: TextAlign.left, style: TextStyle(fontSize: 24)),
@@ -94,7 +94,9 @@ class VideosPage extends StatelessWidget {
                   )),
             ),
           ),
-
+          SizedBox(
+            height: 10.h,
+          ),
           Container(
             width: 1.sw,
             padding: EdgeInsets.only(left: 20.r),
