@@ -75,12 +75,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MissionPage(),
       );
     },
-    MissionSubTopicRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const MissionSubTopicPage(),
-      );
-    },
     MissionSubTopicRadioRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -146,6 +140,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: WebViewPage(url: args.url),
+      );
+    },
+    _MissionSubTopicRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _MissionSubTopicPage(),
       );
     },
   };
@@ -287,20 +287,6 @@ class MissionRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MissionRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [MissionSubTopicPage]
-class MissionSubTopicRoute extends PageRouteInfo<void> {
-  const MissionSubTopicRoute({List<PageRouteInfo>? children})
-      : super(
-          MissionSubTopicRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'MissionSubTopicRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -508,4 +494,18 @@ class WebViewRouteArgs {
   String toString() {
     return 'WebViewRouteArgs{url: $url}';
   }
+}
+
+/// generated route for
+/// [_MissionSubTopicPage]
+class _MissionSubTopicRoute extends PageRouteInfo<void> {
+  const _MissionSubTopicRoute({List<PageRouteInfo>? children})
+      : super(
+          _MissionSubTopicRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = '_MissionSubTopicRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

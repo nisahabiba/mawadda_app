@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
+
+// TOPIC MATERIALS NUM.1
 
 @RoutePage()
 class MissionSubTopicRadioPage extends StatefulWidget {
@@ -15,6 +18,66 @@ class MissionSubTopicRadioPage extends StatefulWidget {
 
 class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
   int selectedOption = 0;
+  final String collectionName = 'missionText';
+  final String documentId = 'health_pregnancy';
+  int currentIndex = 0;
+  String quiz = '';
+  String answer1 = '';
+  String answer2 = '';
+
+  @override
+  void initState() {
+    super.initState();
+    //print('Initial Index: $currentIndex');
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    try {
+      // Reference to the document in the "missionText" collection
+      DocumentReference documentReference =
+          FirebaseFirestore.instance.collection('missionText').doc(documentId);
+
+      // Get the document snapshot
+      DocumentSnapshot snapshot = await documentReference.get();
+
+      // Check if the document exists
+      if (snapshot.exists) {
+        // Access the "text1" field from the document data
+        String fetchedText = snapshot.get('quiz');
+        String fetchedText1 = snapshot.get('answer1');
+        String fetchedText2 = snapshot.get('answer2');
+
+        setState(() {
+          quiz = fetchedText;
+          answer1 = fetchedText1;
+          answer2 = fetchedText2;
+        });
+      } else {
+        setState(() {
+          quiz = 'Document does not exist';
+          answer1 = 'Document does not exist';
+          answer2 = 'Document does not exist';
+        });
+      }
+    } catch (e) {
+      print('Error fetching data: $e');
+      setState(() {
+        quiz = 'Error fetching data';
+        answer1 = 'Error fetching data';
+        answer2 = 'Error fetching data';
+      });
+    }
+  }
+
+  // void nextDocument() {
+  //   setState(() {
+  //     Increment the index and fetch the next document
+  //     currentIndex = (currentIndex + 1) % documentIds.length;
+  //     print('Updated Index: $currentIndex');
+  //     fetchData();
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +122,16 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
                 SizedBox(
                   height: 0.4.sh,
                   width: 1.sw,
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                          "Pre-marital health screening is\nimportant to limit...",
-                          style: TextStyle(fontSize: 20)),
+                      SizedBox(
+                          width: 0.7.sw,
+                          child: Text(
+                            quiz,
+                            style: TextStyle(fontSize: 20),
+                          )),
                     ],
                   ),
                 ),
@@ -83,11 +149,15 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
                       side: BorderSide(color: Colors.black, width: 3),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: ListTile(
-                    title: const Text("The spread of genetic disease"),
+                    title: SizedBox(
+                      width: 0.7.sw,
+                      child: Text(answer1),
+                    ),
                     leading: Radio(
                       value: 1,
                       groupValue: selectedOption,
                       onChanged: (value) {
+                        //nextDocument();
                         setState(() {
                           selectedOption = value!;
                         });
@@ -108,11 +178,15 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
                       side: BorderSide(color: Colors.black, width: 3),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: ListTile(
-                    title: const Text("The couple’s mental readiness"),
+                    title: SizedBox(
+                      width: 0.7.sw,
+                      child: Text(answer2),
+                    ),
                     leading: Radio(
                       value: 2,
                       groupValue: selectedOption,
                       onChanged: (value) {
+                        //nextDocument();
                         setState(() {
                           selectedOption = value!;
                         });
