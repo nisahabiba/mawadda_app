@@ -1,93 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_core/firebase_core.dart';
-
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   Firebase.initializeApp();
-//   runApp(const MissionSubTopicPage());
-// }
-
-class MissionSubTopicPage extends StatefulWidget {
-  const MissionSubTopicPage({Key? key}) : super(key: key);
-
-  @override
-  State<MissionSubTopicPage> createState() => _MissionSubTopicPage();
-}
 
 @RoutePage()
-class _MissionSubTopicPage extends State<MissionSubTopicPage> {
-  final String collectionName = 'missionText';
-  final List<String> documentIds = [
-    'health_pregnancy',
-    'emotional_control',
-    'parenting',
-    'financial_stability'
-  ]; // Add more document IDs as needed
-  int currentIndex = 0;
-  String currentText = ''; // Replace with your document ID
-  String text1 = '';
-  String text2 = '';
-
-  @override
-  void initState() {
-    super.initState();
-    print('Initial Index: $currentIndex');
-    fetchData();
-  }
-
-  Future<void> fetchData() async {
-    try {
-      // Reference to the document in the "missionText" collection
-      DocumentReference documentReference = FirebaseFirestore.instance
-          .collection('missionText')
-          .doc(documentIds[currentIndex]);
-
-      // Get the document snapshot
-      DocumentSnapshot snapshot = await documentReference.get();
-
-      // Check if the document exists
-      if (snapshot.exists) {
-        // Access the "text1" field from the document data
-        String fetchedText1 = snapshot.get('text1');
-        String fetchedText2 = snapshot.get('text2');
-
-        String fetchedText = snapshot.get('currentText');
-        setState(() {
-          text1 = fetchedText1;
-          text2 = fetchedText2;
-
-          currentText = fetchedText;
-        });
-      } else {
-        setState(() {
-          text1 = 'Document does not exist';
-          text2 = 'Document does not exist';
-          currentText = 'Document does not exist';
-        });
-      }
-    } catch (e) {
-      print('Error fetching data: $e');
-      setState(() {
-        text1 = 'Error fetching data';
-      });
-    }
-  }
-
-  void nextDocument() {
-    setState(() {
-      // Increment the index and fetch the next document
-      currentIndex = (currentIndex + 1) % documentIds.length;
-      print('Updated Index: $currentIndex');
-      fetchData();
-    });
-  }
+class MissionSubTopicPage extends StatelessWidget {
+  const MissionSubTopicPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -141,17 +60,14 @@ class _MissionSubTopicPage extends State<MissionSubTopicPage> {
                           const SizedBox(
                             height: 10,
                           ),
-                          //Text(text1, style: TextStyle(fontSize: 25)),
-                          Container(
-                            width: 0.7.sw,
-                            child: Text(currentText,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20)),
-                          ),
-                          // Text(text2, style: TextStyle(fontSize: 20)),
-                          // Text(text3, style: TextStyle(fontSize: 20)),
+                          const Text("Hey, beautiful!",
+                              style: TextStyle(fontSize: 25)),
+                          const Text("Have you ever heard about",
+                              style: TextStyle(fontSize: 20)),
+                          const Text("Pre-marital health screening?",
+                              style: TextStyle(fontSize: 20)),
                           SizedBox(
-                            height: 50.h,
+                            height: 100.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -187,7 +103,6 @@ class _MissionSubTopicPage extends State<MissionSubTopicPage> {
                                             BorderRadius.circular(10)),
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
-                                  nextDocument();
                                   context.pushRoute(
                                       const MissionSubTopicRadioRoute());
                                 },
