@@ -1,20 +1,20 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:mawadda_app/auth/bloc/auth/auth_bloc.dart';
 import 'package:mawadda_app/auth/bloc/register/register_cubit.dart';
-import 'firebase_options.dart';
+
+import 'auth/bloc/login/login_bloc.dart';
 import 'core/di/injector.dart';
 import 'core/navigation/bloc/navigation_bloc.dart';
 import 'core/router/router.dart';
+import 'firebase_options.dart';
 import 'profile/bloc/navigation/profile_navigation_cubit.dart';
-import 'auth/bloc/login/login_bloc.dart';
-import 'package:mawadda_app/home/pages/home_page.dart';
-import 'package:mawadda_app/auth/pages/login_page.dart';
 
 void main() {
   mainApp();

@@ -109,45 +109,45 @@ class _EditProfilePageState extends State<EditProfilePage> {
             SizedBox(
               height: 10.h,
             ),
-            FormComponent(
-              formKey: 'birthdate',
-              controller: birthCtr,
-              hintText: 'Birth Date (DD/MM/YY)',
-              textInputType: TextInputType.datetime,
-              isReadOnly: true,
-              validator: (value) {},
-              onTap: () async {
-                final DateTime? date = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(1950),
-                  lastDate: DateTime.now(),
-                  onDatePickerModeChange: (value) {},
-                );
-                setState(() {
-                  birthCtr.text =
-                      DateFormat('dd/MM/yyyy').format(date!).toString();
-                });
-              },
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            FormComponent(
-                formKey: 'country',
-                controller: countryCtr,
-                hintText: 'Your Country (e.g. Malaysia)',
-                textInputType: TextInputType.text,
-                validator: (value) {}),
-            SizedBox(
-              height: 10.h,
-            ),
-            FormComponent(
-                formKey: 'phone',
-                controller: phoneCtr,
-                hintText: 'Your Phone Number (e.g. 60123123123)',
-                textInputType: TextInputType.number,
-                validator: (value) {}),
+            // FormComponent(
+            //   formKey: 'birthdate',
+            //   controller: birthCtr,
+            //   hintText: 'Birth Date (DD/MM/YY)',
+            //   textInputType: TextInputType.datetime,
+            //   isReadOnly: true,
+            //   validator: (value) {},
+            //   onTap: () async {
+            //     final DateTime? date = await showDatePicker(
+            //       context: context,
+            //       initialDate: DateTime.now(),
+            //       firstDate: DateTime(1950),
+            //       lastDate: DateTime.now(),
+            //       onDatePickerModeChange: (value) {},
+            //     );
+            //     setState(() {
+            //       birthCtr.text =
+            //           DateFormat('dd/MM/yyyy').format(date!).toString();
+            //     });
+            //   },
+            // ),
+            // SizedBox(
+            //   height: 10.h,
+            // ),
+            // FormComponent(
+            //     formKey: 'country',
+            //     controller: countryCtr,
+            //     hintText: 'Your Country (e.g. Malaysia)',
+            //     textInputType: TextInputType.text,
+            //     validator: (value) {}),
+            // SizedBox(
+            //   height: 10.h,
+            // ),
+            // FormComponent(
+            //     formKey: 'phone',
+            //     controller: phoneCtr,
+            //     hintText: 'Your Phone Number (e.g. 60123123123)',
+            //     textInputType: TextInputType.number,
+            //     validator: (value) {}),
             SizedBox(
               height: 20.h,
             ),

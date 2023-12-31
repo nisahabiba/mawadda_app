@@ -1,4 +1,4 @@
-// ignore_for_file: unrelated_type_equality_checks
+// ignore_for_file: unrelated_type_equality_checks, unused_import
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
