@@ -73,7 +73,10 @@ class AppRouter extends _$AppRouter {
             page: MissionTopicRoute.page,
           ),
           AutoRoute(
-            page: _MissionSubTopicRoute.page,
+            page: MissionSubTopicRoute.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute.page,
           ),
           AutoRoute(
             page: MissionSubTopicRadioRoute.page,
