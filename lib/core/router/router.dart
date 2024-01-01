@@ -11,18 +11,18 @@ import 'package:mawadda_app/home/pages/videos/videos_page.dart';
 import 'package:mawadda_app/mission/pages/mission_completed_page.dart';
 import 'package:mawadda_app/mission/pages/mission_navigation_page.dart';
 
-import 'package:mawadda_app/mission/pages/intro/mission_sub_topic_page.dart';
-import 'package:mawadda_app/mission/pages/seq1/mission_sub_topic_page.dart';
-import 'package:mawadda_app/mission/pages/seq2/mission_sub_topic_page.dart';
-import 'package:mawadda_app/mission/pages/seq3/mission_sub_topic_page.dart';
-import 'package:mawadda_app/mission/pages/seq4/mission_sub_topic_page.dart';
-import 'package:mawadda_app/mission/pages/seq5/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/intro/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq1/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq2/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq3/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq4/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq5/mission_sub_topic_page.dart';
 
-import 'package:mawadda_app/mission/pages/seq1/mission_sub_topic_radio_page.dart';
-import 'package:mawadda_app/mission/pages/seq2/mission_sub_topic_radio_page.dart';
-import 'package:mawadda_app/mission/pages/seq3/mission_sub_topic_radio_page.dart';
-import 'package:mawadda_app/mission/pages/seq4/mission_sub_topic_radio_page.dart';
-import 'package:mawadda_app/mission/pages/seq5/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq1/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq2/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq3/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq4/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq5/mission_sub_topic_radio_page.dart';
 //import 'package:mawadda_app/mission/pages/seq5/mission_complete_page.dart';
 
 import 'package:mawadda_app/mission/pages/mission_topic_page.dart';

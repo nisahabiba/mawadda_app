@@ -4,26 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
+import 'package:mawadda_app/mission/models/document_id_model.dart';
 
-// TOPIC MATERIALS NUM.2
+// TOPIC MATERIALS NUM.1
 
 @RoutePage()
-class MissionSubTopicRadioPage2 extends StatefulWidget {
-  const MissionSubTopicRadioPage2({super.key});
+class MissionSubTopicRadioPage1 extends StatefulWidget {
+  String? documentId;
+  MissionSubTopicRadioPage1({super.key, this.documentId});
 
   @override
-  State<MissionSubTopicRadioPage2> createState() =>
-      _MissionSubTopicRadioPage2State();
+  State<MissionSubTopicRadioPage1> createState() =>
+      _MissionSubTopicRadioPage1State();
 }
 
-class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
+class _MissionSubTopicRadioPage1State extends State<MissionSubTopicRadioPage1> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
-  final String documentId = 'health_pregnancy';
+  //final String documentId = 'health_pregnancy';
   int currentIndex = 0;
-  String quiz2 = '';
-  String answer2a = '';
-  String answer2b = '';
+  String quiz1 = '';
+  String answer1a = '';
+  String answer1b = '';
 
   @override
   void initState() {
@@ -35,8 +37,9 @@ class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
   Future<void> fetchData() async {
     try {
       // Reference to the document in the "missionText" collection
-      DocumentReference documentReference =
-          FirebaseFirestore.instance.collection('missionText').doc(documentId);
+      DocumentReference documentReference = FirebaseFirestore.instance
+          .collection('missionText')
+          .doc(widget.documentId);
 
       // Get the document snapshot
       DocumentSnapshot snapshot = await documentReference.get();
@@ -44,28 +47,28 @@ class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
       // Check if the document exists
       if (snapshot.exists) {
         // Access the "text1" field from the document data
-        String fetchedText = snapshot.get('quiz2');
-        String fetchedText1 = snapshot.get('answer2a');
-        String fetchedText2 = snapshot.get('answer2b');
+        String fetchedText = snapshot.get('quiz1');
+        String fetchedText1 = snapshot.get('answer1a');
+        String fetchedText2 = snapshot.get('answer1b');
 
         setState(() {
-          quiz2 = fetchedText;
-          answer2a = fetchedText1;
-          answer2b = fetchedText2;
+          quiz1 = fetchedText;
+          answer1a = fetchedText1;
+          answer1b = fetchedText2;
         });
       } else {
         setState(() {
-          quiz2 = 'Document does not exist';
-          answer2a = 'Document does not exist';
-          answer2b = 'Document does not exist';
+          quiz1 = 'Document does not exist';
+          answer1a = 'Document does not exist';
+          answer1b = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
-        quiz2 = 'Error fetching data';
-        answer2a = 'Error fetching data';
-        answer2b = 'Error fetching data';
+        quiz1 = 'Error fetching data';
+        answer1a = 'Error fetching data';
+        answer1b = 'Error fetching data';
       });
     }
   }
@@ -86,11 +89,14 @@ class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Health & Pregnancy",
-                  style: TextStyle(fontSize: 30),
-                ),
-                Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
+                // Text(
+                //   "Health & Pregnancy",
+                //   style: TextStyle(fontSize: 30),
+                // ),
+                // Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
+                SizedBox(
+                  height: 30,
+                )
               ],
             ),
           ),
@@ -120,7 +126,7 @@ class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
                       SizedBox(
                           width: 0.7.sw,
                           child: Text(
-                            quiz2,
+                            quiz1,
                             style: TextStyle(fontSize: 20),
                           )),
                     ],
@@ -142,7 +148,7 @@ class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
                   child: ListTile(
                     title: SizedBox(
                       width: 0.7.sw,
-                      child: Text(answer2a),
+                      child: Text(answer1a),
                     ),
                     leading: Radio(
                       value: 1,
@@ -153,8 +159,8 @@ class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
                           selectedOption = value!;
                         });
                         context.router.popForced();
-                        context.router
-                            .popAndPushAll([const MissionSubTopicRoute2()]);
+                        context.router.popAndPushAll(
+                            [MissionSubTopicRoute1(widget.documentId!)]);
                       },
                     ),
                   ),
@@ -171,7 +177,7 @@ class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
                   child: ListTile(
                     title: SizedBox(
                       width: 0.7.sw,
-                      child: Text(answer2b),
+                      child: Text(answer1b),
                     ),
                     leading: Radio(
                       value: 2,
@@ -182,8 +188,8 @@ class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
                           selectedOption = value!;
                         });
                         context.router.popForced();
-                        context.router
-                            .popAndPushAll([const MissionSubTopicRoute2()]);
+                        context.router.popAndPushAll(
+                            [MissionSubTopicRoute1(widget.documentId!)]);
                       },
                     ),
                   ),

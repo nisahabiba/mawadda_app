@@ -5,75 +5,69 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
 
-// TOPIC MATERIALS NUM.1
+// TOPIC MATERIALS INTRO
 
 @RoutePage()
-class MissionSubTopicPage1 extends StatefulWidget {
-  const MissionSubTopicPage1({super.key});
+class MissionSubTopicPage extends StatefulWidget {
+  String? documentId;
+  MissionSubTopicPage({super.key, this.documentId});
 
   @override
-  State<MissionSubTopicPage1> createState() => _MissionSubTopicPage1State();
+  State<MissionSubTopicPage> createState() => _MissionSubTopicPageState();
 }
 
-class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
+class _MissionSubTopicPageState extends State<MissionSubTopicPage> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
-  final String documentId = 'health_pregnancy';
+
   int currentIndex = 0;
 
-  String text1 = '';
-  String text2 = '';
+  String text_a = '';
+  String text_b = '';
 
   @override
   void initState() {
     super.initState();
     //print('Initial Index: $currentIndex');
     fetchData();
+    print(widget.documentId);
   }
 
   Future<void> fetchData() async {
     try {
       // Reference to the document in the "missionText" collection
-      DocumentReference documentReference =
-          FirebaseFirestore.instance.collection('missionText').doc(documentId);
+      DocumentReference documentReference = FirebaseFirestore.instance
+          .collection('missionText')
+          .doc(widget.documentId);
 
       // Get the document snapshot
       DocumentSnapshot snapshot = await documentReference.get();
 
       // Check if the document exists
       if (snapshot.exists) {
-        // Access the "text1" field from the document data
+        // Access the "text_aa" field from the document data
 
-        String fetchedText1 = snapshot.get('text1');
-        String fetchedText2 = snapshot.get('text2');
+        String fetchedtext_a = snapshot.get('text_a');
+        String fetchedtext_b = snapshot.get('text_b');
 
         setState(() {
-          text1 = fetchedText1;
-          text2 = fetchedText2;
+          text_a = fetchedtext_a;
+          text_b = fetchedtext_b;
         });
       } else {
         setState(() {
-          text1 = 'Document does not exist';
-          text2 = 'Document does not exist';
+          text_a = 'Document does not exist';
+          text_b = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
-        text1 = 'Error fetching data';
-        text2 = 'Error fetching data';
+        text_a = 'Error fetching data';
+        text_b = 'Error fetching data';
       });
     }
   }
-
-  // void nextDocument() {
-  //   setState(() {
-  //     Increment the index and fetch the next document
-  //     currentIndex = (currentIndex + 1) % documentIds.length;
-  //     print('Updated Index: $currentIndex');
-  //     fetchData();
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -91,11 +85,14 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Health & Pregnancy",
-                  style: TextStyle(fontSize: 30),
-                ),
-                Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
+                // Text(
+                //   "Health & Pregnancy",
+                //   style: TextStyle(fontSize: 30),
+                // ),
+                // Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
+                SizedBox(
+                  height: 30,
+                )
               ],
             ),
           ),
@@ -121,15 +118,19 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          Image.asset(
+                            'assets/pic_mission1.png',
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
+                          Text(text_a, style: TextStyle(fontSize: 25)),
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
-                                text1,
-                                style: TextStyle(fontSize: 16),
-                                textAlign: TextAlign.left,
+                                text_b,
+                                style: TextStyle(fontSize: 20),
+                                textAlign: TextAlign.center,
                               )),
                           SizedBox(
                             height: 100.h,
@@ -168,8 +169,8 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
                                             BorderRadius.circular(10)),
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
-                                  context.pushRoute(
-                                      const MissionSubTopicRadioRoute2());
+                                  context.pushRoute(MissionSubTopicRadioRoute1(
+                                      widget.documentId!));
                                 },
                                 child: Text(
                                   'Yes, next!',

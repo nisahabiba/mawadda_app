@@ -21,6 +21,7 @@ class MissionTopicPage extends StatelessWidget {
     required this.ref2,
     required this.ref3,
     required this.imageTopic,
+    required this.documentId,
   }) : super(key: key);
 
   final String title;
@@ -32,10 +33,12 @@ class MissionTopicPage extends StatelessWidget {
   final String ref2;
   final String ref3;
   final String imageTopic;
+  final String documentId;
 
   @override
   Widget build(BuildContext context) {
     var documentIdProvider = Provider.of<DocumentIdProvider>(context);
+    print(documentId);
 
     return Container(
       alignment: Alignment.center,
@@ -139,8 +142,7 @@ class MissionTopicPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () async {
-              context.pushRoute(MissionSubTopicRoute(
-                  documentIdProvider.documentId.documentId));
+              context.pushRoute(MissionSubTopicRoute(documentId));
             },
             child: Container(
               padding: EdgeInsets.only(
@@ -198,61 +200,66 @@ class MissionTopicPage extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(
-                top: 3.r, left: 10.r, right: 10.r, bottom: 10.r),
-            child: Stack(
-              alignment: AlignmentDirectional.topCenter,
-              children: [
-                Card(
-                  elevation: 0,
-                  color: Colors.white,
-                  shape: const RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 3),
-                      borderRadius: BorderRadius.all(Radius.circular(25))),
-                  child: SizedBox(
-                    width: 1.sw,
-                    height: 110,
-                    child: const Center(
-                      child: Row(),
+          GestureDetector(
+            onTap: () async {
+              context.pushRoute(MissionSubTopicRoute(documentId));
+            },
+            child: Container(
+              padding: EdgeInsets.only(
+                  top: 3.r, left: 10.r, right: 10.r, bottom: 10.r),
+              child: Stack(
+                alignment: AlignmentDirectional.topCenter,
+                children: [
+                  Card(
+                    elevation: 0,
+                    color: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 3),
+                        borderRadius: BorderRadius.all(Radius.circular(25))),
+                    child: SizedBox(
+                      width: 1.sw,
+                      height: 110,
+                      child: const Center(
+                        child: Row(),
+                      ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    SizedBox(
-                      width: 0.7.sw,
-                      child: Text("Sub-topic 2\n$subTopic2",
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 16)),
-                    ),
-                    InkWell(
-                      // mau dikasih effect splash tapi belum berhasil
-                      onTap: () {},
-                      child: Card(
-                        elevation: 0,
-                        color: const Color(0xffB4B0CE),
-                        shape: const RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black, width: 3),
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(25),
-                                bottomRight: Radius.circular(25))),
-                        child: SizedBox(
-                          width: 0.2.sw,
-                          height: 110,
-                          child: const Center(
-                            child: Icon(
-                              Icons.arrow_circle_right_outlined,
-                              color: Colors.black,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: 0.7.sw,
+                        child: Text("Sub-topic 2\n$subTopic2",
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontSize: 16)),
+                      ),
+                      InkWell(
+                        // mau dikasih effect splash tapi belum berhasil
+                        onTap: () {},
+                        child: Card(
+                          elevation: 0,
+                          color: const Color(0xffB4B0CE),
+                          shape: const RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.black, width: 3),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(25),
+                                  bottomRight: Radius.circular(25))),
+                          child: SizedBox(
+                            width: 0.2.sw,
+                            height: 110,
+                            child: const Center(
+                              child: Icon(
+                                Icons.arrow_circle_right_outlined,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    )
-                  ],
-                )
-              ],
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Container(

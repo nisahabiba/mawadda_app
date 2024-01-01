@@ -5,25 +5,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
 
-// TOPIC MATERIALS NUM.3
+// TOPIC MATERIALS NUM.2
 
 @RoutePage()
-class MissionSubTopicRadioPage3 extends StatefulWidget {
-  const MissionSubTopicRadioPage3({super.key});
+class MissionSubTopicRadioPage2 extends StatefulWidget {
+  String? documentId;
+  MissionSubTopicRadioPage2({super.key, this.documentId});
 
   @override
-  State<MissionSubTopicRadioPage3> createState() =>
-      _MissionSubTopicRadioPage3State();
+  State<MissionSubTopicRadioPage2> createState() =>
+      _MissionSubTopicRadioPage2State();
 }
 
-class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
+class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
-  final String documentId = 'health_pregnancy';
+  //final String documentId = 'health_pregnancy';
   int currentIndex = 0;
-  String quiz3 = '';
-  String answer3a = '';
-  String answer3b = '';
+  String quiz2 = '';
+  String answer2a = '';
+  String answer2b = '';
 
   @override
   void initState() {
@@ -35,8 +36,9 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
   Future<void> fetchData() async {
     try {
       // Reference to the document in the "missionText" collection
-      DocumentReference documentReference =
-          FirebaseFirestore.instance.collection('missionText').doc(documentId);
+      DocumentReference documentReference = FirebaseFirestore.instance
+          .collection('missionText')
+          .doc(widget.documentId);
 
       // Get the document snapshot
       DocumentSnapshot snapshot = await documentReference.get();
@@ -44,28 +46,28 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
       // Check if the document exists
       if (snapshot.exists) {
         // Access the "text1" field from the document data
-        String fetchedText = snapshot.get('quiz3');
-        String fetchedText1 = snapshot.get('answer3a');
-        String fetchedText2 = snapshot.get('answer3b');
+        String fetchedText = snapshot.get('quiz2');
+        String fetchedText1 = snapshot.get('answer2a');
+        String fetchedText2 = snapshot.get('answer2b');
 
         setState(() {
-          quiz3 = fetchedText;
-          answer3a = fetchedText1;
-          answer3b = fetchedText2;
+          quiz2 = fetchedText;
+          answer2a = fetchedText1;
+          answer2b = fetchedText2;
         });
       } else {
         setState(() {
-          quiz3 = 'Document does not exist';
-          answer3a = 'Document does not exist';
-          answer3b = 'Document does not exist';
+          quiz2 = 'Document does not exist';
+          answer2a = 'Document does not exist';
+          answer2b = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
-        quiz3 = 'Error fetching data';
-        answer3a = 'Error fetching data';
-        answer3b = 'Error fetching data';
+        quiz2 = 'Error fetching data';
+        answer2a = 'Error fetching data';
+        answer2b = 'Error fetching data';
       });
     }
   }
@@ -86,11 +88,14 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Health & Pregnancy",
-                  style: TextStyle(fontSize: 30),
-                ),
-                Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
+                // Text(
+                //   "Health & Pregnancy",
+                //   style: TextStyle(fontSize: 30),
+                // ),
+                // Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
+                SizedBox(
+                  height: 30,
+                )
               ],
             ),
           ),
@@ -120,7 +125,7 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
                       SizedBox(
                           width: 0.7.sw,
                           child: Text(
-                            quiz3,
+                            quiz2,
                             style: TextStyle(fontSize: 20),
                           )),
                     ],
@@ -142,7 +147,7 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
                   child: ListTile(
                     title: SizedBox(
                       width: 0.7.sw,
-                      child: Text(answer3a),
+                      child: Text(answer2a),
                     ),
                     leading: Radio(
                       value: 1,
@@ -153,8 +158,8 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
                           selectedOption = value!;
                         });
                         context.router.popForced();
-                        context.router
-                            .popAndPushAll([const MissionSubTopicRoute3()]);
+                        context.router.popAndPushAll(
+                            [MissionSubTopicRoute2(widget.documentId!)]);
                       },
                     ),
                   ),
@@ -171,7 +176,7 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
                   child: ListTile(
                     title: SizedBox(
                       width: 0.7.sw,
-                      child: Text(answer3b),
+                      child: Text(answer2b),
                     ),
                     leading: Radio(
                       value: 2,
@@ -182,8 +187,8 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
                           selectedOption = value!;
                         });
                         context.router.popForced();
-                        context.router
-                            .popAndPushAll([const MissionSubTopicRoute3()]);
+                        context.router.popAndPushAll(
+                            [MissionSubTopicRoute2(widget.documentId!)]);
                       },
                     ),
                   ),
@@ -195,10 +200,4 @@ class _MissionSubTopicRadioPage3State extends State<MissionSubTopicRadioPage3> {
       ),
     );
   }
-
-  // @override
-  // State<StatefulWidget> createState() {
-  //   // TODO: implement createState
-  //   throw UnimplementedError();
-  // }
 }

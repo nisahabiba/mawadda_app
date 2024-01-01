@@ -9,7 +9,8 @@ import 'package:mawadda_app/core/router/router.dart';
 
 @RoutePage()
 class MissionSubTopicRadioPage4 extends StatefulWidget {
-  const MissionSubTopicRadioPage4({super.key});
+  String? documentId;
+  MissionSubTopicRadioPage4({super.key, this.documentId});
 
   @override
   State<MissionSubTopicRadioPage4> createState() =>
@@ -19,7 +20,7 @@ class MissionSubTopicRadioPage4 extends StatefulWidget {
 class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
-  final String documentId = 'health_pregnancy';
+  //final String documentId = 'health_pregnancy';
   int currentIndex = 0;
   String quiz4 = '';
   String answer4a = '';
@@ -35,8 +36,9 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
   Future<void> fetchData() async {
     try {
       // Reference to the document in the "missionText" collection
-      DocumentReference documentReference =
-          FirebaseFirestore.instance.collection('missionText').doc(documentId);
+      DocumentReference documentReference = FirebaseFirestore.instance
+          .collection('missionText')
+          .doc(widget.documentId);
 
       // Get the document snapshot
       DocumentSnapshot snapshot = await documentReference.get();
@@ -86,11 +88,14 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Health & Pregnancy",
-                  style: TextStyle(fontSize: 30),
-                ),
-                Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
+                // Text(
+                //   "Health & Pregnancy",
+                //   style: TextStyle(fontSize: 30),
+                // ),
+                // Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
+                SizedBox(
+                  height: 30,
+                )
               ],
             ),
           ),
@@ -153,8 +158,8 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
                           selectedOption = value!;
                         });
                         context.router.popForced();
-                        context.router
-                            .popAndPushAll([const MissionSubTopicRoute4()]);
+                        context.router.popAndPushAll(
+                            [MissionSubTopicRoute4(widget.documentId!)]);
                       },
                     ),
                   ),
@@ -182,8 +187,8 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
                           selectedOption = value!;
                         });
                         context.router.popForced();
-                        context.router
-                            .popAndPushAll([const MissionSubTopicRoute4()]);
+                        context.router.popAndPushAll(
+                            [MissionSubTopicRoute4(widget.documentId!)]);
                       },
                     ),
                   ),
