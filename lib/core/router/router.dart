@@ -10,10 +10,24 @@ import 'package:mawadda_app/home/pages/home_view.dart';
 import 'package:mawadda_app/home/pages/videos/videos_page.dart';
 import 'package:mawadda_app/mission/pages/mission_completed_page.dart';
 import 'package:mawadda_app/mission/pages/mission_navigation_page.dart';
-import 'package:mawadda_app/mission/pages/mission_sub_topic_page.dart';
-import 'package:mawadda_app/mission/pages/mission_sub_topic_radio_page.dart';
+
+import 'package:mawadda_app/mission/pages/intro/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/seq1/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/seq2/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/seq3/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/seq4/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/seq5/mission_sub_topic_page.dart';
+
+import 'package:mawadda_app/mission/pages/seq1/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/seq2/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/seq3/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/seq4/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/seq5/mission_sub_topic_radio_page.dart';
+//import 'package:mawadda_app/mission/pages/seq5/mission_complete_page.dart';
+
 import 'package:mawadda_app/mission/pages/mission_topic_page.dart';
 import 'package:mawadda_app/mission/pages/mission_page.dart';
+
 //import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
 import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
 import 'package:mawadda_app/profile/pages/profile_navigation_page.dart';
@@ -79,7 +93,34 @@ class AppRouter extends _$AppRouter {
             page: MissionSubTopicRoute.page,
           ),
           AutoRoute(
+            page: MissionSubTopicRoute2.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute3.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute4.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute5.page,
+          ),
+          AutoRoute(
             page: MissionSubTopicRadioRoute.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute2.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute3.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute4.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute5.page,
+          ),
+          AutoRoute(
+            page: MissionCompletedRoute.page,
           ),
         ],
       ),

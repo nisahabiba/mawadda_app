@@ -4,8 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage()
-class MissionTopicOnePage extends StatelessWidget {
-  const MissionTopicOnePage({super.key});
+class MissionCompletedPage extends StatelessWidget {
+  const MissionCompletedPage({super.key});
+
+  Widget get page {
+    return Container(
+      // Your widget code here...
+      child: Text('This is the mission completed page!'),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

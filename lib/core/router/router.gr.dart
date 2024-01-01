@@ -63,6 +63,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MainPage(),
       );
     },
+    MissionCompletedRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionCompletedPage(),
+      );
+    },
     MissionNavigationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -81,16 +87,58 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MissionSubTopicPage(),
       );
     },
+    MissionSubTopicRoute2.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicPage2(),
+      );
+    },
+    MissionSubTopicRoute3.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicPage3(),
+      );
+    },
+    MissionSubTopicRoute4.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicPage4(),
+      );
+    },
+    MissionSubTopicRoute5.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicPage5(),
+      );
+    },
     MissionSubTopicRadioRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const MissionSubTopicRadioPage(),
       );
     },
-    MissionTopicOneRoute.name: (routeData) {
+    MissionSubTopicRadioRoute2.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MissionTopicOnePage(),
+        child: const MissionSubTopicRadioPage2(),
+      );
+    },
+    MissionSubTopicRadioRoute3.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicRadioPage3(),
+      );
+    },
+    MissionSubTopicRadioRoute4.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicRadioPage4(),
+      );
+    },
+    MissionSubTopicRadioRoute5.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicRadioPage5(),
       );
     },
     MissionTopicRoute.name: (routeData) {
@@ -264,6 +312,20 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MissionCompletedPage]
+class MissionCompletedRoute extends PageRouteInfo<void> {
+  const MissionCompletedRoute({List<PageRouteInfo>? children})
+      : super(
+          MissionCompletedRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionCompletedRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [MissionNavigationPage]
 class MissionNavigationRoute extends PageRouteInfo<void> {
   const MissionNavigationRoute({List<PageRouteInfo>? children})
@@ -306,6 +368,62 @@ class MissionSubTopicRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MissionSubTopicPage2]
+class MissionSubTopicRoute2 extends PageRouteInfo<void> {
+  const MissionSubTopicRoute2({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRoute2.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRoute2';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionSubTopicPage3]
+class MissionSubTopicRoute3 extends PageRouteInfo<void> {
+  const MissionSubTopicRoute3({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRoute3.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRoute3';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionSubTopicPage4]
+class MissionSubTopicRoute4 extends PageRouteInfo<void> {
+  const MissionSubTopicRoute4({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRoute4.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRoute4';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionSubTopicPage5]
+class MissionSubTopicRoute5 extends PageRouteInfo<void> {
+  const MissionSubTopicRoute5({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRoute5.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRoute5';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [MissionSubTopicRadioPage]
 class MissionSubTopicRadioRoute extends PageRouteInfo<void> {
   const MissionSubTopicRadioRoute({List<PageRouteInfo>? children})
@@ -320,15 +438,57 @@ class MissionSubTopicRadioRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [MissionTopicOnePage]
-class MissionTopicOneRoute extends PageRouteInfo<void> {
-  const MissionTopicOneRoute({List<PageRouteInfo>? children})
+/// [MissionSubTopicRadioPage2]
+class MissionSubTopicRadioRoute2 extends PageRouteInfo<void> {
+  const MissionSubTopicRadioRoute2({List<PageRouteInfo>? children})
       : super(
-          MissionTopicOneRoute.name,
+          MissionSubTopicRadioRoute2.name,
           initialChildren: children,
         );
 
-  static const String name = 'MissionTopicOneRoute';
+  static const String name = 'MissionSubTopicRadioRoute2';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionSubTopicRadioPage3]
+class MissionSubTopicRadioRoute3 extends PageRouteInfo<void> {
+  const MissionSubTopicRadioRoute3({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRadioRoute3.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRadioRoute3';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionSubTopicRadioPage4]
+class MissionSubTopicRadioRoute4 extends PageRouteInfo<void> {
+  const MissionSubTopicRadioRoute4({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRadioRoute4.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRadioRoute4';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MissionSubTopicRadioPage5]
+class MissionSubTopicRadioRoute5 extends PageRouteInfo<void> {
+  const MissionSubTopicRadioRoute5({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRadioRoute5.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRadioRoute5';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

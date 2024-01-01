@@ -5,18 +5,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
 
-// TOPIC MATERIALS NUM.1
+// TOPIC MATERIALS NUM.2
 
 @RoutePage()
-class MissionSubTopicRadioPage extends StatefulWidget {
-  const MissionSubTopicRadioPage({super.key});
+class MissionSubTopicRadioPage2 extends StatefulWidget {
+  const MissionSubTopicRadioPage2({super.key});
 
   @override
-  State<MissionSubTopicRadioPage> createState() =>
-      _MissionSubTopicRadioPageState();
+  State<MissionSubTopicRadioPage2> createState() =>
+      _MissionSubTopicRadioPage2State();
 }
 
-class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
+class _MissionSubTopicRadioPage2State extends State<MissionSubTopicRadioPage2> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
   final String documentId = 'health_pregnancy';
@@ -69,15 +69,6 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
       });
     }
   }
-
-  // void nextDocument() {
-  //   setState(() {
-  //     Increment the index and fetch the next document
-  //     currentIndex = (currentIndex + 1) % documentIds.length;
-  //     print('Updated Index: $currentIndex');
-  //     fetchData();
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +154,7 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
                         });
                         context.router.popForced();
                         context.router
-                            .popAndPushAll([const MissionSubTopicRoute()]);
+                            .popAndPushAll([const MissionSubTopicRoute3()]);
                       },
                     ),
                   ),
@@ -192,7 +183,7 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
                         });
                         context.router.popForced();
                         context.router
-                            .popAndPushAll([const MissionSubTopicRoute()]);
+                            .popAndPushAll([const MissionSubTopicRoute3()]);
                       },
                     ),
                   ),
@@ -203,11 +194,5 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
         ]),
       ),
     );
-  }
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
   }
 }
