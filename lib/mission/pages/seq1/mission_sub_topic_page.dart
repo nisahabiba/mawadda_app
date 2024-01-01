@@ -121,13 +121,9 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          // Image.asset(
-                          //   'assets/pic_mission1.png',
-                          // ),
                           const SizedBox(
                             height: 10,
                           ),
-                          //Text(text1, style: TextStyle(fontSize: 25)),
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(

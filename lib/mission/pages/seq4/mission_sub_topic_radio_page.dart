@@ -21,9 +21,9 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
   final String collectionName = 'missionText';
   final String documentId = 'health_pregnancy';
   int currentIndex = 0;
-  String quiz = '';
-  String answer1 = '';
-  String answer2 = '';
+  String quiz4 = '';
+  String answer4a = '';
+  String answer4b = '';
 
   @override
   void initState() {
@@ -44,28 +44,28 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
       // Check if the document exists
       if (snapshot.exists) {
         // Access the "text1" field from the document data
-        String fetchedText = snapshot.get('quiz');
-        String fetchedText1 = snapshot.get('answer1');
-        String fetchedText2 = snapshot.get('answer2');
+        String fetchedText = snapshot.get('quiz4');
+        String fetchedText1 = snapshot.get('answer4a');
+        String fetchedText2 = snapshot.get('answer4b');
 
         setState(() {
-          quiz = fetchedText;
-          answer1 = fetchedText1;
-          answer2 = fetchedText2;
+          quiz4 = fetchedText;
+          answer4a = fetchedText1;
+          answer4b = fetchedText2;
         });
       } else {
         setState(() {
-          quiz = 'Document does not exist';
-          answer1 = 'Document does not exist';
-          answer2 = 'Document does not exist';
+          quiz4 = 'Document does not exist';
+          answer4a = 'Document does not exist';
+          answer4b = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
-        quiz = 'Error fetching data';
-        answer1 = 'Error fetching data';
-        answer2 = 'Error fetching data';
+        quiz4 = 'Error fetching data';
+        answer4a = 'Error fetching data';
+        answer4b = 'Error fetching data';
       });
     }
   }
@@ -120,7 +120,7 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
                       SizedBox(
                           width: 0.7.sw,
                           child: Text(
-                            quiz,
+                            quiz4,
                             style: TextStyle(fontSize: 20),
                           )),
                     ],
@@ -142,7 +142,7 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
                   child: ListTile(
                     title: SizedBox(
                       width: 0.7.sw,
-                      child: Text(answer1),
+                      child: Text(answer4a),
                     ),
                     leading: Radio(
                       value: 1,
@@ -171,7 +171,7 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
                   child: ListTile(
                     title: SizedBox(
                       width: 0.7.sw,
-                      child: Text(answer2),
+                      child: Text(answer4b),
                     ),
                     leading: Radio(
                       value: 2,
