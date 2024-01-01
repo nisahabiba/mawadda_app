@@ -87,6 +87,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MissionSubTopicPage(),
       );
     },
+    MissionSubTopicRoute1.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MissionSubTopicPage1(),
+      );
+    },
     MissionSubTopicRoute2.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -111,10 +117,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MissionSubTopicPage5(),
       );
     },
-    MissionSubTopicRadioRoute.name: (routeData) {
+    MissionSubTopicRadioRoute1.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MissionSubTopicRadioPage(),
+        child: const MissionSubTopicRadioPage1(),
       );
     },
     MissionSubTopicRadioRoute2.name: (routeData) {
@@ -368,6 +374,20 @@ class MissionSubTopicRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MissionSubTopicPage1]
+class MissionSubTopicRoute1 extends PageRouteInfo<void> {
+  const MissionSubTopicRoute1({List<PageRouteInfo>? children})
+      : super(
+          MissionSubTopicRoute1.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MissionSubTopicRoute1';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [MissionSubTopicPage2]
 class MissionSubTopicRoute2 extends PageRouteInfo<void> {
   const MissionSubTopicRoute2({List<PageRouteInfo>? children})
@@ -424,15 +444,15 @@ class MissionSubTopicRoute5 extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [MissionSubTopicRadioPage]
-class MissionSubTopicRadioRoute extends PageRouteInfo<void> {
-  const MissionSubTopicRadioRoute({List<PageRouteInfo>? children})
+/// [MissionSubTopicRadioPage1]
+class MissionSubTopicRadioRoute1 extends PageRouteInfo<void> {
+  const MissionSubTopicRadioRoute1({List<PageRouteInfo>? children})
       : super(
-          MissionSubTopicRadioRoute.name,
+          MissionSubTopicRadioRoute1.name,
           initialChildren: children,
         );
 
-  static const String name = 'MissionSubTopicRadioRoute';
+  static const String name = 'MissionSubTopicRadioRoute1';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

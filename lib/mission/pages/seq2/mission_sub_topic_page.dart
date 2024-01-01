@@ -8,14 +8,14 @@ import 'package:mawadda_app/core/router/router.dart';
 // TOPIC MATERIALS NUM.2
 
 @RoutePage()
-class MissionSubTopicPage3 extends StatefulWidget {
-  const MissionSubTopicPage3({super.key});
+class MissionSubTopicPage2 extends StatefulWidget {
+  const MissionSubTopicPage2({super.key});
 
   @override
-  State<MissionSubTopicPage3> createState() => _MissionSubTopicPage3State();
+  State<MissionSubTopicPage2> createState() => _MissionSubTopicPage2State();
 }
 
-class _MissionSubTopicPage3State extends State<MissionSubTopicPage3> {
+class _MissionSubTopicPage2State extends State<MissionSubTopicPage2> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
   final String documentId = 'health_pregnancy';
@@ -121,19 +121,15 @@ class _MissionSubTopicPage3State extends State<MissionSubTopicPage3> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(
-                            'assets/pic_mission1.png',
-                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(text1, style: TextStyle(fontSize: 25)),
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
                                 text2,
-                                style: TextStyle(fontSize: 20),
-                                textAlign: TextAlign.center,
+                                style: TextStyle(fontSize: 16),
+                                textAlign: TextAlign.left,
                               )),
                           SizedBox(
                             height: 100.h,

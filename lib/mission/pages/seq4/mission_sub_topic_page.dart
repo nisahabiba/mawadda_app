@@ -8,21 +8,21 @@ import 'package:mawadda_app/core/router/router.dart';
 // TOPIC MATERIALS NUM.4
 
 @RoutePage()
-class MissionSubTopicPage5 extends StatefulWidget {
-  const MissionSubTopicPage5({super.key});
+class MissionSubTopicPage4 extends StatefulWidget {
+  const MissionSubTopicPage4({super.key});
 
   @override
-  State<MissionSubTopicPage5> createState() => _MissionSubTopicPage5State();
+  State<MissionSubTopicPage4> createState() => _MissionSubTopicPage4State();
 }
 
-class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
+class _MissionSubTopicPage4State extends State<MissionSubTopicPage4> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
   final String documentId = 'health_pregnancy';
   int currentIndex = 0;
 
   String text1 = '';
-  String text2 = '';
+  String text4 = '';
 
   @override
   void initState() {
@@ -45,23 +45,23 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
         // Access the "text1" field from the document data
 
         String fetchedText1 = snapshot.get('text1');
-        String fetchedText2 = snapshot.get('text2');
+        String fetchedtext4 = snapshot.get('text4');
 
         setState(() {
           text1 = fetchedText1;
-          text2 = fetchedText2;
+          text4 = fetchedtext4;
         });
       } else {
         setState(() {
           text1 = 'Document does not exist';
-          text2 = 'Document does not exist';
+          text4 = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
         text1 = 'Error fetching data';
-        text2 = 'Error fetching data';
+        text4 = 'Error fetching data';
       });
     }
   }
@@ -121,19 +121,15 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(
-                            'assets/pic_mission1.png',
-                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(text1, style: TextStyle(fontSize: 25)),
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
-                                text2,
-                                style: TextStyle(fontSize: 20),
-                                textAlign: TextAlign.center,
+                                text4,
+                                style: TextStyle(fontSize: 16),
+                                textAlign: TextAlign.left,
                               )),
                           SizedBox(
                             height: 100.h,

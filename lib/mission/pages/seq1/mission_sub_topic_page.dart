@@ -8,14 +8,14 @@ import 'package:mawadda_app/core/router/router.dart';
 // TOPIC MATERIALS NUM.1
 
 @RoutePage()
-class MissionSubTopicPage2 extends StatefulWidget {
-  const MissionSubTopicPage2({super.key});
+class MissionSubTopicPage1 extends StatefulWidget {
+  const MissionSubTopicPage1({super.key});
 
   @override
-  State<MissionSubTopicPage2> createState() => _MissionSubTopicPage2State();
+  State<MissionSubTopicPage1> createState() => _MissionSubTopicPage1State();
 }
 
-class _MissionSubTopicPage2State extends State<MissionSubTopicPage2> {
+class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
   final String documentId = 'health_pregnancy';
@@ -121,19 +121,19 @@ class _MissionSubTopicPage2State extends State<MissionSubTopicPage2> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(
-                            'assets/pic_mission1.png',
-                          ),
+                          // Image.asset(
+                          //   'assets/pic_mission1.png',
+                          // ),
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(text1, style: TextStyle(fontSize: 25)),
+                          //Text(text1, style: TextStyle(fontSize: 25)),
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
-                                text2,
-                                style: TextStyle(fontSize: 20),
-                                textAlign: TextAlign.center,
+                                text1,
+                                style: TextStyle(fontSize: 16),
+                                textAlign: TextAlign.left,
                               )),
                           SizedBox(
                             height: 100.h,

@@ -22,7 +22,7 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
   int currentIndex = 0;
 
   String text1 = '';
-  String text2 = '';
+  String text5 = '';
 
   @override
   void initState() {
@@ -45,23 +45,23 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
         // Access the "text1" field from the document data
 
         String fetchedText1 = snapshot.get('text1');
-        String fetchedText2 = snapshot.get('text2');
+        String fetchedText2 = snapshot.get('text5');
 
         setState(() {
           text1 = fetchedText1;
-          text2 = fetchedText2;
+          text5 = fetchedText2;
         });
       } else {
         setState(() {
           text1 = 'Document does not exist';
-          text2 = 'Document does not exist';
+          text5 = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
         text1 = 'Error fetching data';
-        text2 = 'Error fetching data';
+        text5 = 'Error fetching data';
       });
     }
   }
@@ -121,19 +121,15 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(
-                            'assets/pic_mission1.png',
-                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(text1, style: TextStyle(fontSize: 25)),
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
-                                text2,
-                                style: TextStyle(fontSize: 20),
-                                textAlign: TextAlign.center,
+                                text5,
+                                style: TextStyle(fontSize: 16),
+                                textAlign: TextAlign.left,
                               )),
                           SizedBox(
                             height: 100.h,
@@ -172,8 +168,8 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
                                             BorderRadius.circular(10)),
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
-                                  context.pushRoute(
-                                      const MissionSubTopicRadioRoute5());
+                                  context
+                                      .pushRoute(const MissionCompletedRoute());
                                 },
                                 child: Text(
                                   'Yes, next!',

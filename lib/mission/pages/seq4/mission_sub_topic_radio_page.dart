@@ -154,7 +154,7 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
                         });
                         context.router.popForced();
                         context.router
-                            .popAndPushAll([const MissionSubTopicRoute5()]);
+                            .popAndPushAll([const MissionSubTopicRoute4()]);
                       },
                     ),
                   ),
@@ -183,7 +183,7 @@ class _MissionSubTopicRadioPage4State extends State<MissionSubTopicRadioPage4> {
                         });
                         context.router.popForced();
                         context.router
-                            .popAndPushAll([const MissionSubTopicRoute5()]);
+                            .popAndPushAll([const MissionSubTopicRoute4()]);
                       },
                     ),
                   ),

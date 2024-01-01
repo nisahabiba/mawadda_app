@@ -8,15 +8,15 @@ import 'package:mawadda_app/core/router/router.dart';
 // TOPIC MATERIALS NUM.1
 
 @RoutePage()
-class MissionSubTopicRadioPage extends StatefulWidget {
-  const MissionSubTopicRadioPage({super.key});
+class MissionSubTopicRadioPage1 extends StatefulWidget {
+  const MissionSubTopicRadioPage1({super.key});
 
   @override
-  State<MissionSubTopicRadioPage> createState() =>
-      _MissionSubTopicRadioPageState();
+  State<MissionSubTopicRadioPage1> createState() =>
+      _MissionSubTopicRadioPage1State();
 }
 
-class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
+class _MissionSubTopicRadioPage1State extends State<MissionSubTopicRadioPage1> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
   final String documentId = 'health_pregnancy';
@@ -154,7 +154,7 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
                         });
                         context.router.popForced();
                         context.router
-                            .popAndPushAll([const MissionSubTopicRoute2()]);
+                            .popAndPushAll([const MissionSubTopicRoute1()]);
                       },
                     ),
                   ),
@@ -183,7 +183,7 @@ class _MissionSubTopicRadioPageState extends State<MissionSubTopicRadioPage> {
                         });
                         context.router.popForced();
                         context.router
-                            .popAndPushAll([const MissionSubTopicRoute2()]);
+                            .popAndPushAll([const MissionSubTopicRoute1()]);
                       },
                     ),
                   ),
