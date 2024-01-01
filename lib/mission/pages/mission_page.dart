@@ -4,6 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
+import 'package:provider/provider.dart';
+import '../providers/document_id_provider.dart';
+import 'mission_topic_page.dart';
 
 @RoutePage()
 class MissionPage extends StatefulWidget {
@@ -16,6 +19,8 @@ class MissionPage extends StatefulWidget {
 class _MissionPageState extends State<MissionPage> {
   @override
   Widget build(BuildContext context) {
+    var documentIdProvider = Provider.of<DocumentIdProvider>(context);
+
     return Container(
       alignment: Alignment.center,
       constraints: const BoxConstraints.expand(),
@@ -50,21 +55,22 @@ class _MissionPageState extends State<MissionPage> {
 //------------------------ Mission 1
                   GestureDetector(
                     onTap: () {
+                      documentIdProvider.setDocumentId("health_pregnancy");
                       context.pushRoute(
                         MissionTopicRoute(
-                          imageTopic: 'assets/pic_mission1.png',
-                          title: 'Health & Pregnancy',
-                          subTitle: 'Why do we need to learn about this?',
-                          subTitleDetails:
-                              "Because health can protect us from illness, and at the same time, we provide the better life quality to the next generation.",
-                          subTopic1: 'Pre-Marital Health Screening?',
-                          subTopic2: 'Fertility & pregnancy',
-                          ref1:
-                              'National Health Marriage Resource Center. (2008) | What is the Relationship of Marriage to Physical Health?',
-                          ref2:
-                              'B. (n.d.). A premarital screening for a happy marriage | Bangkok Hospital.',
-                          ref3: 'Pre Marital Check Up Malaysia - SunMed.',
-                        ),
+                            imageTopic: 'assets/pic_mission1.png',
+                            title: 'Health & Pregnancy',
+                            subTitle: 'Why do we need to learn about this?',
+                            subTitleDetails:
+                                "Because health can protect us from illness, and at the same time, we provide the better life quality to the next generation.",
+                            subTopic1: 'Pre-Marital Health Screening?',
+                            subTopic2: 'Fertility & pregnancy',
+                            ref1:
+                                'National Health Marriage Resource Center. (2008) | What is the Relationship of Marriage to Physical Health?',
+                            ref2:
+                                'B. (n.d.). A premarital screening for a happy marriage | Bangkok Hospital.',
+                            ref3: 'Pre Marital Check Up Malaysia - SunMed.',
+                            documentId: 'health_pregnancy'),
                       );
                     },
                     child: Card(
@@ -120,6 +126,7 @@ class _MissionPageState extends State<MissionPage> {
                               'Berlacher, et.al. (2017) | The Impact of Communication Skills Training on Cardiology Fellows\' and Attending Physicians\' Perceived Comfort with Difficult Conversations. Journal of Palliative Medicine, 20, 767-769.',
                           ref3:
                               'Goleman, D.J. (1995) | Emotional Intelligence: Why It Can Matter More Than IQ.',
+                          documentId: 'emotional_control',
                         ),
                       );
                     },
@@ -181,6 +188,7 @@ class _MissionPageState extends State<MissionPage> {
                               'Khair, A.U. (2014) | The Correlation of Parenting and Socioeconomic Status Towards English Learning Readiness of Children.',
                           ref3:
                               'Kanishevska, L. (2020) | State of readiness for responsible parenting among high school students in boarding schools. Theoretical and Methodical Problems of Children and Youth Education.',
+                          documentId: 'parenting',
                         ),
                       );
                     },
@@ -237,6 +245,7 @@ class _MissionPageState extends State<MissionPage> {
                               'John, L. K., et.al. (2016) | Hiding personal information reveals the worst. Proceedings of the National Academy of Sciences of the United States of America, 113(4), 954–959.',
                           ref3:
                               'Hatcher, C.B. (2000) | Should Households Establish Emergency Funds.',
+                          documentId: 'financial_stability',
                         ),
                       );
                     },

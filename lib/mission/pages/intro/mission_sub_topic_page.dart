@@ -18,8 +18,10 @@ class MissionSubTopicPage extends StatefulWidget {
 class _MissionSubTopicPageState extends State<MissionSubTopicPage> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
-  final String documentId = 'health_pregnancy';
+  final String documentId;
   int currentIndex = 0;
+
+  MissionSubTopicPage(this.documentId);
 
   String text_a = '';
   String text_b = '';

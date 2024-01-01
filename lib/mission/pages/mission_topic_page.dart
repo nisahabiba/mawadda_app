@@ -3,6 +3,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import '../providers/document_id_provider.dart';
 
 import 'package:mawadda_app/core/router/router.dart';
 
@@ -33,6 +35,8 @@ class MissionTopicPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var documentIdProvider = Provider.of<DocumentIdProvider>(context);
+
     return Container(
       alignment: Alignment.center,
       constraints: const BoxConstraints.expand(),
@@ -135,8 +139,8 @@ class MissionTopicPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () async {
-              final navigateToSubTopic =
-                  await context.pushRoute(const MissionSubTopicRoute());
+              context.pushRoute(MissionSubTopicRoute(
+                  documentIdProvider.documentId.documentId));
             },
             child: Container(
               padding: EdgeInsets.only(

@@ -8,6 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:mawadda_app/auth/bloc/auth/auth_bloc.dart';
 import 'package:mawadda_app/auth/bloc/register/register_cubit.dart';
+import 'package:mawadda_app/mission/providers/document_id_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'auth/bloc/login/login_bloc.dart';
 import 'core/di/injector.dart';
@@ -30,7 +32,12 @@ void mainApp() async {
   );
   configureInjector();
 
-  runApp(const App());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => DocumentIdProvider(),
+      child: const App(),
+    ),
+  );
 }
 
 class App extends StatefulWidget {

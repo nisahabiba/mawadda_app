@@ -362,7 +362,7 @@ class MissionRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [MissionSubTopicPage]
 class MissionSubTopicRoute extends PageRouteInfo<void> {
-  const MissionSubTopicRoute({List<PageRouteInfo>? children})
+  const MissionSubTopicRoute(String documentId, {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRoute.name,
           initialChildren: children,
@@ -528,6 +528,7 @@ class MissionTopicRoute extends PageRouteInfo<MissionTopicRouteArgs> {
     required String ref3,
     required String imageTopic,
     List<PageRouteInfo>? children,
+    required documentId,
   }) : super(
           MissionTopicRoute.name,
           args: MissionTopicRouteArgs(
@@ -541,6 +542,7 @@ class MissionTopicRoute extends PageRouteInfo<MissionTopicRouteArgs> {
             ref2: ref2,
             ref3: ref3,
             imageTopic: imageTopic,
+            documentId: documentId,
           ),
           initialChildren: children,
         );
@@ -563,6 +565,7 @@ class MissionTopicRouteArgs {
     required this.ref2,
     required this.ref3,
     required this.imageTopic,
+    required this.documentId,
   });
 
   final Key? key;
@@ -585,9 +588,11 @@ class MissionTopicRouteArgs {
 
   final String imageTopic;
 
+  final String documentId;
+
   @override
   String toString() {
-    return 'MissionTopicRouteArgs{key: $key, title: $title, subTitle: $subTitle, subTitleDetails: $subTitleDetails, subTopic1: $subTopic1, subTopic2: $subTopic2, ref1: $ref1, ref2: $ref2, ref3: $ref3, imageTopic: $imageTopic}';
+    return 'MissionTopicRouteArgs{key: $key, title: $title, subTitle: $subTitle, subTitleDetails: $subTitleDetails, subTopic1: $subTopic1, subTopic2: $subTopic2, ref1: $ref1, ref2: $ref2, ref3: $ref3, imageTopic: $imageTopic, documentId : $documentId}';
   }
 }
 
