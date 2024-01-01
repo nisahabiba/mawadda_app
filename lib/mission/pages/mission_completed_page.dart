@@ -2,6 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mawadda_app/core/di/injector.dart';
+import 'package:mawadda_app/core/router/router.dart';
+import 'package:mawadda_app/home/pages/home_view.dart';
+import 'package:mawadda_app/mission/pages/mission_navigation_page.dart';
+import 'package:mawadda_app/mission/pages/mission_page.dart';
 
 @RoutePage()
 class MissionCompletedPage extends StatelessWidget {
@@ -10,7 +15,7 @@ class MissionCompletedPage extends StatelessWidget {
   Widget get page {
     return Container(
       // Your widget code here...
-      child: Text('This is the mission completed page!'),
+      child: const Text('This is the mission completed page!'),
     );
   }
 
@@ -38,22 +43,20 @@ class MissionCompletedPage extends StatelessWidget {
                   style: TextStyle(fontSize: 30),
                 ),
                 SizedBox(
-                  height: 10,
-                ),
-                Text("Your commitment to learning is truly admirable, Dear",
-                    style: TextStyle(fontSize: 14)),
-                SizedBox(
-                  height: 20,
+                  height: 50,
                 ),
               ],
             ),
           ),
           Container(
-            height: 250,
+            height: 200,
             child: Image.asset(
               "assets/icon_mission_new.png",
               fit: BoxFit.fitHeight,
             ),
+          ),
+          const SizedBox(
+            height: 40,
           ),
           Container(
             padding: EdgeInsets.only(
@@ -76,12 +79,16 @@ class MissionCompletedPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        const Text("Your Score is:",
+                        const Text("Thank you so much!",
                             style: TextStyle(fontSize: 24)),
-                        const Text(
-                          "8/10",
-                          style: TextStyle(fontSize: 60),
-                        ),
+                        SizedBox(
+                            width: 0.7.sw,
+                            child: const Text(
+                                "Your commitment to learn something new is truly admirable, Dear",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ))),
                         const SizedBox(
                           height: 50,
                         ),
@@ -105,7 +112,9 @@ class MissionCompletedPage extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(20.0))),
-                              onPressed: () {},
+                              onPressed: () {
+                                context.popRoute();
+                              },
                               child: const Text(
                                 'Check out the other topics',
                                 style: TextStyle(
