@@ -10,7 +10,8 @@ import 'package:mawadda_app/core/router/router.dart';
 @RoutePage()
 class MissionSubTopicPage1 extends StatefulWidget {
   String? documentId;
-  MissionSubTopicPage1({super.key, this.documentId});
+  int? sub;
+  MissionSubTopicPage1({super.key, this.documentId, this.sub});
 
   @override
   State<MissionSubTopicPage1> createState() => _MissionSubTopicPage1State();
@@ -47,8 +48,10 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
       if (snapshot.exists) {
         // Access the "text1" field from the document data
 
-        String fetchedText1 = snapshot.get('text1');
-        String fetchedText2 = snapshot.get('text2');
+        String fetchedText1 =
+            snapshot.get(widget.sub == 1 ? 'text1' : 'two_text1');
+        String fetchedText2 =
+            snapshot.get(widget.sub == 1 ? 'text2' : 'two_text2');
 
         setState(() {
           text1 = fetchedText1;
@@ -175,7 +178,7 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
                                   context.pushRoute(MissionSubTopicRadioRoute2(
-                                      widget.documentId!));
+                                      widget.documentId!, widget.sub!));
                                 },
                                 child: Text(
                                   'Yes, next!',

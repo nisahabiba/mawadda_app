@@ -142,7 +142,7 @@ class MissionTopicPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () async {
-              context.pushRoute(MissionSubTopicRoute(documentId));
+              context.pushRoute(MissionSubTopicRoute(documentId, 1));
             },
             child: Container(
               padding: EdgeInsets.only(
@@ -202,7 +202,7 @@ class MissionTopicPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () async {
-              context.pushRoute(MissionSubTopicRoute(documentId));
+              context.pushRoute(MissionSubTopicRoute(documentId, 2));
             },
             child: Container(
               padding: EdgeInsets.only(

@@ -11,7 +11,8 @@ import 'package:mawadda_app/mission/models/document_id_model.dart';
 @RoutePage()
 class MissionSubTopicRadioPage1 extends StatefulWidget {
   String? documentId;
-  MissionSubTopicRadioPage1({super.key, this.documentId});
+  int? sub;
+  MissionSubTopicRadioPage1({super.key, this.documentId, this.sub});
 
   @override
   State<MissionSubTopicRadioPage1> createState() =>
@@ -47,9 +48,12 @@ class _MissionSubTopicRadioPage1State extends State<MissionSubTopicRadioPage1> {
       // Check if the document exists
       if (snapshot.exists) {
         // Access the "text1" field from the document data
-        String fetchedText = snapshot.get('quiz1');
-        String fetchedText1 = snapshot.get('answer1a');
-        String fetchedText2 = snapshot.get('answer1b');
+        String fetchedText =
+            snapshot.get(widget.sub == 1 ? 'quiz1' : 'two_quiz1');
+        String fetchedText1 =
+            snapshot.get(widget.sub == 1 ? 'answer1a' : 'two_answer1a');
+        String fetchedText2 =
+            snapshot.get(widget.sub == 1 ? 'answer1b' : 'two_answer1b');
 
         setState(() {
           quiz1 = fetchedText;
@@ -159,8 +163,9 @@ class _MissionSubTopicRadioPage1State extends State<MissionSubTopicRadioPage1> {
                           selectedOption = value!;
                         });
                         context.router.popForced();
-                        context.router.popAndPushAll(
-                            [MissionSubTopicRoute1(widget.documentId!)]);
+                        context.router.popAndPushAll([
+                          MissionSubTopicRoute1(widget.documentId!, widget.sub!)
+                        ]);
                       },
                     ),
                   ),
@@ -188,8 +193,9 @@ class _MissionSubTopicRadioPage1State extends State<MissionSubTopicRadioPage1> {
                           selectedOption = value!;
                         });
                         context.router.popForced();
-                        context.router.popAndPushAll(
-                            [MissionSubTopicRoute1(widget.documentId!)]);
+                        context.router.popAndPushAll([
+                          MissionSubTopicRoute1(widget.documentId!, widget.sub!)
+                        ]);
                       },
                     ),
                   ),

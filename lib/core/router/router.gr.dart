@@ -85,77 +85,82 @@ abstract class _$AppRouter extends RootStackRouter {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicPage(documentId: args.documentId),
+        child: MissionSubTopicPage(documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRoute1.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicPage1(documentId: args.documentId),
+        child: MissionSubTopicPage1(documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRoute2.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicPage2(documentId: args.documentId),
+        child: MissionSubTopicPage2(documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRoute3.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicPage3(documentId: args.documentId),
+        child: MissionSubTopicPage3(documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRoute4.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicPage4(documentId: args.documentId),
+        child: MissionSubTopicPage4(documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRoute5.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicPage5(documentId: args.documentId),
+        child: MissionSubTopicPage5(documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRadioRoute1.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicRadioPage1(documentId: args.documentId),
+        child: MissionSubTopicRadioPage1(
+            documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRadioRoute2.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicRadioPage2(documentId: args.documentId),
+        child: MissionSubTopicRadioPage2(
+            documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRadioRoute3.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicRadioPage3(documentId: args.documentId),
+        child: MissionSubTopicRadioPage3(
+            documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRadioRoute4.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicRadioPage4(documentId: args.documentId),
+        child: MissionSubTopicRadioPage4(
+            documentId: args.documentId, sub: args.sub),
       );
     },
     MissionSubTopicRadioRoute5.name: (routeData) {
       final args = routeData.argsAs<Args_id>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MissionSubTopicRadioPage5(documentId: args.documentId),
+        child: MissionSubTopicRadioPage5(
+            documentId: args.documentId, sub: args.sub),
       );
     },
     MissionTopicRoute.name: (routeData) {
@@ -374,11 +379,13 @@ class MissionRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [MissionSubTopicPage]
 class MissionSubTopicRoute extends PageRouteInfo<Args_id> {
-  MissionSubTopicRoute(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRoute(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRoute.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -389,19 +396,22 @@ class MissionSubTopicRoute extends PageRouteInfo<Args_id> {
 }
 
 class Args_id {
-  const Args_id({required this.documentId});
+  const Args_id({required this.documentId, required this.sub});
 
   final String documentId;
+  final int sub;
 }
 
 /// generated route for
 /// [MissionSubTopicPage1]
 class MissionSubTopicRoute1 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRoute1(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRoute1(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRoute1.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -414,11 +424,13 @@ class MissionSubTopicRoute1 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicPage2]
 class MissionSubTopicRoute2 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRoute2(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRoute2(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRoute2.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -431,11 +443,13 @@ class MissionSubTopicRoute2 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicPage3]
 class MissionSubTopicRoute3 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRoute3(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRoute3(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRoute3.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -448,11 +462,13 @@ class MissionSubTopicRoute3 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicPage4]
 class MissionSubTopicRoute4 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRoute4(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRoute4(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRoute4.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -465,11 +481,13 @@ class MissionSubTopicRoute4 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicPage5]
 class MissionSubTopicRoute5 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRoute5(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRoute5(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRoute5.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -482,11 +500,13 @@ class MissionSubTopicRoute5 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicRadioPage1]
 class MissionSubTopicRadioRoute1 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRadioRoute1(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRadioRoute1(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRadioRoute1.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -499,11 +519,13 @@ class MissionSubTopicRadioRoute1 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicRadioPage2]
 class MissionSubTopicRadioRoute2 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRadioRoute2(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRadioRoute2(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRadioRoute2.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -516,11 +538,13 @@ class MissionSubTopicRadioRoute2 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicRadioPage3]
 class MissionSubTopicRadioRoute3 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRadioRoute3(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRadioRoute3(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRadioRoute3.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -533,11 +557,13 @@ class MissionSubTopicRadioRoute3 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicRadioPage4]
 class MissionSubTopicRadioRoute4 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRadioRoute4(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRadioRoute4(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRadioRoute4.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
@@ -550,11 +576,13 @@ class MissionSubTopicRadioRoute4 extends PageRouteInfo<Args_id> {
 /// generated route for
 /// [MissionSubTopicRadioPage5]
 class MissionSubTopicRadioRoute5 extends PageRouteInfo<Args_id> {
-  MissionSubTopicRadioRoute5(String documentId, {List<PageRouteInfo>? children})
+  MissionSubTopicRadioRoute5(String documentId, int sub,
+      {List<PageRouteInfo>? children})
       : super(
           MissionSubTopicRadioRoute5.name,
           args: Args_id(
             documentId: documentId,
+            sub: sub,
           ),
           initialChildren: children,
         );
