@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, unused_import
 import 'package:auto_route/auto_route.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,6 +29,24 @@ class _ProfilePageState extends State<ProfilePage> {
   bool _checkBoxValue6 = false;
   bool _checkBoxValue7 = false;
   bool _checkBoxValue8 = false;
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  late User _user;
+  late DocumentSnapshot _userSnapshot;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    _user = _auth.currentUser!;
+    _userSnapshot = await _firestore.collection('users').doc(_user.uid).get();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,32 +82,30 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    const Text("(Username)"),
+                    const Text("(name)"),
                     SizedBox(
                       height: 5.h,
                     ),
                     const Text("email_here@gmail.com"),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFB4B0CE),
-                          shape: RoundedRectangleBorder(
-                              side: const BorderSide(
-                                  color: Colors.black, width: 3),
-                              borderRadius: BorderRadius.circular(10))),
-                      onPressed: () {
-                        context.read<ProfileNavigationCubit>().changePage(
-                              CurrentProfilePage.editProfilePage,
-                            );
-                      },
-                      child: Text(
-                        'Edit Profile',
-                        style: GoogleFonts.averiaGruesaLibre(
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                    ),
+
+                    // ElevatedButton(
+                    //   style: ElevatedButton.styleFrom(
+                    //       backgroundColor: const Color(0xFFB4B0CE),
+                    //       shape: RoundedRectangleBorder(
+                    //           side: const BorderSide(
+                    //               color: Colors.black, width: 3),
+                    //           borderRadius: BorderRadius.circular(10))),
+                    //   onPressed: () {
+                    //     context.read<ProfileNavigationCubit>().changePage(
+                    //           CurrentProfilePage.editProfilePage,
+                    //         );
+                    //   },
+                    //   child: Text(
+                    //     'Edit Profile',
+                    //     style: GoogleFonts.averiaGruesaLibre(
+                    //         color: Colors.black, fontWeight: FontWeight.bold),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

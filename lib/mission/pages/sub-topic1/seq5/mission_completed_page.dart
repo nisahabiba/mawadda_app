@@ -2,11 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mawadda_app/core/di/injector.dart';
-import 'package:mawadda_app/core/router/router.dart';
-import 'package:mawadda_app/home/pages/home_view.dart';
-import 'package:mawadda_app/mission/pages/mission_navigation_page.dart';
-import 'package:mawadda_app/mission/pages/mission_page.dart';
 
 @RoutePage()
 class MissionCompletedPage extends StatelessWidget {

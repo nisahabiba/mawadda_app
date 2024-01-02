@@ -71,15 +71,6 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
     }
   }
 
-  // void nextDocument() {
-  //   setState(() {
-  //     Increment the index and fetch the next document
-  //     currentIndex = (currentIndex + 1) % documentIds.length;
-  //     print('Updated Index: $currentIndex');
-  //     fetchData();
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -136,7 +127,7 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
                               width: 0.7.sw,
                               child: Text(
                                 text5,
-                                style: TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16),
                                 textAlign: TextAlign.left,
                               )),
                           SizedBox(
@@ -176,8 +167,9 @@ class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
                                             BorderRadius.circular(10)),
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
-                                  context
-                                      .pushRoute(const MissionCompletedRoute());
+                                  context.router.popForced();
+                                  context.router.popAndPushAll(
+                                      [const MissionCompletedRoute()]);
                                 },
                                 child: Text(
                                   'Yes, next!',

@@ -8,7 +8,7 @@ import 'package:mawadda_app/home/pages/home_navigation_page.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
 import 'package:mawadda_app/home/pages/home_view.dart';
 import 'package:mawadda_app/home/pages/videos/videos_page.dart';
-import 'package:mawadda_app/mission/pages/mission_completed_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic1/seq5/mission_completed_page.dart';
 import 'package:mawadda_app/mission/pages/mission_navigation_page.dart';
 
 import 'package:mawadda_app/mission/pages/sub-topic1/intro/mission_sub_topic_page.dart';
