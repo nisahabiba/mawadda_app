@@ -62,7 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
             style: GoogleFonts.averiaGruesaLibre(color: Colors.black),
             child: ListView(children: [
               Container(
-                height: 170.h,
+                height: 140.h,
                 width: 329.w,
                 padding: const EdgeInsets.all(15),
                 child: Column(
@@ -74,15 +74,23 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.white,
                         shape: BoxShape.circle,
                       ),
+                      child: const Icon(
+                        Icons.person_outline,
+                        color: Colors.black,
+                        size: 50,
+                      ),
                     ),
                     SizedBox(
                       height: 5.h,
                     ),
-                    Text(' ${_userInfo?['name'] ?? 'N/A'}'),
-                    SizedBox(
-                      height: 5.h,
+                    Text(
+                      'Hello, ${_userInfo?['name'] ?? 'N/A'} !',
+                      style: TextStyle(fontSize: 20),
                     ),
-                    Text('Email: ${_userInfo?['email'] ?? 'N/A'}'),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Text('Your Email: ${_userInfo?['email'] ?? 'N/A'}'),
                   ],
                 ),
               ),
