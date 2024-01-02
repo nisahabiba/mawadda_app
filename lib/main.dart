@@ -108,25 +108,5 @@ class MainPage extends StatelessWidget {
         color: Colors.white,
       ),
     );
-    //   return BlocBuilder<NavigationBloc, NavigationState>(
-    //     builder: (context, state) {
-    //       debugPrint('Navigation State : $state');
-
-    //       if (state == const AuthSt()) {
-    //         //context.router.replace(const AuthRoute());
-    //         //return const LoginPage();
-    //         context.replaceRoute(const AuthRoute());
-    //       }
-
-    //       if (state == const HomeSt()) {
-    //         // context.router.replace(const LoginRoute());
-    //         //return const HomePage();
-    //         context.replaceRoute(const HomeRoute());
-    //       }
-    //       return Container(
-    //         color: Colors.white,
-    //       );
-    //     },
-    //   );
   }
 }

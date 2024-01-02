@@ -42,7 +42,7 @@ class AuthRepository {
       debugPrint('Error: $e');
       String message = '';
       if (e.toString().contains('email-already-in-use')) {
-        message = 'User sudah digunakan';
+        message = 'Email is already used';
       }
       return Left(RemoteFailure(message: message));
     }
@@ -58,7 +58,7 @@ class AuthRepository {
       return Right(userCredential);
     } catch (e) {
       debugPrint('Error: $e');
-      return const Left(RemoteFailure(message: 'User tidak ditemukan'));
+      return const Left(RemoteFailure(message: 'User is not found'));
     }
   }
 

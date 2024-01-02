@@ -24,7 +24,7 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
   int currentIndex = 0;
 
   String text1 = '';
-  String text2 = '';
+  String head_text1 = '';
 
   @override
   void initState() {
@@ -50,24 +50,24 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
 
         String fetchedText1 =
             snapshot.get(widget.sub == 1 ? 'text1' : 'two_text1');
-        String fetchedText2 =
-            snapshot.get(widget.sub == 1 ? 'text2' : 'two_text2');
+        String fetchedhead_text1 =
+            snapshot.get(widget.sub == 1 ? 'head_text1' : 'two_head_text1');
 
         setState(() {
           text1 = fetchedText1;
-          text2 = fetchedText2;
+          head_text1 = fetchedhead_text1;
         });
       } else {
         setState(() {
           text1 = 'Document does not exist';
-          text2 = 'Document does not exist';
+          head_text1 = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
         text1 = 'Error fetching data';
-        text2 = 'Error fetching data';
+        head_text1 = 'Error fetching data';
       });
     }
   }
@@ -97,11 +97,6 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Text(
-                //   "Health & Pregnancy",
-                //   style: TextStyle(fontSize: 30),
-                // ),
-                // Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
                 SizedBox(
                   height: 30,
                 )
@@ -136,8 +131,18 @@ class _MissionSubTopicPage1State extends State<MissionSubTopicPage1> {
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
+                                head_text1,
+                                style: const TextStyle(fontSize: 22),
+                                textAlign: TextAlign.left,
+                              )),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          SizedBox(
+                              width: 0.7.sw,
+                              child: Text(
                                 text1,
-                                style: TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16),
                                 textAlign: TextAlign.left,
                               )),
                           SizedBox(

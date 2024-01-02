@@ -5,26 +5,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
 
-// TOPIC MATERIALS NUM.4
+// TOPIC MATERIALS NUM.2
 
 @RoutePage()
-class MissionSubTopicPage4 extends StatefulWidget {
+class MissionSubTopicPage2 extends StatefulWidget {
   String? documentId;
   int? sub;
-  MissionSubTopicPage4({super.key, this.documentId, this.sub});
+  MissionSubTopicPage2({super.key, this.documentId, this.sub});
 
   @override
-  State<MissionSubTopicPage4> createState() => _MissionSubTopicPage4State();
+  State<MissionSubTopicPage2> createState() => _MissionSubTopicPage2State();
 }
 
-class _MissionSubTopicPage4State extends State<MissionSubTopicPage4> {
+class _MissionSubTopicPage2State extends State<MissionSubTopicPage2> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
   //final String documentId = 'health_pregnancy';
   int currentIndex = 0;
 
-  String text1 = '';
-  String text4 = '';
+  String head_text2 = '';
+  String text2 = '';
 
   @override
   void initState() {
@@ -45,28 +45,28 @@ class _MissionSubTopicPage4State extends State<MissionSubTopicPage4> {
 
       // Check if the document exists
       if (snapshot.exists) {
-        // Access the "text1" field from the document data
+        // Access the "head_text2" field from the document data
 
-        String fetchedText1 =
-            snapshot.get(widget.sub == 1 ? 'text1' : 'two_text1');
-        String fetchedtext4 =
-            snapshot.get(widget.sub == 1 ? 'text4' : 'two_text4');
+        String fetchedhead_text2 =
+            snapshot.get(widget.sub == 1 ? 'head_text2' : 'two_head_text2');
+        String fetchedText2 =
+            snapshot.get(widget.sub == 1 ? 'text2' : 'two_text2');
 
         setState(() {
-          text1 = fetchedText1;
-          text4 = fetchedtext4;
+          head_text2 = fetchedhead_text2;
+          text2 = fetchedText2;
         });
       } else {
         setState(() {
-          text1 = 'Document does not exist';
-          text4 = 'Document does not exist';
+          head_text2 = 'Document does not exist';
+          text2 = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
-        text1 = 'Error fetching data';
-        text4 = 'Error fetching data';
+        head_text2 = 'Error fetching data';
+        text2 = 'Error fetching data';
       });
     }
   }
@@ -96,11 +96,6 @@ class _MissionSubTopicPage4State extends State<MissionSubTopicPage4> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Text(
-                //   "Health & Pregnancy",
-                //   style: TextStyle(fontSize: 30),
-                // ),
-                // Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
                 SizedBox(
                   height: 30,
                 )
@@ -135,7 +130,17 @@ class _MissionSubTopicPage4State extends State<MissionSubTopicPage4> {
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
-                                text4,
+                                head_text2,
+                                style: const TextStyle(fontSize: 22),
+                                textAlign: TextAlign.left,
+                              )),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          SizedBox(
+                              width: 0.7.sw,
+                              child: Text(
+                                text2,
                                 style: TextStyle(fontSize: 16),
                                 textAlign: TextAlign.left,
                               )),
@@ -176,7 +181,7 @@ class _MissionSubTopicPage4State extends State<MissionSubTopicPage4> {
                                             BorderRadius.circular(10)),
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
-                                  context.pushRoute(MissionSubTopicRadioRoute5(
+                                  context.pushRoute(MissionSubTopicRadioRoute3(
                                       widget.documentId!, widget.sub!));
                                 },
                                 child: Text(

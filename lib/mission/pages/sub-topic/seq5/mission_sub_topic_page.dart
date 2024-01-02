@@ -5,26 +5,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mawadda_app/core/router/router.dart';
 
-// TOPIC MATERIALS NUM.3
+// TOPIC MATERIALS NUM.5
 
 @RoutePage()
-class MissionSubTopicPage3 extends StatefulWidget {
+class MissionSubTopicPage5 extends StatefulWidget {
   String? documentId;
   int? sub;
-  MissionSubTopicPage3({super.key, this.documentId, this.sub});
+  MissionSubTopicPage5({super.key, this.documentId, this.sub});
 
   @override
-  State<MissionSubTopicPage3> createState() => _MissionSubTopicPage3State();
+  State<MissionSubTopicPage5> createState() => _MissionSubTopicPage5State();
 }
 
-class _MissionSubTopicPage3State extends State<MissionSubTopicPage3> {
+class _MissionSubTopicPage5State extends State<MissionSubTopicPage5> {
   int selectedOption = 0;
   final String collectionName = 'missionText';
   //final String documentId = 'health_pregnancy';
   int currentIndex = 0;
 
-  String text1 = '';
-  String text3 = '';
+  String head_text5 = '';
+  String text5 = '';
 
   @override
   void initState() {
@@ -45,40 +45,31 @@ class _MissionSubTopicPage3State extends State<MissionSubTopicPage3> {
 
       // Check if the document exists
       if (snapshot.exists) {
-        // Access the "text1" field from the document data
+        // Access the "head_text5" field from the document data
 
-        String fetchedText1 =
-            snapshot.get(widget.sub == 1 ? 'text1' : 'two_text1');
-        String fetchedtext3 =
-            snapshot.get(widget.sub == 1 ? 'text3' : 'two_text3');
+        String fetchedhead_text5 =
+            snapshot.get(widget.sub == 1 ? 'head_text5' : 'two_head_text5');
+        String fetchedText2 =
+            snapshot.get(widget.sub == 1 ? 'text5' : 'two_text5');
 
         setState(() {
-          text1 = fetchedText1;
-          text3 = fetchedtext3;
+          head_text5 = fetchedhead_text5;
+          text5 = fetchedText2;
         });
       } else {
         setState(() {
-          text1 = 'Document does not exist';
-          text3 = 'Document does not exist';
+          head_text5 = 'Document does not exist';
+          text5 = 'Document does not exist';
         });
       }
     } catch (e) {
       print('Error fetching data: $e');
       setState(() {
-        text1 = 'Error fetching data';
-        text3 = 'Error fetching data';
+        head_text5 = 'Error fetching data';
+        text5 = 'Error fetching data';
       });
     }
   }
-
-  // void nextDocument() {
-  //   setState(() {
-  //     Increment the index and fetch the next document
-  //     currentIndex = (currentIndex + 1) % documentIds.length;
-  //     print('Updated Index: $currentIndex');
-  //     fetchData();
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -96,11 +87,6 @@ class _MissionSubTopicPage3State extends State<MissionSubTopicPage3> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Text(
-                //   "Health & Pregnancy",
-                //   style: TextStyle(fontSize: 30),
-                // ),
-                // Text("Sub-Topic 1", style: TextStyle(fontSize: 14))
                 SizedBox(
                   height: 30,
                 )
@@ -135,8 +121,18 @@ class _MissionSubTopicPage3State extends State<MissionSubTopicPage3> {
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
-                                text3,
-                                style: TextStyle(fontSize: 16),
+                                head_text5,
+                                style: const TextStyle(fontSize: 22),
+                                textAlign: TextAlign.left,
+                              )),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          SizedBox(
+                              width: 0.7.sw,
+                              child: Text(
+                                text5,
+                                style: const TextStyle(fontSize: 16),
                                 textAlign: TextAlign.left,
                               )),
                           SizedBox(
@@ -176,8 +172,9 @@ class _MissionSubTopicPage3State extends State<MissionSubTopicPage3> {
                                             BorderRadius.circular(10)),
                                     minimumSize: const Size(140, 68)),
                                 onPressed: () {
-                                  context.pushRoute(MissionSubTopicRadioRoute4(
-                                      widget.documentId!, widget.sub!));
+                                  context.router.popForced();
+                                  context.router.popAndPushAll(
+                                      [const MissionCompletedRoute()]);
                                 },
                                 child: Text(
                                   'Yes, next!',
