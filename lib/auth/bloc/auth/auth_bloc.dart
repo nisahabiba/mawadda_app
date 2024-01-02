@@ -35,6 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
     on<_LoggedIn>(
       (event, emit) async {
+        print(event.accessToken);
         await authUtil.setAccessToken(event.accessToken);
         emit(const AuthState.authenticated());
       },

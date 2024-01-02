@@ -11,6 +11,7 @@ import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
 import '../../auth/pages/auth_page.dart';
 import '../../core/router/router.dart';
 import '../bloc/navigation/profile_navigation_cubit.dart';
+import 'package:mawadda_app/profile/pages/user_profile.dart';
 
 @RoutePage()
 class ProfilePage extends StatefulWidget {
@@ -29,22 +30,17 @@ class _ProfilePageState extends State<ProfilePage> {
   bool _checkBoxValue6 = false;
   bool _checkBoxValue7 = false;
   bool _checkBoxValue8 = false;
-
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  late User _user;
-  late DocumentSnapshot _userSnapshot;
+  final UserProfile userProfile = UserProfile();
+  late Map<String, dynamic>? _userInfo = {};
 
   @override
   void initState() {
     super.initState();
-    _loadUserData();
+    _getUserInfo();
   }
 
-  Future<void> _loadUserData() async {
-    _user = _auth.currentUser!;
-    _userSnapshot = await _firestore.collection('users').doc(_user.uid).get();
+  Future<void> _getUserInfo() async {
+    _userInfo = await userProfile.getUserInfo();
     setState(() {});
   }
 
@@ -82,34 +78,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       height: 5.h,
                     ),
-                    const Text("(name)"),
+                    Text(' ${_userInfo?['name'] ?? 'N/A'}'),
                     SizedBox(
                       height: 5.h,
                     ),
-                    const Text("email_here@gmail.com"),
-
-                    // ElevatedButton(
-                    //   style: ElevatedButton.styleFrom(
-                    //       backgroundColor: const Color(0xFFB4B0CE),
-                    //       shape: RoundedRectangleBorder(
-                    //           side: const BorderSide(
-                    //               color: Colors.black, width: 3),
-                    //           borderRadius: BorderRadius.circular(10))),
-                    //   onPressed: () {
-                    //     context.read<ProfileNavigationCubit>().changePage(
-                    //           CurrentProfilePage.editProfilePage,
-                    //         );
-                    //   },
-                    //   child: Text(
-                    //     'Edit Profile',
-                    //     style: GoogleFonts.averiaGruesaLibre(
-                    //         color: Colors.black, fontWeight: FontWeight.bold),
-                    //   ),
-                    // ),
+                    Text('Email: ${_userInfo?['email'] ?? 'N/A'}'),
                   ],
                 ),
               ),
-              Divider(
+              const Divider(
                 height: 0,
                 color: Colors.black,
               ),
@@ -134,14 +111,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     Card(
                         elevation: 0,
                         color: Colors.white,
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                             side: BorderSide(color: Colors.black, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Container(
                           width: 0.9.sw,
                           height: 50,
-                          padding: EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(left: 20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,7 +136,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 LabeledCheckbox(
                     label: 'Sub-topic 1 : Pre-marital health screening?',
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     value: _checkBoxValue1,
                     onChanged: (bool newValue) {
                       setState(() {
@@ -168,7 +145,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     }),
                 LabeledCheckbox(
                     label: 'Sub-topic 2 : About fertility & pregnancy',
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     value: _checkBoxValue2,
                     onChanged: (bool newValue) {
                       setState(() {
@@ -186,14 +163,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     Card(
                         elevation: 0,
                         color: Colors.white,
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                             side: BorderSide(color: Colors.black, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Container(
                           width: 0.9.sw,
                           height: 50,
-                          padding: EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(left: 20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,7 +188,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 LabeledCheckbox(
                     label: 'Sub-topic 1 : Understanding yourself',
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     value: _checkBoxValue3,
                     onChanged: (bool newValue) {
                       setState(() {
@@ -220,7 +197,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     }),
                 LabeledCheckbox(
                     label: 'Sub-topic 2 : Communication is the key!',
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     value: _checkBoxValue4,
                     onChanged: (bool newValue) {
                       setState(() {
@@ -238,14 +215,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     Card(
                         elevation: 0,
                         color: Colors.white,
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                             side: BorderSide(color: Colors.black, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Container(
                           width: 0.9.sw,
                           height: 50,
-                          padding: EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(left: 20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -263,7 +240,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 LabeledCheckbox(
                     label: 'Sub-topic 1 : Am I ready to have kids?',
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     value: _checkBoxValue5,
                     onChanged: (bool newValue) {
                       setState(() {
@@ -272,7 +249,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     }),
                 LabeledCheckbox(
                     label: 'Sub-topic 2 : Learn about the motherhood',
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     value: _checkBoxValue6,
                     onChanged: (bool newValue) {
                       setState(() {
@@ -290,14 +267,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     Card(
                         elevation: 0,
                         color: Colors.white,
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                             side: BorderSide(color: Colors.black, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         child: Container(
                           width: 0.9.sw,
                           height: 50,
-                          padding: EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(left: 20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -315,7 +292,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 LabeledCheckbox(
                     label: 'Sub-topic 1 : You and Your Money Value',
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     value: _checkBoxValue7,
                     onChanged: (bool newValue) {
                       setState(() {
@@ -324,7 +301,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     }),
                 LabeledCheckbox(
                     label: 'Sub-topic 2 : Financial Management',
-                    padding: EdgeInsets.only(left: 40, right: 20),
+                    padding: const EdgeInsets.only(left: 40, right: 20),
                     value: _checkBoxValue8,
                     onChanged: (bool newValue) {
                       setState(() {
