@@ -83,14 +83,14 @@ class ArticlesPage extends StatelessWidget {
                             ),
                             Card(
                               elevation: 0,
-                              color: Color(0xFFB4B0CE),
+                              color: const Color(0xFFB4B0CE),
                               shape: const RoundedRectangleBorder(
                                   side:
                                       BorderSide(color: Colors.black, width: 3),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10))),
                               child: Container(
-                                padding: EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
                                 height: 30.h,
                                 child: Text(
                                   'by Peguam Syarie Faiz Adnaan Associates',
@@ -164,7 +164,7 @@ class ArticlesPage extends StatelessWidget {
                               ),
                               Card(
                                 elevation: 0,
-                                color: Color(0xFFB4B0CE),
+                                color: const Color(0xFFB4B0CE),
                                 shape: const RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: Colors.black, width: 3),
@@ -172,7 +172,7 @@ class ArticlesPage extends StatelessWidget {
                                         BorderRadius.all(Radius.circular(10))),
                                 child: Container(
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   height: 30.h,
                                   width: 120.h,
                                   child: Text(
@@ -241,7 +241,7 @@ class ArticlesPage extends StatelessWidget {
                               ),
                               Card(
                                 elevation: 0,
-                                color: Color(0xFFB4B0CE),
+                                color: const Color(0xFFB4B0CE),
                                 shape: const RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: Colors.black, width: 3),
@@ -249,7 +249,7 @@ class ArticlesPage extends StatelessWidget {
                                         BorderRadius.all(Radius.circular(10))),
                                 child: Container(
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   height: 30.h,
                                   width: 120.h,
                                   child: Text(
@@ -318,7 +318,7 @@ class ArticlesPage extends StatelessWidget {
                               ),
                               Card(
                                 elevation: 0,
-                                color: Color(0xFFB4B0CE),
+                                color: const Color(0xFFB4B0CE),
                                 shape: const RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: Colors.black, width: 3),
@@ -326,7 +326,7 @@ class ArticlesPage extends StatelessWidget {
                                         BorderRadius.all(Radius.circular(10))),
                                 child: Container(
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   height: 30.h,
                                   width: 120.h,
                                   child: Text(

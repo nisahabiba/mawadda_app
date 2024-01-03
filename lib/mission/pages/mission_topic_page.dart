@@ -60,8 +60,8 @@ class MissionTopicPage extends StatelessWidget {
                   context.popRoute();
                 },
                 child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(Icons.keyboard_backspace)),
+                    padding: const EdgeInsets.all(10),
+                    child: const Icon(Icons.keyboard_backspace)),
               ),
               Center(
                 child: Text(

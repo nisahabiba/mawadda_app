@@ -132,7 +132,7 @@ class _MissionSubTopicPage4State extends State<MissionSubTopicPage4> {
                               width: 0.7.sw,
                               child: Text(
                                 text4,
-                                style: TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16),
                                 textAlign: TextAlign.left,
                               )),
                           SizedBox(

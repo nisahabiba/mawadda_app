@@ -85,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     Text(
                       'Hello, ${_userInfo?['name'] ?? 'N/A'} !',
-                      style: TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20),
                     ),
                     SizedBox(
                       height: 8.h,

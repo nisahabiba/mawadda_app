@@ -131,7 +131,7 @@ class _MissionSubTopicRadioPage1State extends State<MissionSubTopicRadioPage1> {
                           width: 0.7.sw,
                           child: Text(
                             quiz1,
-                            style: TextStyle(fontSize: 20),
+                            style: const TextStyle(fontSize: 20),
                           )),
                     ],
                   ),
@@ -140,7 +140,7 @@ class _MissionSubTopicRadioPage1State extends State<MissionSubTopicRadioPage1> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Column(
               children: [
                 Card(

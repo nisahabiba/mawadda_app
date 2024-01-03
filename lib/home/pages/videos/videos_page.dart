@@ -27,10 +27,10 @@ class VideosPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset("assets/icon_videos.png"),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
-                Text("What do you wanna\nwatch today, Beautiful?",
+                const Text("What do you wanna\nwatch today, Beautiful?",
                     textAlign: TextAlign.left, style: TextStyle(fontSize: 24)),
               ],
             ),
@@ -72,14 +72,14 @@ class VideosPage extends StatelessWidget {
                               ),
                               Card(
                                 elevation: 0,
-                                color: Color(0xFFB4B0CE),
+                                color: const Color(0xFFB4B0CE),
                                 shape: const RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: Colors.black, width: 3),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10))),
                                 child: Container(
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   height: 30.h,
                                   child: Text(
                                     'by Mufti Menk',
@@ -155,7 +155,7 @@ class VideosPage extends StatelessWidget {
                               ),
                               Card(
                                 elevation: 0,
-                                color: Color(0xFFB4B0CE),
+                                color: const Color(0xFFB4B0CE),
                                 shape: const RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: Colors.black, width: 3),
@@ -163,7 +163,7 @@ class VideosPage extends StatelessWidget {
                                         BorderRadius.all(Radius.circular(10))),
                                 child: Container(
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   height: 30.h,
                                   width: 120.h,
                                   child: Text(
@@ -235,7 +235,7 @@ class VideosPage extends StatelessWidget {
                               ),
                               Card(
                                 elevation: 0,
-                                color: Color(0xFFB4B0CE),
+                                color: const Color(0xFFB4B0CE),
                                 shape: const RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: Colors.black, width: 3),
@@ -243,7 +243,7 @@ class VideosPage extends StatelessWidget {
                                         BorderRadius.all(Radius.circular(10))),
                                 child: Container(
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   height: 30.h,
                                   width: 120.h,
                                   child: Text(
@@ -315,7 +315,7 @@ class VideosPage extends StatelessWidget {
                               ),
                               Card(
                                 elevation: 0,
-                                color: Color(0xFFB4B0CE),
+                                color: const Color(0xFFB4B0CE),
                                 shape: const RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: Colors.black, width: 3),
@@ -323,7 +323,7 @@ class VideosPage extends StatelessWidget {
                                         BorderRadius.all(Radius.circular(10))),
                                 child: Container(
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.all(10),
+                                  padding: const EdgeInsets.all(10),
                                   height: 30.h,
                                   width: 120.h,
                                   child: Text(

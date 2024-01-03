@@ -132,12 +132,12 @@ class _MissionSubTopicPageState extends State<MissionSubTopicPage> {
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(text_a, style: TextStyle(fontSize: 25)),
+                          Text(text_a, style: const TextStyle(fontSize: 25)),
                           SizedBox(
                               width: 0.7.sw,
                               child: Text(
                                 text_b,
-                                style: TextStyle(fontSize: 20),
+                                style: const TextStyle(fontSize: 20),
                                 textAlign: TextAlign.center,
                               )),
                           SizedBox(
