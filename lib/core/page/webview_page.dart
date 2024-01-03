@@ -53,7 +53,7 @@ class WebViewPage extends HookWidget {
           android: AndroidInAppWebViewOptions(
             initialScale: 100,
           ),
-          ios: IOSInAppWebViewOptions(),
+          // ios: IOSInAppWebViewOptions(),
         ),
         shouldOverrideUrlLoading: (controller, navigationAction) async {
           final uri = navigationAction.request.url!;

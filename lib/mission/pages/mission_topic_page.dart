@@ -233,29 +233,25 @@ class MissionTopicPage extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: const TextStyle(fontSize: 16)),
                       ),
-                      InkWell(
-                        // mau dikasih effect splash tapi belum berhasil
-                        onTap: () {},
-                        child: Card(
-                          elevation: 0,
-                          color: const Color(0xffB4B0CE),
-                          shape: const RoundedRectangleBorder(
-                              side: BorderSide(color: Colors.black, width: 3),
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(25),
-                                  bottomRight: Radius.circular(25))),
-                          child: SizedBox(
-                            width: 0.2.sw,
-                            height: 110,
-                            child: const Center(
-                              child: Icon(
-                                Icons.arrow_circle_right_outlined,
-                                color: Colors.black,
-                              ),
+                      Card(
+                        elevation: 0,
+                        color: const Color(0xffB4B0CE),
+                        shape: const RoundedRectangleBorder(
+                            side: BorderSide(color: Colors.black, width: 3),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(25),
+                                bottomRight: Radius.circular(25))),
+                        child: SizedBox(
+                          width: 0.2.sw,
+                          height: 110,
+                          child: const Center(
+                            child: Icon(
+                              Icons.arrow_circle_right_outlined,
+                              color: Colors.black,
                             ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   )
                 ],

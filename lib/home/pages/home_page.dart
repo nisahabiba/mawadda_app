@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
           // leading: BackButton(
           //   onPressed: () => Navigator.of(context).pop(),
           // ),
+
           centerTitle: true,
           title: Text(
             'Mawadda',
