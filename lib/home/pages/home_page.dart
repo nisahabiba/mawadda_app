@@ -43,11 +43,6 @@ class _HomePageState extends State<HomePage> {
       routes: const [HomeRouteView(), MissionRoute(), ProfileRoute()],
       appBarBuilder: (context, TabsRouter) {
         return AppBar(
-          //--------- TRIAL TOMBOL BACK
-          // leading: BackButton(
-          //   onPressed: () => Navigator.of(context).pop(),
-          // ),
-
           centerTitle: true,
           title: Text(
             'Mawadda',

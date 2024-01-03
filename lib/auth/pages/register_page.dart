@@ -203,13 +203,6 @@ class RegisterPage extends StatelessWidget {
                                                 email: emailCtr.text,
                                                 password: passwordCtr.text,
                                               );
-                                          // Navigator.pushReplacement(
-                                          //   context,
-                                          //   MaterialPageRoute(
-                                          //     builder: (context) =>
-                                          //         const SucceedPage(),
-                                          //   ),
-                                          // );
                                         }
                                       },
                                       child: const Text(

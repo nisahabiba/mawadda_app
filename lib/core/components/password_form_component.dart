@@ -60,6 +60,7 @@ class PasswordFormComponent extends StatelessWidget {
             fontSize: 10.sp,
           ),
           suffixIcon: GestureDetector(
+            //-------------- Hide and Unhide Password
             onTap: () {
               obscureTextNotifierPassword.value =
                   !obscureTextNotifierPassword.value;

@@ -117,67 +117,6 @@ class SucceedPage extends StatelessWidget {
               ),
             ),
           )
-          // DefaultTextStyle(
-          //     style: GoogleFonts.averiaGruesaLibre(color: Colors.white),
-          //     child: Container(
-          //       padding: EdgeInsets.only(
-          //         left: 10.r,
-          //         right: 10.r,
-          //       ),
-          //       height: 0.65.sh,
-          //       child: Stack(
-          //         alignment: AlignmentDirectional.topCenter,
-          //         children: [
-          //           SvgPicture.asset(
-          //             'assets/gradient_card.svg',
-          //             width: 1.sw,
-          //           ),
-          //           Column(
-          //             children: [
-          //               SizedBox(
-          //                 height: 80.h,
-          //               ),
-          //               Text(
-          //                 'You are in!',
-          //                 style: TextStyle(
-          //                   fontSize: 32.sp,
-          //                 ),
-          //               ),
-          //               Text(
-          //                 "Login to start your journey",
-          //                 style: TextStyle(
-          //                   fontSize: 20.sp,
-          //                 ),
-          //               ),
-          //               SizedBox(height: 20.h),
-          //               SizedBox(
-          //                 height: 38.h,
-          //                 width: 0.8.sw,
-          //                 child: ElevatedButton(
-          //                   style: ElevatedButton.styleFrom(
-          //                       backgroundColor: const Color(0xff70303A)),
-          //                   onPressed: () {
-          //                     Navigator.push(
-          //                         context,
-          //                         MaterialPageRoute(
-          //                             builder: (context) => LoginPage()));
-          //                   },
-          //                   child: const Text(
-          //                     'Login',
-          //                     style: TextStyle(
-          //                       color: Colors.white,
-          //                     ),
-          //                   ),
-          //                 ),
-          //               ),
-          //               SizedBox(
-          //                 height: 15.h,
-          //               ),
-          //             ],
-          //           )
-          //         ],
-          //       ),
-          //     ))
         ],
       )),
     ));
