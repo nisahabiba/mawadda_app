@@ -1,5 +1,36 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
+import 'package:mawadda_app/auth/pages/succeed_signup.dart';
+import 'package:mawadda_app/core/page/webview_page.dart';
+import 'package:mawadda_app/home/pages/articles/articles_page.dart';
+import 'package:mawadda_app/home/pages/home_navigation_page.dart';
 import 'package:mawadda_app/home/pages/home_page.dart';
+import 'package:mawadda_app/home/pages/home_view.dart';
+import 'package:mawadda_app/home/pages/videos/videos_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq5/mission_completed_page.dart';
+import 'package:mawadda_app/mission/pages/mission_navigation_page.dart';
+
+import 'package:mawadda_app/mission/pages/sub-topic/intro/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq1/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq2/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq3/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq4/mission_sub_topic_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq5/mission_sub_topic_page.dart';
+
+import 'package:mawadda_app/mission/pages/sub-topic/seq1/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq2/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq3/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq4/mission_sub_topic_radio_page.dart';
+import 'package:mawadda_app/mission/pages/sub-topic/seq5/mission_sub_topic_radio_page.dart';
+
+import 'package:mawadda_app/mission/pages/mission_topic_page.dart';
+import 'package:mawadda_app/mission/pages/mission_page.dart';
+
+//import 'package:mawadda_app/profile/bloc/navigation/profile_navigation_cubit.dart';
+import 'package:mawadda_app/profile/pages/edit_profile_page.dart';
+import 'package:mawadda_app/profile/pages/profile_navigation_page.dart';
+import 'package:mawadda_app/profile/pages/profile_page.dart';
 
 import '../../auth/pages/auth_page.dart';
 import '../../auth/pages/login_page.dart';
@@ -8,25 +39,104 @@ import '../../main.dart';
 
 part 'router.gr.dart';
 
+@singleton
 @AutoRouterConfig()
 class AppRouter extends _$AppRouter {
   @override
+  RouteType get defaultRouteType => const RouteType.adaptive();
+
+  @override
   final List<AutoRoute> routes = [
     AutoRoute(
-      path: '/',
+      initial: true,
       page: MainRoute.page,
     ),
     AutoRoute(
-      path: '/auth',
       page: AuthRoute.page,
     ),
     AutoRoute(
-      path: '/login',
       page: LoginRoute.page,
     ),
     AutoRoute(
-      path: '/home',
-      page: HomeRoute.page,
+      page: RegisterRoute.page,
+    ),
+    AutoRoute(
+      page: SucceedRoute.page,
+    ),
+    AutoRoute(page: SucceedRoute.page),
+    AutoRoute(page: HomeRoute.page, children: [
+      AutoRoute(page: HomeNavigationRoute.page, children: [
+        AutoRoute(
+          page: HomeRouteView.page,
+        ),
+        AutoRoute(
+          page: ArticlesRoute.page,
+        ),
+        AutoRoute(
+          page: VideosRoute.page,
+        ),
+      ]),
+      AutoRoute(
+        page: MissionNavigationRoute.page,
+        children: [
+          AutoRoute(
+            page: MissionRoute.page,
+          ),
+          AutoRoute(
+            page: MissionTopicRoute.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute1.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute2.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute3.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute4.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRoute5.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute1.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute2.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute3.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute4.page,
+          ),
+          AutoRoute(
+            page: MissionSubTopicRadioRoute5.page,
+          ),
+          AutoRoute(
+            page: MissionCompletedRoute.page,
+          ),
+        ],
+      ),
+      AutoRoute(page: ProfileNavigationRoute.page, children: [
+        AutoRoute(
+          page: ProfileRoute.page,
+        ),
+        AutoRoute(
+          page: EditProfileRoute.page,
+        ),
+      ]),
+    ]),
+    AutoRoute(
+      page: WebViewRoute.page,
     ),
   ];
 }

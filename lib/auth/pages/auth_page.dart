@@ -2,11 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mawadda_app/auth/pages/login_page.dart';
-import 'package:mawadda_app/auth/pages/register_page.dart';
+//import 'package:mawadda_app/auth/pages/login_page.dart';
+//import 'package:mawadda_app/auth/pages/register_page.dart';
 import 'package:mawadda_app/core/navigation/bloc/navigation_bloc.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mawadda_app/core/router/router.dart';
 //import 'package:flutter_svg/svg.dart';
 
 import '../../core/di/injector.dart';
@@ -70,7 +71,7 @@ class AuthPage extends StatelessWidget {
                       width: 290.w,
                       decoration: BoxDecoration(
                           border: Border.all(width: 3, color: Colors.black),
-                          color: Color(0xffDFDCEF),
+                          color: const Color(0xffDFDCEF),
                           borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20))),
@@ -82,16 +83,17 @@ class AuthPage extends StatelessWidget {
                               width: 169.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                    backgroundColor: Color(0xffFAC6EA),
-                                    side: BorderSide(
+                                    backgroundColor: const Color(0xffFAC6EA),
+                                    side: const BorderSide(
                                         width: 3.0, color: Colors.black)),
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const LoginPage(),
-                                    ),
-                                  );
+                                  context.pushRoute(const LoginRoute());
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => const LoginPage(),
+                                  //   ),
+                                  // );
                                 },
                                 child: const Text(
                                   'Login',
@@ -105,17 +107,18 @@ class AuthPage extends StatelessWidget {
                               width: 169.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                    backgroundColor: Color(0xffB4B0CE),
-                                    side: BorderSide(
+                                    backgroundColor: const Color(0xffB4B0CE),
+                                    side: const BorderSide(
                                         width: 3.0, color: Colors.black)),
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const RegisterPage(),
-                                    ),
-                                  );
+                                  context.pushRoute(const RegisterRoute());
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) =>
+                                  //         const RegisterPage(),
+                                  //   ),
+                                  // );
                                 },
                                 child: const Text(
                                   'Sign Up',
