@@ -11,6 +11,8 @@ import 'articles/articles_page.dart';
 import '../../mission/pages/mission_page.dart';
 import 'videos/videos_page.dart';
 
+//--- CONTENT OF HOMEPAGE
+
 @RoutePage()
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});
